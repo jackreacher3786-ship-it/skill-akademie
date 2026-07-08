@@ -347,5 +347,40 @@ window.LEKTIONEN = [
     voraussetzungen: "Keine; Template optional als .pptx hochladen",
     beispielPrompt: "Erstelle eine Präsentation mit [N] Folien zu [Thema]. Zielgruppe: [wer]. Stil: [Ton]. Mit Sprechernotizen."
   }
+},
+{
+  id: "pdf",
+  datum: "2026-07-08",
+  titel: "PDF-Werkzeuge (pdf)",
+  kategorie: "Office",
+  kurz: "Text und Tabellen aus PDFs holen, PDFs erstellen, zusammenführen, teilen, Formulare ausfüllen und mehr.",
+  wasErKann: "Deckt praktisch alles rund um PDF-Dateien ab: Text und Tabellen aus einem PDF extrahieren, neue PDFs erstellen, mehrere Dateien zusammenführen oder ein PDF aufteilen, Seiten drehen, Wasserzeichen setzen, Formulare ausfüllen, Dateien verschlüsseln oder entschlüsseln, Bilder herausziehen und eingescannte PDFs per Texterkennung (OCR) durchsuchbar machen. So verarbeitest du Verträge, Rechnungen oder Formulare, ohne ein PDF-Programm zu öffnen.",
+  grenzen: [
+    "Zu bearbeitende PDFs müssen hochgeladen oder über einen verbundenen Ordner erreichbar sein.",
+    "Bei schlecht gescannten Vorlagen bleibt die OCR-Erkennung fehleranfällig – Ergebnis gegenlesen.",
+    "Sehr komplexe Layouts (mehrspaltig, verschachtelte Tabellen) werden beim Extrahieren nicht immer sauber getrennt.",
+    "Für das inhaltliche Prüfen von Verträgen gibt es eigene Skills (z. B. legal:triage-nda, contract-review); dieser Skill ist das technische Werkzeug."
+  ],
+  beispiele: [
+    "Zieh die Tabelle aus diesem PDF-Kontoauszug und gib sie mir als Excel.",
+    "Füge diese drei PDF-Rechnungen in einer Datei zusammen, chronologisch geordnet.",
+    "Teile das 40-seitige PDF in einzelne Kapitel als separate Dateien auf.",
+    "Dieses PDF-Formular soll ausgefüllt werden – hier die Angaben: Name, Datum, Betrag."
+  ],
+  anwendung: "Löst aus, sobald es um eine .pdf-Datei geht oder Wörter wie „extrahieren“, „zusammenführen“, „teilen“, „Formular“, „Wasserzeichen“ fallen. Datei hochladen oder Ordner verbinden, dann die gewünschte Aktion nennen.",
+  uebung: {
+    auftrag: "Nimm zwei bis drei PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen; extrahiere danach aus einem PDF gezielt den Text oder eine Tabelle.",
+    prompt: "Führe die angehängten PDF-Dateien in der Reihenfolge, in der ich sie hochgeladen habe, zu einem einzigen PDF zusammen. Extrahiere anschließend aus dem ersten Dokument alle Tabellen und gib sie mir als Excel-Datei."
+  },
+  quiz: [
+    { frage: "Was bedeutet OCR im Zusammenhang mit diesem Skill?", optionen: ["Ein PDF verschlüsseln", "Eingescannte PDFs per Texterkennung durchsuchbar machen", "Seiten drehen"], richtig: 1, erklaerung: "OCR (optische Zeichenerkennung) macht aus einem Bild-Scan durchsuchbaren Text – Ergebnis aber gegenlesen." },
+    { frage: "Was ist die Voraussetzung, damit Claude ein bestehendes PDF bearbeiten kann?", optionen: ["Ein Abo für Adobe", "Die Datei hochladen oder einen Ordner verbinden", "Nichts, Claude findet die Datei selbst"], richtig: 1, erklaerung: "Claude braucht Zugriff: entweder als Upload oder über einen verbundenen Ordner." },
+    { frage: "Du willst einen Vertrag inhaltlich auf Risiken prüfen lassen. Reicht der pdf-Skill?", optionen: ["Ja, das ist seine Hauptaufgabe", "Nein – dafür gibt es eigene Prüf-Skills; pdf ist das technische Werkzeug", "Nur mit Wasserzeichen"], richtig: 1, erklaerung: "pdf verarbeitet die Datei technisch; die inhaltliche Risikoprüfung übernehmen Skills wie triage-nda oder contract-review." }
+  ],
+  cheatsheet: {
+    ausloeser: "„.pdf“, „extrahieren“, „zusammenführen“, „teilen“, „Formular ausfüllen“, „Wasserzeichen“",
+    voraussetzungen: "Datei hochladen oder Ordner verbinden; keine externe Verbindung nötig",
+    beispielPrompt: "Extrahiere die Tabellen aus [PDF] und gib sie als Excel. Danach: füge [Datei A] und [Datei B] zu einem PDF zusammen."
+  }
 }
 ];
