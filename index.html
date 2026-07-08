@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill-Akademie</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --surface:#ffffff; --border:#e4e7ec; --text:#1a202c;
+    --muted:#5b6472; --accent:#1f5eff; --accent-soft:#eef3ff; --accent-dark:#1848c4;
+    --green:#0e9f6e; --green-soft:#e6f7f1; --red:#d92d20; --red-soft:#fdecea;
+    --radius:12px; --shadow:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+
+  header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+  .head-inner{max-width:860px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;font-size:17px;letter-spacing:-.2px;display:flex;align-items:center;gap:9px}
+  .brand-mark{width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
+  nav{display:flex;gap:4px}
+  nav button{border:none;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--muted);padding:8px 14px;border-radius:8px;cursor:pointer;transition:.15s}
+  nav button:hover{color:var(--text);background:var(--accent-soft)}
+  nav button.active{color:var(--accent);background:var(--accent-soft)}
+
+  main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+  .view{display:none}.view.active{display:block}
+
+  .datebar{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin-bottom:18px}
+  .lesson-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px}
+  .lesson-head h1{font-size:24px;letter-spacing:-.4px;line-height:1.25}
+  .chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent-dark);white-space:nowrap}
+  .chip.gray{background:#f1f3f6;color:var(--muted)}
+  .kurz{color:var(--muted);font-size:15.5px;margin-bottom:4px}
+  h2.sec{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:24px 0 8px}
+  .card p, .card li{font-size:15px}
+  ul.clean{list-style:none}
+  ul.clean li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid #f0f2f5}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  ul.limits li::before{background:#c8ccd4}
+  .bsp{background:#f9fafb;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin:8px 0;font-size:14.5px;color:#333;font-style:normal}
+  .bsp::before{content:"\201E"}.bsp::after{content:"\201C"}
+
+  .uebung{background:var(--accent-soft);border:1px solid #d7e3ff;border-radius:var(--radius);padding:20px 22px;margin-top:26px}
+  .uebung h3{font-size:15px;margin-bottom:6px;color:var(--accent-dark)}
+  .promptbox{background:var(--surface);border:1px solid #d7e3ff;border-radius:8px;padding:14px;margin-top:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13.5px;white-space:pre-wrap;word-break:break-word}
+  .copybtn{margin-top:10px;border:none;background:var(--accent);color:#fff;font:inherit;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:8px;cursor:pointer}
+  .copybtn:hover{background:var(--accent-dark)}
+  .copybtn.copied{background:var(--green)}
+
+  .quiz{margin-top:26px}
+  .qitem{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;background:var(--surface)}
+  .qitem .qf{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--border);background:#fbfcfd;border-radius:8px;padding:10px 14px;margin:6px 0;font:inherit;font-size:14.5px;cursor:pointer;transition:.12s}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft)}
+  .opt.correct{border-color:var(--green);background:var(--green-soft);font-weight:600}
+  .opt.wrong{border-color:var(--red);background:var(--red-soft)}
+  .opt:disabled{cursor:default;opacity:.85}
+  .erkl{display:none;margin-top:10px;font-size:14px;color:var(--muted);border-left:3px solid var(--accent);padding-left:12px}
+  .erkl.show{display:block}
+
+  .searchwrap{position:relative;margin-bottom:14px}
+  .search{width:100%;padding:13px 16px 13px 42px;font:inherit;font-size:15px;border:1px solid var(--border);border-radius:10px;background:var(--surface);box-shadow:var(--shadow)}
+  .search:focus{outline:2px solid var(--accent);outline-offset:-1px}
+  .searchwrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:17px;height:17px;stroke:var(--muted)}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .fbtn{border:1px solid var(--border);background:var(--surface);font:inherit;font-size:13px;font-weight:600;color:var(--muted);padding:6px 13px;border-radius:99px;cursor:pointer;transition:.12s}
+  .fbtn:hover{border-color:var(--accent);color:var(--accent)}
+  .fbtn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .sheet{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;margin-bottom:14px;cursor:pointer;transition:.12s}
+  .sheet:hover{border-color:var(--accent)}
+  .sheet-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .sheet h3{font-size:16.5px;letter-spacing:-.2px}
+  .sheet .kurz{font-size:14px;margin:4px 0 0}
+  .sheet-body{display:none;margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
+  .sheet.open .sheet-body{display:block}
+  .cs-row{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;font-size:14px;padding:7px 0;border-bottom:1px solid #f0f2f5}
+  .cs-row:last-of-type{border-bottom:none}
+  .cs-row .k{font-weight:600;color:var(--muted)}
+  .minilink{display:inline-block;margin-top:12px;font-size:14px;font-weight:600}
+  .copy-mini{border:1px solid var(--border);background:#fbfcfd;font:inherit;font-size:12.5px;font-weight:600;color:var(--muted);padding:5px 11px;border-radius:7px;cursor:pointer;margin-top:10px}
+  .copy-mini:hover{border-color:var(--accent);color:var(--accent)}
+  .copy-mini.copied{border-color:var(--green);color:var(--green)}
+
+  .arch-item{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:10px;cursor:pointer;transition:.12s}
+  .arch-item:hover{border-color:var(--accent)}
+  .arch-date{font-size:12.5px;color:var(--muted);min-width:86px;font-variant-numeric:tabular-nums}
+  .arch-title{font-weight:600;font-size:15px;flex:1}
+  .empty{color:var(--muted);text-align:center;padding:40px 0;font-size:15px}
+  .backbtn{border:none;background:none;color:var(--accent);font:inherit;font-size:14px;font-weight:600;cursor:pointer;padding:0;margin-bottom:16px;display:inline-flex;align-items:center;gap:5px}
+  footer{max-width:860px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:12.5px}
+
+  @media(max-width:600px){
+    .head-inner{padding:0 12px}
+    nav button{padding:8px 9px;font-size:13px}
+    main{padding:20px 14px 60px}
+    .card{padding:20px 16px}
+    .lesson-head h1{font-size:20px}
+    .cs-row{grid-template-columns:1fr}
+    .cs-row .k{margin-bottom:-4px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <div class="brand"><span class="brand-mark">S</span>Skill-Akademie</div>
+    <nav>
+      <button data-view="heute" class="active" onclick="show('heute')">Heute</button>
+      <button data-view="archiv" onclick="show('archiv')">Archiv</button>
+      <button data-view="lexikon" onclick="show('lexikon')">Nachschlagewerk</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="view-heute" class="view active"></section>
+  <section id="view-archiv" class="view"></section>
+  <section id="view-lexikon" class="view">
+    <div class="searchwrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input class="search" id="search" type="search" placeholder="Skill, Stichwort oder Anwendungsfall suchen …" oninput="renderLexikon()">
+    </div>
+    <div class="filters" id="filters"></div>
+    <div id="sheets"></div>
+  </section>
+</main>
+<footer id="foot"></footer>
+
+<script src="lektionen.js"></script>
+<script>
+var L = (window.LEKTIONEN||[]).slice().sort(function(a,b){return a.datum<b.datum?-1:1});
+var aktiveKat = "Alle";
+var deMonate=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+
+function fdat(iso){var p=iso.split("-");return parseInt(p[2],10)+". "+deMonate[parseInt(p[1],10)-1]+" "+p[0];}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+function show(v){
+  document.querySelectorAll(".view").forEach(function(x){x.classList.remove("active")});
+  document.getElementById("view-"+v).classList.add("active");
+  document.querySelectorAll("nav button").forEach(function(b){b.classList.toggle("active",b.dataset.view===v)});
+  window.scrollTo(0,0);
+}
+
+function lessonHTML(lek, kontext){
+  var h='<div class="card">';
+  h+='<div class="lesson-head"><h1>'+esc(lek.titel)+'</h1><span class="chip">'+esc(lek.kategorie)+'</span><span class="chip gray">'+fdat(lek.datum)+'</span></div>';
+  h+='<p class="kurz">'+esc(lek.kurz)+'</p>';
+  h+='<h2 class="sec">Was der Skill kann</h2><p>'+esc(lek.wasErKann)+'</p>';
+  h+='<h2 class="sec">Grenzen &amp; Voraussetzungen</h2><ul class="clean limits">'+lek.grenzen.map(function(g){return '<li>'+esc(g)+'</li>'}).join("")+'</ul>';
+  h+='<h2 class="sec">Beispielsätze zum direkten Verwenden</h2>'+lek.beispiele.map(function(b){return '<div class="bsp">'+esc(b)+'</div>'}).join("");
+  h+='<h2 class="sec">So wendest du ihn an</h2><p>'+esc(lek.anwendung)+'</p>';
+  h+='<div class="uebung"><h3>Praxisübung</h3><p>'+esc(lek.uebung.auftrag)+'</p>';
+  h+='<div class="promptbox" id="pb-'+kontext+'-'+lek.id+'">'+esc(lek.uebung.prompt)+'</div>';
+  h+='<button class="copybtn" onclick="copyPrompt(this,\'pb-'+kontext+'-'+lek.id+'\')">Übungsprompt kopieren</button></div>';
+  h+='<div class="quiz"><h2 class="sec">Kurz-Quiz</h2>'+lek.quiz.map(function(q,qi){
+    return '<div class="qitem"><div class="qf">'+(qi+1)+'. '+esc(q.frage)+'</div>'+
+      q.optionen.map(function(o,oi){return '<button class="opt" onclick="answer(this,'+q.richtig+','+oi+')">'+esc(o)+'</button>'}).join("")+
+      '<div class="erkl">'+esc(q.erklaerung)+'</div></div>';
+  }).join("")+'</div>';
+  h+='</div>';
+  return h;
+}
+
+function copyPrompt(btn,id){
+  var t=document.getElementById(id).textContent;
+  function done(){var o=btn.textContent;btn.textContent="Kopiert ✓";btn.classList.add("copied");setTimeout(function(){btn.textContent=o;btn.classList.remove("copied")},1800);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done)}
+  else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);done();}
+}
+
+function answer(btn,richtig,gewaehlt){
+  var box=btn.parentElement;
+  var opts=box.querySelectorAll(".opt");
+  opts.forEach(function(o,i){o.disabled=true;if(i===richtig)o.classList.add("correct");});
+  if(gewaehlt!==richtig)btn.classList.add("wrong");
+  box.querySelector(".erkl").classList.add("show");
+}
+
+function renderHeute(){
+  var el=document.getElementById("view-heute");
+  if(!L.length){el.innerHTML='<p class="empty">Noch keine Lektionen vorhanden.</p>';return;}
+  var today=new Date().toISOString().slice(0,10);
+  var idx=L.length-1;
+  for(var i=L.length-1;i>=0;i--){if(L[i].datum<=today){idx=i;break;}}
+  var lek=L[idx];
+  var label = lek.datum===today ? "Skill des Tages" : "Aktuellste Lektion ("+fdat(lek.datum)+")";
+  el.innerHTML='<div class="datebar">'+label+'</div>'+lessonHTML(lek,"heute");
+}
+
+function renderArchiv(){
+  var el=document.getElementById("view-archiv");
+  var rev=L.slice().reverse();
+  el.innerHTML='<div class="datebar">Alle Lektionen ('+L.length+')</div>'+rev.map(function(l){
+    return '<div class="arch-item" onclick="openLesson(\''+l.id+'\')"><span class="arch-date">'+fdat(l.datum)+'</span><span class="arch-title">'+esc(l.titel)+'</span><span class="chip">'+esc(l.kategorie)+'</span></div>';
+  }).join("");
+}
+
+function openLesson(id){
+  var lek=L.find(function(x){return x.id===id});if(!lek)return;
+  var el=document.getElementById("view-archiv");
+  el.innerHTML='<button class="backbtn" onclick="renderArchiv();window.scrollTo(0,0)">&#8592; Zurück zum Archiv</button>'+lessonHTML(lek,"arch");
+  show("archiv");window.scrollTo(0,0);
+}
+
+function renderFilters(){
+  var kats=["Alle"].concat(Array.from(new Set(L.map(function(l){return l.kategorie}))).sort());
+  document.getElementById("filters").innerHTML=kats.map(function(k){
+    return '<button class="fbtn'+(k===aktiveKat?" active":"")+'" onclick="setKat(\''+esc(k)+'\')">'+esc(k)+'</button>';
+  }).join("");
+}
+function setKat(k){aktiveKat=k;renderFilters();renderLexikon();}
+
+function renderLexikon(){
+  var q=(document.getElementById("search").value||"").toLowerCase().trim();
+  var hits=L.filter(function(l){
+    if(aktiveKat!=="Alle"&&l.kategorie!==aktiveKat)return false;
+    if(!q)return true;
+    var blob=[l.titel,l.id,l.kategorie,l.kurz,l.wasErKann,l.anwendung,l.grenzen.join(" "),l.beispiele.join(" "),l.cheatsheet.ausloeser,l.cheatsheet.voraussetzungen,l.cheatsheet.beispielPrompt].join(" ").toLowerCase();
+    return q.split(/\s+/).every(function(w){return blob.indexOf(w)>=0});
+  });
+  var el=document.getElementById("sheets");
+  if(!hits.length){el.innerHTML='<p class="empty">Kein Treffer. Anderen Suchbegriff oder Filter probieren.</p>';return;}
+  el.innerHTML=hits.slice().reverse().map(function(l){
+    return '<div class="sheet" id="sheet-'+l.id+'" onclick="toggleSheet(event,\''+l.id+'\')">'+
+      '<div class="sheet-top"><div><h3>'+esc(l.titel)+'</h3><p class="kurz">'+esc(l.kurz)+'</p></div><span class="chip">'+esc(l.kategorie)+'</span></div>'+
+      '<div class="sheet-body">'+
+        '<div class="cs-row"><span class="k">Auslöser</span><span>'+esc(l.cheatsheet.ausloeser)+'</span></div>'+
+        '<div class="cs-row"><span class="k">Voraussetzungen</span><span>'+esc(l.cheatsheet.voraussetzungen)+'</span></div>'+
+        '<div class="cs-row"><span class="k">Beispielprompt</span><span id="cs-'+l.id+'">'+esc(l.cheatsheet.beispielPrompt)+'</span></div>'+
+        '<button class="copy-mini" onclick="event.stopPropagation();copyPrompt(this,\'cs-'+l.id+'\')">Prompt kopieren</button>'+
+        '<br><a class="minilink" href="javascript:void(0)" onclick="event.stopPropagation();openLesson(\''+l.id+'\')">Ganze Lektion lesen &#8594;</a>'+
+      '</div></div>';
+  }).join("");
+}
+function toggleSheet(ev,id){
+  if(ev.target.closest("button")||ev.target.closest("a"))return;
+  document.getElementById("sheet-"+id).classList.toggle("open");
+}
+
+renderHeute();renderArchiv();renderFilters();renderLexikon();
+document.getElementById("foot").textContent="Skill-Akademie · "+L.length+" Lektionen · Stand: "+(L.length?fdat(L[L.length-1].datum):"–");
+</script>
+</body>
+</html>
