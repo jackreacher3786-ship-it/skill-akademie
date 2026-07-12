@@ -350,37 +350,37 @@ window.LEKTIONEN = [
 },
 {
   id: "pdf",
-  datum: "2026-07-08",
-  titel: "PDF-Werkzeuge (pdf)",
+  datum: "2026-07-12",
+  titel: "PDF-Dateien (pdf)",
   kategorie: "Office",
-  kurz: "Text und Tabellen aus PDFs holen, PDFs erstellen, zusammenführen, teilen, Formulare ausfüllen und mehr.",
-  wasErKann: "Deckt praktisch alles rund um PDF-Dateien ab: Text und Tabellen aus einem PDF extrahieren, neue PDFs erstellen, mehrere Dateien zusammenführen oder ein PDF aufteilen, Seiten drehen, Wasserzeichen setzen, Formulare ausfüllen, Dateien verschlüsseln oder entschlüsseln, Bilder herausziehen und eingescannte PDFs per Texterkennung (OCR) durchsuchbar machen. So verarbeitest du Verträge, Rechnungen oder Formulare, ohne ein PDF-Programm zu öffnen.",
+  kurz: "PDFs erstellen, auslesen, zusammenfügen, teilen, Formulare ausfüllen und Scans durchsuchbar machen.",
+  wasErKann: "Deckt so gut wie alles rund um PDF ab: Text und Tabellen aus PDFs herauslesen, mehrere PDFs zu einem zusammenfügen oder ein PDF aufteilen, Seiten drehen, Wasserzeichen hinzufügen, neue PDFs erzeugen, Formularfelder ausfüllen, Dateien verschlüsseln oder entschlüsseln und Bilder extrahieren. Gescannte PDFs kann Claude per OCR durchsuchbar machen, sodass der Text danach markier- und findbar ist.",
   grenzen: [
-    "Zu bearbeitende PDFs müssen hochgeladen oder über einen verbundenen Ordner erreichbar sein.",
-    "Bei schlecht gescannten Vorlagen bleibt die OCR-Erkennung fehleranfällig – Ergebnis gegenlesen.",
-    "Sehr komplexe Layouts (mehrspaltig, verschachtelte Tabellen) werden beim Extrahieren nicht immer sauber getrennt.",
-    "Für das inhaltliche Prüfen von Verträgen gibt es eigene Skills (z. B. legal:triage-nda, contract-review); dieser Skill ist das technische Werkzeug."
+    "Bearbeitete Dateien müssen hochgeladen oder in einem verbundenen Ordner liegen.",
+    "OCR ist stark, aber bei schlechten Scans, Handschrift oder krummen Seiten können Fehler bleiben.",
+    "Sehr aufwendige Layouts baut man besser in Word/PowerPoint und exportiert dann nach PDF.",
+    "Ein verschlüsseltes PDF lässt sich nur mit dem richtigen Passwort öffnen – Claude umgeht keinen Kopierschutz."
   ],
   beispiele: [
-    "Zieh die Tabelle aus diesem PDF-Kontoauszug und gib sie mir als Excel.",
-    "Füge diese drei PDF-Rechnungen in einer Datei zusammen, chronologisch geordnet.",
-    "Teile das 40-seitige PDF in einzelne Kapitel als separate Dateien auf.",
-    "Dieses PDF-Formular soll ausgefüllt werden – hier die Angaben: Name, Datum, Betrag."
+    "Fasse diese drei Angebots-PDFs zu einer Datei zusammen, in der Reihenfolge A, B, C.",
+    "Zieh die Tabelle auf Seite 4 dieses PDFs heraus und gib sie mir als Excel.",
+    "Mach diesen gescannten Vertrag per OCR durchsuchbar.",
+    "Fülle dieses PDF-Formular mit den folgenden Angaben aus und leg mir die ausgefüllte Datei ab."
   ],
-  anwendung: "Löst aus, sobald es um eine .pdf-Datei geht oder Wörter wie „extrahieren“, „zusammenführen“, „teilen“, „Formular“, „Wasserzeichen“ fallen. Datei hochladen oder Ordner verbinden, dann die gewünschte Aktion nennen.",
+  anwendung: "Löst aus, sobald eine .pdf-Datei im Spiel ist oder du eine PDF erzeugen willst: „PDF zusammenfügen“, „Seiten aus PDF“, „PDF durchsuchbar machen“, „Formular ausfüllen“. Für neue Textdokumente ist oft docx sinnvoller – daraus lässt sich am Ende sauber ein PDF exportieren.",
   uebung: {
-    auftrag: "Nimm zwei bis drei PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen; extrahiere danach aus einem PDF gezielt den Text oder eine Tabelle.",
-    prompt: "Führe die angehängten PDF-Dateien in der Reihenfolge, in der ich sie hochgeladen habe, zu einem einzigen PDF zusammen. Extrahiere anschließend aus dem ersten Dokument alle Tabellen und gib sie mir als Excel-Datei."
+    auftrag: "Nimm zwei oder drei vorhandene PDFs und lass sie zu einer Datei zusammenfügen; oder lass ein mehrseitiges PDF in einzelne Seiten aufteilen. So lernst du Merge und Split in einem Durchgang.",
+    prompt: "Ich hänge mehrere PDFs an. Füge sie in der Reihenfolge der Dateinamen zu einem einzigen PDF zusammen, füge unten auf jeder Seite eine Seitenzahl hinzu und leg mir die fertige Datei ab."
   },
   quiz: [
-    { frage: "Was bedeutet OCR im Zusammenhang mit diesem Skill?", optionen: ["Ein PDF verschlüsseln", "Eingescannte PDFs per Texterkennung durchsuchbar machen", "Seiten drehen"], richtig: 1, erklaerung: "OCR (optische Zeichenerkennung) macht aus einem Bild-Scan durchsuchbaren Text – Ergebnis aber gegenlesen." },
-    { frage: "Was ist die Voraussetzung, damit Claude ein bestehendes PDF bearbeiten kann?", optionen: ["Ein Abo für Adobe", "Die Datei hochladen oder einen Ordner verbinden", "Nichts, Claude findet die Datei selbst"], richtig: 1, erklaerung: "Claude braucht Zugriff: entweder als Upload oder über einen verbundenen Ordner." },
-    { frage: "Du willst einen Vertrag inhaltlich auf Risiken prüfen lassen. Reicht der pdf-Skill?", optionen: ["Ja, das ist seine Hauptaufgabe", "Nein – dafür gibt es eigene Prüf-Skills; pdf ist das technische Werkzeug", "Nur mit Wasserzeichen"], richtig: 1, erklaerung: "pdf verarbeitet die Datei technisch; die inhaltliche Risikoprüfung übernehmen Skills wie triage-nda oder contract-review." }
+    { frage: "Was macht OCR bei einem gescannten PDF?", optionen: ["Es verkleinert die Datei", "Es macht den Text erkenn- und durchsuchbar", "Es übersetzt das Dokument"], richtig: 1, erklaerung: "OCR erkennt den Text im Bild, sodass er markiert, kopiert und durchsucht werden kann." },
+    { frage: "Du willst ein neues, textlastiges Dokument von Grund auf schreiben. Was ist oft der bessere Weg?", optionen: ["Direkt als PDF aufbauen", "In docx erstellen und dann nach PDF exportieren", "Gar nicht möglich"], richtig: 1, erklaerung: "Für frei geschriebene Texte ist docx flexibler; der PDF-Export kommt am Schluss." },
+    { frage: "Was kann der Skill NICHT?", optionen: ["Zwei PDFs zusammenfügen", "Ein passwortgeschütztes PDF ohne Passwort knacken", "Ein Wasserzeichen einfügen"], richtig: 1, erklaerung: "Verschlüsselte PDFs braucht das richtige Passwort – ein Kopierschutz wird nicht umgangen." }
   ],
   cheatsheet: {
-    ausloeser: "„.pdf“, „extrahieren“, „zusammenführen“, „teilen“, „Formular ausfüllen“, „Wasserzeichen“",
-    voraussetzungen: "Datei hochladen oder Ordner verbinden; keine externe Verbindung nötig",
-    beispielPrompt: "Extrahiere die Tabellen aus [PDF] und gib sie als Excel. Danach: füge [Datei A] und [Datei B] zu einem PDF zusammen."
+    ausloeser: "„PDF zusammenfügen/teilen“, „Text/Tabelle aus PDF“, „PDF durchsuchbar machen“, „Formular ausfüllen“",
+    voraussetzungen: "Zu bearbeitende PDFs hochladen oder Ordner verbinden",
+    beispielPrompt: "Füge die angehängten PDFs zu einer Datei zusammen und mach sie per OCR durchsuchbar."
   }
 }
 ];
