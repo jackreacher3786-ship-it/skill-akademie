@@ -350,37 +350,37 @@ window.LEKTIONEN = [
 },
 {
   id: "pdf",
-  datum: "2026-07-12",
+  datum: "2026-07-14",
   titel: "PDF-Dateien (pdf)",
   kategorie: "Office",
-  kurz: "PDFs erstellen, auslesen, zusammenfügen, teilen, Formulare ausfüllen und Scans durchsuchbar machen.",
-  wasErKann: "Deckt so gut wie alles rund um PDF ab: Text und Tabellen aus PDFs herauslesen, mehrere PDFs zu einem zusammenfügen oder ein PDF aufteilen, Seiten drehen, Wasserzeichen hinzufügen, neue PDFs erzeugen, Formularfelder ausfüllen, Dateien verschlüsseln oder entschlüsseln und Bilder extrahieren. Gescannte PDFs kann Claude per OCR durchsuchbar machen, sodass der Text danach markier- und findbar ist.",
+  kurz: "PDFs erstellen, auslesen, zusammenführen, teilen, Formulare ausfüllen und Scans durchsuchbar machen.",
+  wasErKann: "Deckt praktisch alles rund um PDF ab: Text und Tabellen aus bestehenden PDFs auslesen, mehrere Dateien zu einer zusammenführen oder eine in Teile zerlegen, Seiten drehen, Wasserzeichen einfügen, neue PDFs erzeugen, PDF-Formulare ausfüllen, Dateien mit Passwort verschlüsseln oder entschlüsseln und Bilder extrahieren. Gescannte PDFs kann Claude per Texterkennung (OCR) durchsuchbar machen.",
   grenzen: [
-    "Bearbeitete Dateien müssen hochgeladen oder in einem verbundenen Ordner liegen.",
-    "OCR ist stark, aber bei schlechten Scans, Handschrift oder krummen Seiten können Fehler bleiben.",
-    "Sehr aufwendige Layouts baut man besser in Word/PowerPoint und exportiert dann nach PDF.",
-    "Ein verschlüsseltes PDF lässt sich nur mit dem richtigen Passwort öffnen – Claude umgeht keinen Kopierschutz."
+    "Zu bearbeitende Dateien müssen hochgeladen oder in einem verbundenen Ordner liegen.",
+    "OCR ist gut, aber nicht fehlerfrei – bei schlechten Scans (schief, blass, Handschrift) prüfst du das Ergebnis nach.",
+    "Sehr komplexe Layouts (mehrspaltige Fachartikel, verschachtelte Tabellen) werden beim Auslesen nicht immer sauber in Reihenfolge gebracht.",
+    "Für laufende Textänderungen ist ein PDF ungeeignet – dafür in .docx arbeiten und am Ende als PDF ausgeben."
   ],
   beispiele: [
-    "Fasse diese drei Angebots-PDFs zu einer Datei zusammen, in der Reihenfolge A, B, C.",
-    "Zieh die Tabelle auf Seite 4 dieses PDFs heraus und gib sie mir als Excel.",
-    "Mach diesen gescannten Vertrag per OCR durchsuchbar.",
-    "Fülle dieses PDF-Formular mit den folgenden Angaben aus und leg mir die ausgefüllte Datei ab."
+    "Führe diese drei PDF-Rechnungen zu einer einzigen Datei zusammen.",
+    "Zieh die Tabelle aus Seite 4 dieses PDFs und gib sie mir als Excel.",
+    "Mach dieses eingescannte PDF durchsuchbar (OCR) und such mir die Vertragslaufzeit heraus.",
+    "Teile dieses 40-seitige PDF in Einzelkapitel und versieh jede Seite mit einem Entwurf-Wasserzeichen."
   ],
-  anwendung: "Löst aus, sobald eine .pdf-Datei im Spiel ist oder du eine PDF erzeugen willst: „PDF zusammenfügen“, „Seiten aus PDF“, „PDF durchsuchbar machen“, „Formular ausfüllen“. Für neue Textdokumente ist oft docx sinnvoller – daraus lässt sich am Ende sauber ein PDF exportieren.",
+  anwendung: "Löst aus, sobald eine .pdf-Datei im Spiel ist oder ein PDF als Ergebnis gewünscht wird – „PDF zusammenführen“, „Text aus PDF ziehen“, „Formular ausfüllen“, „Scan durchsuchbar machen“. Häufige Kombination: Inhalte in .docx erarbeiten und zum Schluss als PDF exportieren.",
   uebung: {
-    auftrag: "Nimm zwei oder drei vorhandene PDFs und lass sie zu einer Datei zusammenfügen; oder lass ein mehrseitiges PDF in einzelne Seiten aufteilen. So lernst du Merge und Split in einem Durchgang.",
-    prompt: "Ich hänge mehrere PDFs an. Füge sie in der Reihenfolge der Dateinamen zu einem einzigen PDF zusammen, füge unten auf jeder Seite eine Seitenzahl hinzu und leg mir die fertige Datei ab."
+    auftrag: "Nimm zwei bis drei vorhandene PDFs (z. B. Rechnungen oder Belege) und lass sie zu einer Datei zusammenführen. Prüfe danach, ob Reihenfolge und Seitenzahl stimmen.",
+    prompt: "Führe die angehängten PDF-Dateien in der Reihenfolge zusammen, in der ich sie hochgeladen habe, und gib mir eine einzige PDF zurück. Nenne mir am Ende die Gesamtseitenzahl."
   },
   quiz: [
-    { frage: "Was macht OCR bei einem gescannten PDF?", optionen: ["Es verkleinert die Datei", "Es macht den Text erkenn- und durchsuchbar", "Es übersetzt das Dokument"], richtig: 1, erklaerung: "OCR erkennt den Text im Bild, sodass er markiert, kopiert und durchsucht werden kann." },
-    { frage: "Du willst ein neues, textlastiges Dokument von Grund auf schreiben. Was ist oft der bessere Weg?", optionen: ["Direkt als PDF aufbauen", "In docx erstellen und dann nach PDF exportieren", "Gar nicht möglich"], richtig: 1, erklaerung: "Für frei geschriebene Texte ist docx flexibler; der PDF-Export kommt am Schluss." },
-    { frage: "Was kann der Skill NICHT?", optionen: ["Zwei PDFs zusammenfügen", "Ein passwortgeschütztes PDF ohne Passwort knacken", "Ein Wasserzeichen einfügen"], richtig: 1, erklaerung: "Verschlüsselte PDFs braucht das richtige Passwort – ein Kopierschutz wird nicht umgangen." }
+    { frage: "Was macht die OCR-Funktion?", optionen: ["Sie verschlüsselt das PDF", "Sie macht einen Scan durchsuchbar, indem sie Text erkennt", "Sie druckt das PDF"], richtig: 1, erklaerung: "OCR (Texterkennung) wandelt das Bild eines Scans in durchsuchbaren, kopierbaren Text um." },
+    { frage: "Du willst laufend am Text eines Dokuments feilen. Was ist sinnvoller?", optionen: ["Direkt im PDF arbeiten", "In .docx arbeiten und am Ende als PDF ausgeben", "Jeden Satz einzeln als PDF speichern"], richtig: 1, erklaerung: "PDF ist ein Ausgabeformat; für Textänderungen ist .docx praktischer, der PDF-Export kommt zuletzt." },
+    { frage: "Worauf solltest du bei einem schlechten Scan achten?", optionen: ["Nichts, OCR ist immer perfekt", "Das erkannte Ergebnis nachprüfen", "Den Scan zuerst verschlüsseln"], richtig: 1, erklaerung: "Bei schiefen, blassen oder handschriftlichen Vorlagen können Erkennungsfehler auftreten – kurz gegenlesen." }
   ],
   cheatsheet: {
-    ausloeser: "„PDF zusammenfügen/teilen“, „Text/Tabelle aus PDF“, „PDF durchsuchbar machen“, „Formular ausfüllen“",
-    voraussetzungen: "Zu bearbeitende PDFs hochladen oder Ordner verbinden",
-    beispielPrompt: "Füge die angehängten PDFs zu einer Datei zusammen und mach sie per OCR durchsuchbar."
+    ausloeser: "„PDF zusammenführen/teilen“, „Text/Tabelle aus PDF“, „Formular ausfüllen“, „Scan durchsuchbar (OCR)“",
+    voraussetzungen: "Für Bearbeitung: Datei hochladen oder Ordner verbinden",
+    beispielPrompt: "Führe die angehängten PDFs zu einer Datei zusammen und gib mir die Gesamtseitenzahl. / Zieh die Tabelle aus Seite [N] und gib sie als Excel aus."
   }
 }
 ];
