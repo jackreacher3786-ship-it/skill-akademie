@@ -349,6 +349,41 @@ window.LEKTIONEN = [
   }
 },
 {
+  id: "pdf",
+  datum: "2026-07-19",
+  titel: "PDF-Dateien (pdf)",
+  kategorie: "Office",
+  kurz: "PDFs lesen, erstellen, zusammenführen, aufteilen, ausfüllen – inklusive OCR für gescannte Dokumente.",
+  wasErKann: "Der Skill deckt praktisch alles rund um PDF-Dateien ab: Text und Tabellen aus PDFs auslesen, mehrere PDFs zu einer Datei zusammenführen oder eine große Datei aufteilen, Seiten drehen, Wasserzeichen einfügen, PDF-Formulare ausfüllen, Dateien mit Passwort schützen oder entsperren (wenn du das Passwort kennst) und eingebettete Bilder extrahieren. Bei gescannten Dokumenten macht eine Texterkennung (OCR) das PDF durchsuchbar. Auch neue PDFs von Grund auf sind möglich, etwa ein Merkblatt oder ein Deckblatt.",
+  grenzen: [
+    "Bestehende Dateien müssen hochgeladen oder über einen verbundenen Ordner erreichbar sein – Claude sieht nicht von selbst auf deine Festplatte.",
+    "PDF ist kein Bearbeitungsformat: Fließtext in einem fertigen PDF umzuschreiben ist nur begrenzt möglich – dafür besser die Quelldatei (z. B. .docx) ändern und neu exportieren.",
+    "OCR-Qualität hängt vom Scan ab: schiefe, unscharfe oder handschriftliche Vorlagen liefern lückenhafte Ergebnisse.",
+    "Passwortgeschützte PDFs lassen sich nur mit dem korrekten Passwort öffnen – Schutz umgehen geht nicht."
+  ],
+  beispiele: [
+    "Füge diese drei PDFs in dieser Reihenfolge zu einer Datei zusammen.",
+    "Zieh mir die Tabelle auf Seite 4 aus diesem PDF und gib sie mir als Excel.",
+    "Dieses gescannte Dokument ist nicht durchsuchbar – mach eine Texterkennung und gib mir den Text.",
+    "Fülle das angehängte Formular mit meinen Daten aus und versieh es mit dem Wasserzeichen 'Entwurf'."
+  ],
+  anwendung: "Löst aus, sobald eine .pdf-Datei im Spiel ist: „PDF zusammenfügen“, „Seiten extrahieren“, „Formular ausfüllen“, „Scan durchsuchbar machen“, „als PDF erstellen“. Datei anhängen oder Ordner verbinden, Auftrag formulieren – fertig.",
+  uebung: {
+    auftrag: "Nimm zwei beliebige PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen. Prüfe danach im Ergebnis, ob Reihenfolge und Seiten stimmen.",
+    prompt: "Führe die beiden angehängten PDFs zu einer Datei zusammen – erst Dokument A, dann Dokument B. Nenne mir außerdem die Gesamtseitenzahl des Ergebnisses."
+  },
+  quiz: [
+    { frage: "Ein gescanntes PDF lässt sich nicht durchsuchen. Was hilft?", optionen: ["Die Datei umbenennen", "Texterkennung (OCR) durch den Skill", "Ein neues Passwort setzen"], richtig: 1, erklaerung: "OCR erkennt den Text im Scan und macht das PDF durchsuchbar – die Qualität hängt von der Scanvorlage ab." },
+    { frage: "Du willst den Fließtext in einem fertigen PDF komplett umschreiben. Was ist der beste Weg?", optionen: ["Direkt im PDF editieren lassen", "Die Quelldatei (z. B. .docx) ändern und neu als PDF exportieren", "Das PDF in Bilder zerlegen"], richtig: 1, erklaerung: "PDF ist ein Ausgabeformat – inhaltliche Überarbeitungen gelingen zuverlässiger in der Quelldatei." },
+    { frage: "Was gilt für passwortgeschützte PDFs?", optionen: ["Claude umgeht den Schutz automatisch", "Öffnen geht nur mit dem korrekten Passwort", "Sie werden immer abgelehnt"], richtig: 1, erklaerung: "Mit bekanntem Passwort kann der Skill ent- und verschlüsseln – einen fremden Schutz knacken kann und darf er nicht." }
+  ],
+  cheatsheet: {
+    ausloeser: "Jede .pdf-Datei: „zusammenfügen“, „aufteilen“, „Formular ausfüllen“, „OCR“, „als PDF erstellen“",
+    voraussetzungen: "Keine Verbindungen nötig; Datei hochladen oder Ordner verbinden",
+    beispielPrompt: "Führe die angehängten PDFs zu einer Datei zusammen und versieh jede Seite mit dem Wasserzeichen [Text]."
+  }
+},
+{
   id: "invoice-chase",
   datum: "2026-07-20",
   titel: "Offene Rechnungen nachfassen (small-business:invoice-chase)",
