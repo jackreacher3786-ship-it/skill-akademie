@@ -347,40 +347,41 @@ window.LEKTIONEN = [
     voraussetzungen: "Keine; Template optional als .pptx hochladen",
     beispielPrompt: "Erstelle eine Präsentation mit [N] Folien zu [Thema]. Zielgruppe: [wer]. Stil: [Ton]. Mit Sprechernotizen."
   }
-},
+}
+,
 {
   id: "pdf",
-  datum: "2026-07-23",
-  titel: "PDF-Werkzeugkasten (pdf)",
+  datum: "2026-07-24",
+  titel: "PDF-Dateien (pdf)",
   kategorie: "Office",
-  kurz: "PDFs lesen, zusammenführen, aufteilen, ausfüllen, schützen – und Scans per OCR durchsuchbar machen.",
-  wasErKann: "Der Skill deckt praktisch alles ab, was im Alltag mit PDF-Dateien anfällt: Text und Tabellen aus PDFs auslesen, mehrere Dateien zu einer zusammenführen oder eine große aufteilen, Seiten drehen, Wasserzeichen einfügen, PDF-Formulare ausfüllen, Dokumente mit Passwort schützen oder entsperren und eingebettete Bilder extrahieren. Besonders nützlich: gescannte PDFs werden per Texterkennung (OCR) durchsuchbar gemacht. Auch neue PDFs – etwa Berichte oder Merkblätter – kann Claude direkt erzeugen.",
+  kurz: "PDFs erstellen, auslesen, zusammenführen, teilen, Formulare ausfüllen und durchsuchbar machen.",
+  wasErKann: "Deckt praktisch den gesamten Umgang mit PDF-Dateien ab: Text und Tabellen auslesen, mehrere PDFs zu einem zusammenführen oder eines aufteilen, Seiten drehen oder löschen, Wasserzeichen setzen, neue PDFs erzeugen und Formularfelder ausfüllen. Auch verschlüsseln und entschlüsseln gehört dazu, ebenso OCR für eingescannte Dokumente, damit sie durchsuchbar werden. Das Ergebnis ist jeweils eine echte PDF-Datei zum Öffnen.",
   grenzen: [
-    "Zu bearbeitende Dateien müssen hochgeladen oder über einen verbundenen Ordner erreichbar sein.",
-    "OCR-Qualität hängt von der Scanqualität ab – schiefe oder unscharfe Scans liefern schlechtere Ergebnisse.",
-    "Passwortgeschützte PDFs lassen sich nur mit dem bekannten Passwort entsperren, ein Knacken gibt es nicht.",
-    "Für frei editierbare Texte ist ein Word-Dokument (docx-Skill) die bessere Wahl – PDF ist ein Ausgabeformat, kein Bearbeitungsformat."
+    "Zu bearbeitende PDFs müssen hochgeladen oder in einem verbundenen Ordner liegen.",
+    "OCR bei schlechten Scans (schief, blass, Handschrift) liefert nicht immer fehlerfreien Text – kurz gegenlesen.",
+    "Verschlüsselte PDFs brauchen das Passwort; ohne Passwort kein Zugriff.",
+    "Für tiefgreifendes Umgestalten von Layout und Design ist ein PDF ungeeignet – dann besser aus docx oder pptx neu erzeugen."
   ],
   beispiele: [
-    "Führe diese drei Rechnungen zu einer PDF zusammen, chronologisch sortiert.",
-    "Extrahiere die Tabelle auf Seite 4 dieses PDFs und gib sie mir als Excel-Datei.",
-    "Mach diesen gescannten Vertrag per OCR durchsuchbar.",
-    "Fülle das angehängte PDF-Formular mit meinen Firmendaten aus und versieh es mit dem Wasserzeichen 'Entwurf'."
+    "Führe diese drei PDF-Rechnungen zu einer einzigen Datei zusammen.",
+    "Lies die Tabelle aus diesem PDF aus und gib sie mir als Excel.",
+    "Teile das 40-seitige PDF: Seiten 1 bis 10 als eigene Datei, den Rest als zweite.",
+    "Mach diesen eingescannten Vertrag per OCR durchsuchbar und setze ein Wasserzeichen 'Entwurf' auf jede Seite."
   ],
-  anwendung: "Löst aus, sobald eine .pdf-Datei im Spiel ist – als Anhang, aus einem verbundenen Ordner oder als gewünschtes Ergebnis: „PDF zusammenfügen“, „Seite drehen“, „Formular ausfüllen“, „Scan durchsuchbar machen“. Gut kombinierbar: erst Inhalte per pdf auslesen, dann mit xlsx oder docx weiterverarbeiten.",
+  anwendung: "Löst automatisch aus, sobald eine .pdf-Datei im Spiel ist oder du eine erzeugen willst: 'PDF zusammenführen', 'aus PDF auslesen', 'PDF teilen', 'Formular ausfüllen', 'durchsuchbar machen'. Gut kombinierbar: erst Inhalte aus einem PDF auslesen, dann mit docx oder xlsx weiterverarbeiten.",
   uebung: {
-    auftrag: "Nimm zwei beliebige PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen – anschließend eine Kurzfassung des Inhalts anfordern. So testest du Verarbeitung und Auslesen in einem Durchgang.",
-    prompt: "Hier sind zwei PDFs. Führe sie zu einer Datei zusammen (Datei A zuerst) und fasse mir danach den Inhalt beider Dokumente in je drei Sätzen zusammen."
+    auftrag: "Nimm zwei oder drei PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen, dann lies aus dem Ergebnis gezielt eine Information aus. So erlebst du Zusammenführen und Auslesen in einem Durchgang.",
+    prompt: "Führe die angehängten PDFs in der Reihenfolge zusammen, in der ich sie hochgeladen habe, und nenne mir anschließend die Gesamtzahl der Seiten sowie die Überschrift der jeweils ersten Seite."
   },
   quiz: [
-    { frage: "Was bewirkt OCR bei einem gescannten PDF?", optionen: ["Es verkleinert die Datei", "Es macht den Text durchsuchbar und auslesbar", "Es verbessert die Bildqualität"], richtig: 1, erklaerung: "OCR erkennt den Text im Scan – danach kann er durchsucht, kopiert und weiterverarbeitet werden." },
-    { frage: "Du willst ein passwortgeschütztes PDF öffnen lassen, kennst das Passwort aber nicht. Was passiert?", optionen: ["Claude knackt das Passwort", "Ohne Passwort geht es nicht", "Das PDF wird neu erstellt"], richtig: 1, erklaerung: "Entsperren funktioniert nur mit dem korrekten Passwort – ein Umgehen des Schutzes gibt es nicht." },
-    { frage: "Du möchtest einen Text noch mehrfach überarbeiten. Welches Format ist dafür sinnvoller?", optionen: ["PDF", "Word (.docx)", "Ein Screenshot"], richtig: 1, erklaerung: "PDF ist ein Ausgabeformat für fertige Dokumente – zum Weiterbearbeiten ist der docx-Skill die richtige Wahl." }
+    { frage: "Was passiert bei OCR eines schlecht eingescannten Dokuments?", optionen: ["Der Text ist immer perfekt", "Das Ergebnis kann Fehler enthalten und sollte gegengelesen werden", "OCR funktioniert nur bei Handschrift"], richtig: 1, erklaerung: "Bei blassen, schiefen oder handschriftlichen Vorlagen ist OCR nicht fehlerfrei – kurze Kontrolle lohnt sich." },
+    { frage: "Du willst das Layout eines PDF grundlegend umgestalten. Was ist sinnvoller?", optionen: ["Direkt im PDF umbauen", "Aus docx oder pptx neu erzeugen", "Gar nichts, das geht nie"], richtig: 1, erklaerung: "PDF ist ein Ausgabeformat; für tiefe Layout-Änderungen erzeugt man die Datei besser neu aus Word oder PowerPoint." },
+    { frage: "Was braucht Claude, um ein passwortgeschütztes PDF zu öffnen?", optionen: ["Nichts, Schutz wird umgangen", "Das Passwort", "Eine Internetverbindung"], richtig: 1, erklaerung: "Ohne das zugehörige Passwort lässt sich ein verschlüsseltes PDF nicht entsperren." }
   ],
   cheatsheet: {
-    ausloeser: "Jede .pdf-Datei bzw. „zusammenfügen“, „aufteilen“, „Formular ausfüllen“, „OCR“, „Wasserzeichen“",
-    voraussetzungen: "Keine Verbindungen nötig; Dateien hochladen oder Ordner verbinden",
-    beispielPrompt: "Führe die angehängten PDFs zu einer Datei zusammen, mach sie per OCR durchsuchbar und extrahiere alle Tabellen als Excel."
+    ausloeser: "Jede .pdf-Datei oder 'PDF zusammenführen/teilen/auslesen/durchsuchbar machen/Formular ausfüllen'",
+    voraussetzungen: "Zu bearbeitende Dateien hochladen oder Ordner verbinden; bei verschlüsselten PDFs das Passwort",
+    beispielPrompt: "Führe die angehängten PDFs zusammen und setze auf jede Seite ein Wasserzeichen mit dem Text [Text]."
   }
 }
 ];
