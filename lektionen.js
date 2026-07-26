@@ -420,4 +420,40 @@ voraussetzungen: "Für echte Datenarbeit: autorisierte Airtable-Anbindung",
 beispielPrompt: "Erkläre mir Aufbau und Datenmodell meiner Airtable-Base und schlage eine sinnvolle Feld- und Ansichtsstruktur für [Zweck] vor."
 }
 }
+,
+{
+id: "account-research",
+datum: "2026-07-26",
+titel: "Account-Recherche (sales:account-research)",
+kategorie: "Sales",
+kurz: "Firmen oder Ansprechpartner recherchieren und daraus verwertbare Vertriebs-Insights gewinnen.",
+wasErKann: "Recherchiert eine Firma oder Person und verdichtet das Ergebnis zu vertrieblich nutzbaren Erkenntnissen: Firmenprofil, Branche und Größe, aktuelle Nachrichten und mögliche Auslöser (Finanzierung, Führungswechsel, Expansion), Einordnung der Ansprechpartner und daraus abgeleitete Gesprächsaufhänger. Der Skill funktioniert eigenständig über die Websuche und wird mit angebundenen Enrichment-Tools oder deinem CRM deutlich präziser.",
+grenzen: [
+"Ohne CRM- oder Enrichment-Anbindung stützt sich die Recherche auf öffentlich Auffindbares – Interna werden nicht erfunden.",
+"Recherchierte Angaben können veraltet oder unvollständig sein; wichtige Fakten vor dem Gespräch gegenprüfen.",
+"Kontaktdaten wie direkte Durchwahlen oder Privatadressen liefert der Skill nicht.",
+"Für die konkrete Gesprächsvorbereitung mit Agenda ist sales:call-prep der passendere Folge-Skill."
+],
+beispiele: [
+"Recherchiere die Firma Müller Logistik – Profil, Größe, aktuelle News und mögliche Anknüpfungspunkte.",
+"Wer ist Anna Schmidt, CTO bei Acme Corp? Gib mir eine Einordnung fürs Erstgespräch.",
+"Intel zu einem Interessenten: Was sollte ich über [Firma] wissen, bevor ich anrufe?",
+"Erzähl mir das Wichtigste über [Firma] und nenne drei mögliche Gesprächsaufhänger."
+],
+anwendung: "Auslöser: „Recherchiere [Firma]“, „Wer ist [Name] bei [Firma]“, „Intel zu [Interessent]“, „Erzähl mir was über [Firma]“. Je klarer dein Ziel (Erstansprache, Angebot, Reaktivierung), desto zugeschnittener die Insights.",
+uebung: {
+auftrag: "Nimm eine reale Firma aus deinem Zielmarkt und lass sie recherchieren. Achte darauf, welche Teile aus öffentlichen Quellen kommen und wo eine CRM- oder Enrichment-Anbindung das Bild schärfen würde.",
+prompt: "Recherchiere die Firma [Firmenname]: Kurzprofil, Branche und Größe, aktuelle Nachrichten der letzten Monate und drei konkrete Gesprächsaufhänger für eine Erstansprache. Nenne die Quellen."
+},
+quiz: [
+{ frage: "Worauf stützt sich der Skill ohne angebundenes CRM?", optionen: ["Er erfindet plausible Interna", "Er nutzt öffentlich auffindbare Quellen per Websuche", "Er verweigert die Arbeit"], richtig: 1, erklaerung: "Standalone arbeitet er mit der Websuche; Interna werden nie erfunden, sondern nur real Auffindbares genutzt." },
+{ frage: "Welcher Folge-Skill passt für die konkrete Gesprächsvorbereitung mit Agenda?", optionen: ["sales:call-prep", "marketing:seo-audit", "legal:triage-nda"], richtig: 0, erklaerung: "account-research liefert die Insights; call-prep gießt sie in ein Briefing mit Agenda und Einwänden." },
+{ frage: "Was liefert der Skill NICHT zuverlässig?", optionen: ["Ein Firmenprofil", "Mögliche Gesprächsaufhänger", "Private Durchwahlen und Privatadressen"], richtig: 2, erklaerung: "Direkte Kontaktdaten wie Durchwahlen oder Privatadressen gehören nicht zum Ergebnis." }
+],
+cheatsheet: {
+ausloeser: "„Recherchiere [Firma]“, „Wer ist [Name] bei [Firma]“, „Intel zu [Interessent]“",
+voraussetzungen: "Keine Pflicht-Verbindungen (Websuche); präziser mit Enrichment-Tools oder CRM",
+beispielPrompt: "Recherchiere [Firma]: Profil, aktuelle News und drei Gesprächsaufhänger für [Ziel], mit Quellen."
+}
+}
 ];
