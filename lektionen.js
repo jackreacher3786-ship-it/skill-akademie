@@ -456,4 +456,40 @@ voraussetzungen: "Keine Pflicht-Verbindungen (Websuche); präziser mit Enrichmen
 beispielPrompt: "Recherchiere [Firma]: Profil, aktuelle News und drei Gesprächsaufhänger für [Ziel], mit Quellen."
 }
 }
+,
+{
+id: "review-contract",
+datum: "2026-07-30",
+titel: "Vertragsprüfung (legal:review-contract)",
+kategorie: "Legal",
+kurz: "Verträge Klausel für Klausel gegen die eigenen Standardpositionen prüfen – mit Redline-Vorschlägen und Verhandlungsstrategie.",
+wasErKann: "Prüft Lieferanten- oder Kundenverträge Klausel für Klausel gegen die Standardpositionen deines Unternehmens (das sogenannte Verhandlungs-Playbook) und markiert jede Abweichung. Zu jedem Fund liefert der Skill eine Einschätzung der geschäftlichen Auswirkung, konkrete Redline-Vorschläge (also Änderungsformulierungen) und auf Wunsch eine priorisierte Verhandlungsstrategie mit Rückfallpositionen. Anders als die schnelle NDA-Triage geht es hier in die Tiefe – geeignet für MSAs, SaaS-Verträge, Dienstleistungs- und Lieferverträge.",
+grenzen: [
+"Ersetzt keine Rechtsberatung – die Prüfung ist eine strukturierte Vorarbeit, die verbindliche Bewertung bleibt bei einem Juristen.",
+"Ohne hinterlegtes oder mitgeliefertes Playbook prüft der Skill gegen marktübliche Standards; firmenspezifische Positionen musst du einmalig beschreiben oder mitgeben.",
+"Der Vertrag muss vorliegen: als Upload (PDF/DOCX), eingefügter Text oder über eine eingerichtete Anbindung (z. B. DocuSign, Box) – diese muss autorisiert sein.",
+"Bei sehr langen Vertragswerken mit vielen Anlagen lohnt es sich, die Prüfung auf die kritischen Abschnitte zu fokussieren."
+],
+beispiele: [
+"Prüfe diesen SaaS-Vertrag gegen unsere Standardpositionen und markiere alle Abweichungen mit Priorität.",
+"Welche Klauseln in diesem Liefervertrag sind für uns riskant, und wie sollte ich sie umformulieren?",
+"Erstelle mir eine Verhandlungsstrategie für diesen Vertragsentwurf: Was fordern wir, wo geben wir nach, was ist unsere Rückfallposition?",
+"Vergleiche Haftung, Kündigung und Zahlungsziele in diesem Vertrag mit dem, was für uns üblich ist."
+],
+anwendung: "Auslöser: „Vertrag prüfen“, „Redlines erstellen“, „Klausel-für-Klausel-Analyse“, „Verhandlungsstrategie für diesen Vertrag“. Vertrag mitgeben und – falls vorhanden – die eigenen Standardpositionen kurz beschreiben (z. B. Haftungsobergrenze, Zahlungsziel, Kündigungsfristen). Für schnelle NDA-Einstufungen ist legal:triage-nda die schlankere Wahl.",
+uebung: {
+auftrag: "Nimm einen bestehenden Vertrag aus deinen Unterlagen (oder ein öffentliches Vertragsmuster) und lass ihn gegen drei selbst definierte Standardpositionen prüfen. So siehst du, wie Abweichungen, Auswirkung und Redline-Vorschlag zusammenspielen.",
+prompt: "Prüfe den angehängten Vertrag gegen folgende Standardpositionen: Haftung begrenzt auf den Auftragswert, Zahlungsziel 30 Tage, Kündigungsfrist maximal 3 Monate. Liste jede Abweichung mit Fundstelle, geschäftlicher Auswirkung und einem konkreten Redline-Vorschlag auf, priorisiert nach Wichtigkeit."
+},
+quiz: [
+{ frage: "Was ist ein Verhandlungs-Playbook in diesem Zusammenhang?", optionen: ["Ein Gesetzestext", "Die dokumentierten Standardpositionen des eigenen Unternehmens", "Eine Vertragsvorlage der Gegenseite"], richtig: 1, erklaerung: "Das Playbook hält fest, welche Klauselinhalte für das eigene Unternehmen akzeptabel sind – dagegen wird der Vertrag geprüft." },
+{ frage: "Was passiert, wenn du kein eigenes Playbook mitgibst?", optionen: ["Die Prüfung wird verweigert", "Es wird gegen marktübliche Standards geprüft", "Claude erfindet Firmenpositionen"], richtig: 1, erklaerung: "Ohne firmenspezifische Vorgaben dient Marktüblichkeit als Maßstab – eigene Positionen machen das Ergebnis aber deutlich treffsicherer." },
+{ frage: "Wann ist legal:triage-nda die bessere Wahl als review-contract?", optionen: ["Bei einem komplexen MSA mit vielen Anlagen", "Bei der schnellen Ampel-Einstufung eines eingehenden NDA", "Bei einer Verhandlungsstrategie mit Rückfallpositionen"], richtig: 1, erklaerung: "Die NDA-Triage ist die schlanke Vorsortierung; review-contract ist die tiefe Klausel-für-Klausel-Prüfung." }
+],
+cheatsheet: {
+ausloeser: "„Vertrag prüfen“, „Redlines erstellen“, „Verhandlungsstrategie für diesen Vertrag“",
+voraussetzungen: "Vertrag als Upload oder Text; eigene Standardpositionen mitgeben (sonst marktübliche Maßstäbe); DocuSign/Box nur mit autorisierter Anbindung",
+beispielPrompt: "Prüfe diesen Vertrag gegen unsere Positionen [Haftung/Zahlungsziel/Kündigung], liste Abweichungen mit Fundstelle und Redline-Vorschlag auf, priorisiert."
+}
+}
 ];
