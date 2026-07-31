@@ -492,4 +492,40 @@ voraussetzungen: "Vertrag als Upload oder Text; eigene Standardpositionen mitgeb
 beispielPrompt: "Prüfe diesen Vertrag gegen unsere Positionen [Haftung/Zahlungsziel/Kündigung], liste Abweichungen mit Fundstelle und Redline-Vorschlag auf, priorisiert."
 }
 }
+,
+{
+id: "invoice-chase",
+datum: "2026-07-31",
+titel: "Offene Rechnungen nachfassen (small-business:invoice-chase)",
+kategorie: "Small Business",
+kurz: "Überfällige Rechnungen aufspüren und Zahlungserinnerungen entwerfen, deren Ton zur Zahlungshistorie des Kunden passt.",
+wasErKann: "Der Skill liest offene und überfällige Rechnungen aus QuickBooks und PayPal aus, ordnet sie nach Fälligkeit und Betrag und entwirft für jeden Kunden eine passende Zahlungserinnerung. Der Ton richtet sich nach der Zahlungshistorie: freundlich und beiläufig bei sonst zuverlässigen Kunden, spürbar verbindlicher bei wiederholt säumigen Zahlern. PayPal-Rechnungen können nach deiner ausdrücklichen Freigabe direkt über PayPal erinnert werden; für alle übrigen Rechnungen werden die Texte als Mail-Entwürfe zur Durchsicht bereitgestellt – versendet wird nichts ohne dein Okay.",
+grenzen: [
+"Braucht eine autorisierte QuickBooks- und/oder PayPal-Anbindung – ohne Datenquelle kann der Skill keine offenen Posten finden.",
+"Kein automatischer Versand: Jede Erinnerung geht erst nach deiner ausdrücklichen Freigabe raus; Nicht-PayPal-Rechnungen bleiben grundsätzlich Entwürfe.",
+"Die Tonwahl basiert auf der im System sichtbaren Zahlungshistorie – bei neuen Kunden ohne Historie fehlt diese Grundlage.",
+"Kein Inkasso und keine Rechtsdurchsetzung: Für Mahnbescheid oder Anwalt ist der Skill nicht zuständig."
+],
+beispiele: [
+"Wer schuldet mir gerade Geld? Zeig mir alle überfälligen Rechnungen.",
+"Entwirf Zahlungserinnerungen für alle Rechnungen, die mehr als 14 Tage überfällig sind.",
+"Die Rechnung an die Weber KG ist zum dritten Mal überfällig – formuliere eine deutlich verbindlichere Erinnerung.",
+"Fass mir zusammen, wie viel Geld insgesamt aussteht und welche drei Posten am dringendsten sind."
+],
+anwendung: "Springt an bei Formulierungen wie „wer schuldet mir Geld“, „überfällige Rechnungen“, „Zahlungserinnerung schreiben“ oder „offenen Posten nachgehen“. Sinnvolle Ergänzung: mit schedule einen wiederkehrenden Lauf einrichten, etwa jeden Montag die aktuelle Außenstandsliste mit fertigen Entwürfen.",
+uebung: {
+auftrag: "Lass dir deine offenen Posten auflisten und für die zwei ältesten überfälligen Rechnungen je einen Erinnerungsentwurf schreiben. Vergleiche, wie sich der Ton zwischen einem zuverlässigen und einem wiederholt säumigen Kunden unterscheidet.",
+prompt: "Zeig mir alle überfälligen Rechnungen aus QuickBooks und PayPal, sortiert nach Fälligkeit. Entwirf für die zwei ältesten Posten je eine Zahlungserinnerung – Ton passend zur bisherigen Zahlungshistorie des Kunden. Noch nichts versenden, ich schaue die Entwürfe erst durch."
+},
+quiz: [
+{ frage: "Was passiert mit Erinnerungen für Rechnungen, die nicht über PayPal laufen?", optionen: ["Sie werden automatisch versendet", "Sie werden als Mail-Entwürfe zur Durchsicht bereitgestellt", "Sie werden ignoriert"], richtig: 1, erklaerung: "Nur PayPal-Rechnungen können – nach ausdrücklicher Freigabe – direkt über PayPal erinnert werden; alles andere bleibt Entwurf." },
+{ frage: "Wovon hängt der Ton einer Zahlungserinnerung ab?", optionen: ["Von der Rechnungshöhe", "Von der Zahlungshistorie des Kunden", "Vom Wochentag"], richtig: 1, erklaerung: "Zuverlässige Kunden bekommen eine freundliche Erinnerung, wiederholt säumige Zahler eine verbindlichere." },
+{ frage: "Was braucht der Skill, um überfällige Rechnungen zu finden?", optionen: ["Eine autorisierte QuickBooks- oder PayPal-Anbindung", "Nur den Kundennamen", "Eine Excel-Liste ist zwingend"], richtig: 0, erklaerung: "Die offenen Posten kommen aus den verbundenen Systemen – ohne Anbindung fehlt die Datenquelle." }
+],
+cheatsheet: {
+ausloeser: "„Wer schuldet mir Geld?“, „überfällige Rechnungen“, „Zahlungserinnerung“",
+voraussetzungen: "Autorisierte QuickBooks- und/oder PayPal-Anbindung; Versand nur nach ausdrücklicher Freigabe",
+beispielPrompt: "Zeig mir alle überfälligen Rechnungen und entwirf passende Zahlungserinnerungen – Ton je nach Zahlungshistorie, noch nichts versenden."
+}
+}
 ];
