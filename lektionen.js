@@ -528,4 +528,40 @@ voraussetzungen: "Autorisierte QuickBooks- und/oder PayPal-Anbindung; Versand nu
 beispielPrompt: "Zeig mir alle überfälligen Rechnungen und entwirf passende Zahlungserinnerungen – Ton je nach Zahlungshistorie, noch nichts versenden."
 }
 }
+,
+{
+id: "campaign-plan",
+datum: "2026-08-01",
+titel: "Kampagnenplanung (marketing:campaign-plan)",
+kategorie: "Marketing",
+kurz: "Aus einem Marketingziel einen vollständigen Kampagnen-Brief machen – mit Zielgruppe, Botschaften, Kanalstrategie, Wochenplan und Erfolgsmessung.",
+wasErKann: "Übersetzt ein Marketingziel in einen ausführbaren Kampagnenplan: klar formulierte Ziele, Zielgruppenbeschreibung, Kernbotschaften, Kanalstrategie (welcher Kanal wofür), einen Woche-für-Woche-Content-Kalender inklusive Abhängigkeiten zwischen den Bausteinen sowie messbare Erfolgskriterien. Geeignet für Produktlaunches, Lead-Generierung und Awareness-Kampagnen – vom groben Ziel („mehr Anfragen im Herbst“) bis zum durchstrukturierten Brief, den ein Team oder eine Agentur direkt umsetzen kann.",
+grenzen: [
+"Der Skill plant nur – er veröffentlicht nichts, bucht keine Anzeigen und richtet keine Kampagnen in Werbe- oder Mail-Tools ein.",
+"Die einzelnen Inhalte (Posts, Mails, Landingpages) entstehen nicht hier, sondern mit Folge-Skills wie marketing:draft-content oder marketing:email-sequence.",
+"Budget- und Reichweitenannahmen sind Orientierungswerte, keine garantierten Ergebnisse – die Realität misst du selbst.",
+"Ohne konkretes Briefing (Ziel, Zielgruppe, Zeitraum, Budgetrahmen) bleibt der Plan generisch."
+],
+beispiele: [
+"Plane eine Launch-Kampagne für unser neues Produkt im Oktober – 6 Wochen, Kanäle: LinkedIn, Newsletter, Blog.",
+"Erstelle einen Kampagnen-Brief für eine Lead-Gen-Aktion im B2B-Bereich mit wöchentlichem Content-Kalender.",
+"Wir wollen im Herbst die Markenbekanntheit in der Region steigern – mach mir einen Kampagnenplan mit Erfolgskriterien.",
+"Übersetze dieses Ziel in einen Kampagnenplan: 50 qualifizierte Anfragen bis Jahresende, Budget 5.000 Euro."
+],
+anwendung: "Springt an bei „Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „Content-Kalender für eine Aktion“. Nenne mindestens Ziel und Zeitraum; deutlich besser wird der Plan mit Zielgruppe, Kanälen und Budgetrahmen. Typische Kette: erst campaign-plan für die Strategie, dann draft-content oder email-sequence für die einzelnen Inhalte, am Ende performance-report für die Auswertung.",
+uebung: {
+auftrag: "Nimm ein reales Vorhaben aus deinem Umfeld – etwa eine Aktion, die du ohnehin in den nächsten Monaten planst – und lass daraus einen vollständigen Kampagnen-Brief erstellen. Prüfe besonders, ob der Wochenplan realistisch zu deiner verfügbaren Zeit passt.",
+prompt: "Erstelle einen Kampagnen-Brief: Ziel ist [Ziel, z. B. 30 Anfragen für Dienstleistung X] im Zeitraum [Zeitraum]. Zielgruppe: [wer]. Verfügbare Kanäle: [z. B. LinkedIn, Newsletter, Website]. Budgetrahmen: [Betrag]. Liefere Ziele, Kernbotschaften, Kanalstrategie, einen Woche-für-Woche-Content-Kalender mit Abhängigkeiten und messbare Erfolgskriterien."
+},
+quiz: [
+{ frage: "Was liefert der Skill als Ergebnis?", optionen: ["Fertige Anzeigen in Google Ads", "Einen strukturierten Kampagnen-Brief mit Kalender und Erfolgskriterien", "Eine fertige Landingpage"], richtig: 1, erklaerung: "Es entsteht ein Plan-Dokument – die Umsetzung in Werbe- und Mail-Tools sowie die einzelnen Inhalte folgen in separaten Schritten." },
+{ frage: "Mit welchem Skill erstellst du anschließend die einzelnen Inhalte aus dem Plan?", optionen: ["marketing:draft-content", "legal:vendor-check", "small-business:invoice-chase"], richtig: 0, erklaerung: "campaign-plan liefert die Strategie; draft-content (oder email-sequence für Mail-Strecken) produziert die konkreten Texte." },
+{ frage: "Was passiert, wenn du nur sagst: 'Plane mir eine Kampagne'?", optionen: ["Der Plan wird trotzdem präzise", "Der Plan bleibt generisch – Ziel, Zielgruppe und Zeitraum fehlen", "Der Skill verweigert die Arbeit"], richtig: 1, erklaerung: "Ohne Briefing-Angaben muss Claude Annahmen treffen; mit Ziel, Zielgruppe, Zeitraum und Budget wird der Plan konkret umsetzbar." }
+],
+cheatsheet: {
+ausloeser: "„Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „Content-Kalender für eine Aktion“",
+voraussetzungen: "Keine Verbindungen nötig; Briefing mit Ziel, Zielgruppe, Zeitraum und Budget entscheidend",
+beispielPrompt: "Erstelle einen Kampagnen-Brief für [Ziel] im Zeitraum [Zeitraum], Zielgruppe [wer], Kanäle [welche], Budget [Betrag] – mit Wochenkalender und Erfolgskriterien."
+}
+}
 ];
