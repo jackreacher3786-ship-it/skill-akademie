@@ -563,5 +563,40 @@ ausloeser: "„Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „
 voraussetzungen: "Keine Verbindungen nötig; Briefing mit Ziel, Zielgruppe, Zeitraum und Budget entscheidend",
 beispielPrompt: "Erstelle einen Kampagnen-Brief für [Ziel] im Zeitraum [Zeitraum], Zielgruppe [wer], Kanäle [welche], Budget [Betrag] – mit Wochenkalender und Erfolgskriterien."
 }
+},
+{
+id: "pipeline-review",
+datum: "2026-08-02",
+titel: "Pipeline-Review (sales:pipeline-review)",
+kategorie: "Sales",
+kurz: "Die eigene Vertriebspipeline systematisch durchleuchten: Prioritäten setzen, Risiken erkennen und einen konkreten Wochenplan ableiten.",
+wasErKann: "Der Skill analysiert die Gesundheit deiner Pipeline und macht daraus eine Arbeitsgrundlage für die Woche. Er priorisiert Deals nach Relevanz, markiert festgefahrene oder lange unbewegte Chancen und deckt Hygieneprobleme auf – etwa unrealistische Abschlussdaten oder Deals, die nur an einer einzigen Kontaktperson hängen. Am Ende steht ein priorisierter Aktionsplan: welche Deals diese Woche Aufmerksamkeit brauchen und warum. Die Daten kommen wahlweise aus einem angebundenen CRM oder aus einer selbst bereitgestellten Übersicht, etwa einem CSV-Export.",
+grenzen: [
+"Die Analyse ist nur so gut wie die Datenbasis – veraltete oder lückenhafte CRM-Einträge führen zu verzerrten Empfehlungen.",
+"Ohne CRM-Anbindung musst du die Pipeline-Daten selbst liefern, z. B. als CSV-Export oder eingefügte Tabelle.",
+"Der Skill bewertet nach Mustern (Alter, Bewegung, Stage-Dauer); Insiderwissen über einzelne Kunden – etwa eine mündliche Zusage – kennt er nicht.",
+"Er verändert nichts im CRM: Die Bereinigung markierter Hygieneprobleme bleibt deine Aufgabe oder erfordert einen separaten Auftrag."
+],
+beispiele: [
+"Mach ein Pipeline-Review: Welche Deals soll ich diese Woche priorisieren?",
+"Zeig mir alle Deals, die seit mehr als 30 Tagen keine Bewegung hatten.",
+"Prüfe meine Pipeline auf Hygieneprobleme wie überfällige Close-Dates oder fehlende nächste Schritte.",
+"Hier ist mein Pipeline-Export als CSV – analysiere, wo die größten Risiken liegen."
+],
+anwendung: "Springt an bei „Pipeline-Review“, „Pipeline durchgehen“, „welche Deals priorisieren“ oder Fragen nach festgefahrenen und veralteten Chancen. Sinnvoll als fester wöchentlicher Termin, etwa Montagmorgen vor der Vertriebswoche. Typische Kette: pipeline-review für den Überblick, danach call-prep für die priorisierten Termine und bei Bedarf forecast für die Quartalsprognose.",
+uebung: {
+auftrag: "Exportiere deine aktuelle Deal-Liste aus deinem CRM (oder schreibe fünf bis zehn laufende Vorgänge mit Stage, Wert und letztem Kontakt in eine Tabelle) und lass ein vollständiges Review erstellen. Vergleiche die Priorisierung mit deinem Bauchgefühl.",
+prompt: "Hier ist meine aktuelle Pipeline: [CSV einfügen oder Deals auflisten mit Name, Stage, Wert, letzter Kontakt, geplantes Close-Date]. Mach ein Pipeline-Review: priorisiere die Deals für diese Woche, markiere festgefahrene oder riskante Vorgänge und Hygieneprobleme, und gib mir einen konkreten Wochen-Aktionsplan."
+},
+quiz: [
+{ frage: "Was ist das Hauptergebnis eines Pipeline-Reviews?", optionen: ["Automatisch bereinigte CRM-Einträge", "Ein priorisierter Wochen-Aktionsplan mit Risiko-Flags", "Eine fertige Umsatzprognose fürs Quartal"], richtig: 1, erklaerung: "Der Skill liefert Analyse und Handlungsplan; CRM-Änderungen macht er nicht, und für die Prognose gibt es den separaten forecast-Skill." },
+{ frage: "Was gilt als typisches Hygieneproblem in der Pipeline?", optionen: ["Ein Deal mit mehreren Ansprechpartnern", "Ein überfälliges Close-Date ohne Aktualisierung", "Ein neu angelegter Deal in früher Stage"], richtig: 1, erklaerung: "Überfällige Abschlussdaten, fehlende nächste Schritte und lange unbewegte Deals sind klassische Hygiene-Flags; mehrere Ansprechpartner sind im Gegenteil ein gutes Zeichen." },
+{ frage: "Wie nutzt du den Skill ohne CRM-Anbindung?", optionen: ["Gar nicht – ein CRM ist Pflicht", "Pipeline-Daten selbst mitliefern, z. B. als CSV-Export", "Der Skill erfindet plausible Beispieldaten"], richtig: 1, erklaerung: "Der Skill arbeitet auch mit selbst bereitgestellten Daten; ein angebundenes CRM macht es nur bequemer und aktueller." }
+],
+cheatsheet: {
+ausloeser: "„Pipeline-Review“, „welche Deals priorisieren“, „festgefahrene Deals“, „Pipeline-Hygiene“",
+voraussetzungen: "Pipeline-Daten nötig: angebundenes CRM oder eigener Export (CSV/Tabelle); keine Schreibrechte erforderlich",
+beispielPrompt: "Mach ein Pipeline-Review auf Basis dieser Daten: [Export einfügen] – Prioritäten für die Woche, Risiko-Flags und Hygieneprobleme bitte getrennt ausweisen."
+}
 }
 ];
