@@ -598,5 +598,67 @@ ausloeser: "„Pipeline-Review“, „welche Deals priorisieren“, „festgefah
 voraussetzungen: "Pipeline-Daten nötig: angebundenes CRM oder eigener Export (CSV/Tabelle); keine Schreibrechte erforderlich",
 beispielPrompt: "Mach ein Pipeline-Review auf Basis dieser Daten: [Export einfügen] – Prioritäten für die Woche, Risiko-Flags und Hygieneprobleme bitte getrennt ausweisen."
 }
+},
+{
+  id: "plugins-connectoren",
+  datum: "2026-08-03",
+  titel: "Plugins & Connectoren: Claude mit deinen Tools verbinden",
+  kategorie: "Automatisierung",
+  kurz: "Plugins bündeln fertige Skills und Connectoren, über die Claude direkt mit Diensten wie Gmail, Google Kalender, HubSpot oder Airtable arbeitet.",
+  wasErKann: "Ein Connector (technisch: MCP-Server) verbindet Claude mit einem externen Dienst, sodass es dort lesen und – nach deiner Freigabe – auch schreiben kann: E-Mails durchsuchen, Kalendertermine anlegen, CRM-Einträge aktualisieren oder Airtable-Datensätze pflegen. Plugins gehen einen Schritt weiter: Sie sind installierbare Pakete, die passende Connectoren und fertige Skills für einen Aufgabenbereich kombinieren, etwa Sales, Legal, Marketing oder Small Business. Nach der Installation stehen die Skills automatisch bereit und greifen auf die verbundenen Dienste zu. Plugins werden über Marketplaces gefunden und installiert.",
+  grenzen: [
+    "Jeder Connector muss einmalig autorisiert werden (meist per OAuth-Anmeldung); ohne diese Freigabe bleibt der Dienst für Claude unerreichbar – auch wenn das Plugin installiert ist.",
+    "Es gibt nicht für jeden Dienst einen Connector; die Auswahl hängt vom Registry-Angebot ab, Nischen-Tools fehlen teils komplett.",
+    "Connectoren können weniger Funktionen bieten als die Weboberfläche des Dienstes – manche Aktionen bleiben dem Nutzer vorbehalten.",
+    "Schreibende Aktionen (Senden, Löschen, Buchen) erfordern in der Regel deine ausdrückliche Bestätigung – das ist Absicht, kein Fehler."
+  ],
+  beispiele: [
+    "Welche Connectoren gibt es für Projektmanagement? Schlag mir passende vor.",
+    "Durchsuche meine Gmail-Threads der letzten Woche nach offenen Kundenanfragen.",
+    "Installiere das Sales-Plugin und zeig mir, welche Skills es mitbringt.",
+    "Lege aus dieser E-Mail einen Termin in meinem Google Kalender an."
+  ],
+  anwendung: "Immer dann, wenn eine Aufgabe Daten aus einem externen Dienst braucht: E-Mail, Kalender, CRM, Buchhaltung, Datenbanken. Frag Claude direkt nach einem Connector für dein Tool – es durchsucht die Registry und schlägt passende Verbindungen vor. Plugins lohnen sich, wenn du regelmäßig in einem Bereich arbeitest und gleich ein ganzes Skill-Paket statt Einzelbausteinen willst.",
+  uebung: {
+    auftrag: "Finde heraus, welche Connectoren für ein Tool verfügbar sind, das du täglich nutzt, und lass dir erklären, was Claude damit könnte.",
+    prompt: "Ich nutze täglich [Tool-Name, z. B. Notion]. Gibt es dafür einen Connector? Erkläre mir kurz, was du damit lesen und schreiben könntest und welche Freigaben ich erteilen müsste."
+  },
+  quiz: [
+    {
+      frage: "Was ist der Unterschied zwischen einem Connector und einem Plugin?",
+      optionen: [
+        "Ein Connector verbindet Claude mit einem einzelnen Dienst; ein Plugin ist ein Paket aus Connectoren und Skills für einen Aufgabenbereich.",
+        "Plugins sind kostenpflichtig, Connectoren kostenlos.",
+        "Es gibt keinen Unterschied, die Begriffe sind austauschbar."
+      ],
+      richtig: 0,
+      erklaerung: "Der Connector ist die technische Verbindung zu einem Dienst (per MCP), das Plugin das installierbare Gesamtpaket aus Connectoren, Skills und Tools."
+    },
+    {
+      frage: "Was passiert, wenn ein Plugin installiert, der Connector aber nicht autorisiert ist?",
+      optionen: [
+        "Claude greift trotzdem auf den Dienst zu.",
+        "Die Skills sind da, aber der Dienst bleibt unerreichbar, bis du die Anmeldung freigibst.",
+        "Das Plugin deinstalliert sich automatisch."
+      ],
+      richtig: 1,
+      erklaerung: "Die Autorisierung (meist OAuth) ist eine eigene, bewusste Freigabe durch dich – ohne sie liefert der Connector keine Daten."
+    },
+    {
+      frage: "Wie findest du heraus, ob es für dein Tool einen Connector gibt?",
+      optionen: [
+        "Nur über die Website des Tool-Herstellers.",
+        "Gar nicht, die Liste ist nicht einsehbar.",
+        "Claude direkt fragen – es durchsucht die Connector-Registry und schlägt Treffer vor."
+      ],
+      richtig: 2,
+      erklaerung: "Claude kann die Registry selbst durchsuchen und passende Connectoren direkt zur Installation vorschlagen."
+    }
+  ],
+  cheatsheet: {
+    ausloeser: "Aufgaben, die externe Dienste betreffen: „durchsuche meine Mails“, „gibt es einen Connector für …“, „installiere das …-Plugin“",
+    voraussetzungen: "Cowork oder Claude Code; einmalige Autorisierung je Dienst (z. B. Google-, HubSpot- oder Airtable-Login)",
+    beispielPrompt: "Ich nutze täglich Notion. Gibt es dafür einen Connector? Erkläre mir, was du damit könntest und welche Freigaben nötig wären."
+  }
 }
 ];
