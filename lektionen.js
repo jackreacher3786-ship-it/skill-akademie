@@ -660,5 +660,40 @@ beispielPrompt: "Mach ein Pipeline-Review auf Basis dieser Daten: [Export einfü
     voraussetzungen: "Cowork oder Claude Code; einmalige Autorisierung je Dienst (z. B. Google-, HubSpot- oder Airtable-Login)",
     beispielPrompt: "Ich nutze täglich Notion. Gibt es dafür einen Connector? Erkläre mir, was du damit könntest und welche Freigaben nötig wären."
   }
+},
+{
+id: "margin-analyzer",
+datum: "2026-08-08",
+titel: "Margen-Analyse (margin-analyzer)",
+kategorie: "Small Business",
+kurz: "Prüft Produkt- oder Service-Margen anhand realer Zahlen und zeigt Preis-Szenarien, ohne selbst einen Preis vorzuschlagen.",
+wasErKann: "Der Skill wertet die Einheitswirtschaftlichkeit einzelner Produkte oder Dienstleistungen aus, indem er Verkaufsdaten aus PayPal-Merchant-Insights mit Kostendaten aus QuickBooks abgleicht. Er berücksichtigt dabei auch externe Faktoren wie Inflation und gestiegene Einkaufspreise. Als Ergebnis liefert er Preisszenarien mit historischen Korrelationswerten, etwa wie sich eine Preiserhöhung von 5 Prozent in der Vergangenheit auf das Verkaufsvolumen ausgewirkt hat. Eine konkrete Preisempfehlung spricht der Skill bewusst nicht aus – die Entscheidung bleibt beim Inhaber.",
+grenzen: [
+"Ohne angebundenes PayPal- und QuickBooks-Konto fehlen die Rohdaten; die Analyse wird dann ungenau oder lässt sich gar nicht durchführen.",
+"Der Skill empfiehlt keinen Preis – er zeigt nur die Datenlage, die Entscheidung triffst du selbst.",
+"Historische Korrelationen wie „5 % Preis, 3 % weniger Volumen“ sind Muster aus der Vergangenheit, keine Garantie für die Zukunft.",
+"Die Qualität der Analyse hängt direkt von sauber gepflegten Kostendaten in QuickBooks ab – fehlerhafte Buchungen verzerren die Marge."
+],
+beispiele: [
+"Lohnt es sich, die Preise für unser Bestseller-Produkt um 5 Prozent zu erhöhen?",
+"Zeig mir die Marge je Produkt für die letzten sechs Monate.",
+"Unsere Materialkosten sind gestiegen – frisst das gerade unseren Gewinn auf?",
+"Wie hat sich eine Preiserhöhung bei ähnlichen Produkten historisch auf den Absatz ausgewirkt?"
+],
+anwendung: "Springt an bei Fragen rund um Preisgestaltung, Margen, Kostendruck oder Rentabilität – auch wenn das Wort „Marge“ gar nicht fällt, etwa bei „Verdiene ich genug?“ oder „Sollte ich die Preise anheben?“. Voraussetzung sind angebundene PayPal- und QuickBooks-Konten; ohne sie lassen sich die Kennzahlen nur mit selbst gelieferten Daten berechnen. Sinnvoll vor Preisentscheidungen oder wenn Einkaufspreise spürbar steigen.",
+uebung: {
+auftrag: "Wähle ein Produkt oder eine Dienstleistung mit spürbar gestiegenen Kosten und lass dir die aktuelle Marge sowie ein Preisszenario zeigen, bevor du selbst eine Preisentscheidung triffst.",
+prompt: "Analysiere die Marge für [Produkt/Dienstleistung] über die letzten [Zeitraum, z. B. 6 Monate]. Zeig mir, wie sich eine Preiserhöhung von [X] Prozent historisch auf das Volumen ausgewirkt hat – ohne mir einen Preis vorzuschlagen."
+},
+quiz: [
+{ frage: "Was liefert margin-analyzer am Ende?", optionen: ["Eine konkrete Preisempfehlung", "Margen-Daten und Preisszenarien ohne Empfehlung", "Eine automatische Preisänderung im Shop"], richtig: 1, erklaerung: "Der Skill zeigt Zahlen und Szenarien – die Preisentscheidung bleibt bewusst beim Inhaber." },
+{ frage: "Welche zwei Datenquellen kombiniert der Skill typischerweise?", optionen: ["PayPal und QuickBooks", "Slack und Notion", "Google Kalender und Gmail"], richtig: 0, erklaerung: "Verkaufsdaten kommen aus PayPal-Merchant-Insights, Kostendaten aus QuickBooks." },
+{ frage: "Muss im Prompt explizit das Wort „Marge“ vorkommen?", optionen: ["Ja, sonst reagiert der Skill nicht", "Nein, auch Fragen wie „Verdiene ich genug?“ lösen ihn aus", "Nur bei angebundenem QuickBooks-Konto"], richtig: 1, erklaerung: "Der Skill greift auch bei indirekten Formulierungen zu Preisdruck und Rentabilität." }
+],
+cheatsheet: {
+ausloeser: "„Marge“, „Preise erhöhen“, „Verdiene ich genug?“, „Kosten steigen“, „was sollte ich verlangen“",
+voraussetzungen: "Angebundenes PayPal- und QuickBooks-Konto für automatische Daten; alternativ eigene Kosten- und Verkaufszahlen liefern.",
+beispielPrompt: "Analysiere die Marge für unser Hauptprodukt der letzten 6 Monate und zeig mir ein Preisszenario für +5 Prozent."
+}
 }
 ];
