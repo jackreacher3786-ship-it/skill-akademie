@@ -1,702 +1,701 @@
-/*PASTE-TEST-OK*/// Skill-Akademie – Lektionsdaten
+// Skill-Akademie – Lektionsdaten
 // Neue Lektionen werden am ENDE des Arrays ergänzt (vor der schließenden Klammer).
 // Format siehe vorhandene Einträge. Datum: JJJJ-MM-TT.
 window.LEKTIONEN = [
-{
-id: "schedule",
-datum: "2026-07-01",
-titel: "Geplante Aufgaben (schedule)",
-kategorie: "Automatisierung",
-kurz: "Claude Aufgaben automatisch zu festen Zeiten oder wiederkehrend ausführen lassen.",
-wasErKann: "Mit diesem Skill führt Claude Aufgaben selbstständig zu einem bestimmten Zeitpunkt oder in festem Rhythmus aus – täglich, wöchentlich, stündlich oder einmalig in der Zukunft („in einer Stunde“, „morgen um 15 Uhr“). Technisch steckt ein Cron-Zeitplan dahinter, du formulierst aber einfach in normaler Sprache.",
-grenzen: [
-"Die Aufgabe läuft nur, wenn der Dienst zum geplanten Zeitpunkt erreichbar ist – verpasste Läufe werden beim nächsten Start nachgeholt.",
-"Kein Weckdienst per SMS: Ergebnisse landen im Chat (oder dort, wohin die Aufgabe sie ablegt).",
-"Bestehende Aufgaben lassen sich jederzeit ändern oder auflisten."
-],
-beispiele: [
-"Gib mir jeden Morgen um 7 Uhr eine Zusammenfassung der wichtigsten Tech-News.",
-"Fasse jeden Freitagnachmittag meine ungelesenen wichtigen E-Mails zusammen.",
-"Erinnere mich in zwei Stunden daran, die Rechnung zu verschicken.",
-"Welche geplanten Aufgaben habe ich gerade?"
-],
-anwendung: "Auslöser ist jede Zeitangabe im Auftrag: „jeden Tag“, „jeden Montag“, „um 8 Uhr“, „in einer Stunde“. Ändern geht per Zuruf: „Verschieb das Briefing auf 9 Uhr.“",
-uebung: {
-auftrag: "Richte eine einmalige Testaufgabe ein und lösche sie danach wieder. So lernst du Anlegen, Auflisten und Entfernen in einem Durchgang.",
-prompt: "Erinnere mich in 30 Minuten daran, ein Glas Wasser zu trinken. Liste mir danach alle meine geplanten Aufgaben auf."
-},
-quiz: [
-{ frage: "Was passiert, wenn die App zum geplanten Zeitpunkt geschlossen ist?", optionen: ["Die Aufgabe entfällt ersatzlos", "Die Aufgabe wird beim nächsten Start nachgeholt", "Claude ruft dich an"], richtig: 1, erklaerung: "Verpasste Läufe werden nachgeholt, sobald der Dienst wieder erreichbar ist." },
-{ frage: "Wie richtest du eine wiederkehrende Aufgabe ein?", optionen: ["Mit Cron-Syntax wie '0 7 * * *'", "In normaler Sprache mit Zeitangabe", "Nur über die Einstellungen"], richtig: 1, erklaerung: "Du formulierst einfach z. B. „jeden Morgen um 7 Uhr“ – die Cron-Übersetzung übernimmt Claude." },
-{ frage: "Wo landen die Ergebnisse eines geplanten Laufs?", optionen: ["Per SMS auf dem Handy", "Im Chat bzw. am definierten Ablageort", "Nirgends, sie müssen abgeholt werden"], richtig: 1, erklaerung: "Es ist kein Benachrichtigungsdienst – die Ergebnisse erscheinen im Chat oder werden z. B. in Drive abgelegt." }
-],
-cheatsheet: {
-ausloeser: "Jede Zeitangabe: „jeden Tag“, „jeden Montag um 8“, „in einer Stunde“",
-voraussetzungen: "Keine – funktioniert ohne Verbindungen",
-beispielPrompt: "Fasse mir jeden Freitag um 16 Uhr die Woche zusammen: wichtige Mails, anstehende Termine der Folgewoche."
-}
-},
-{
-id: "deep-research",
-datum: "2026-07-01",
-titel: "Tiefenrecherche (deep-research)",
-kategorie: "Recherche",
-kurz: "Systematische Mehrquellen-Recherche mit Prüfschritt und belegtem Bericht.",
-wasErKann: "Statt einmal zu suchen, zerlegt Claude deine Frage in Teilaspekte, führt viele parallele Web-Suchen durch, liest die Quellen, prüft Aussagen gegeneinander und liefert einen strukturierten Bericht mit Quellenangaben. Das dauert länger als eine normale Antwort – dafür ist das Ergebnis belastbarer.",
-grenzen: [
-"Braucht funktionierenden Web-Zugriff.",
-"Keine Garantie für Fehlerfreiheit – Quellen können falsch sein, sind aber transparent nachprüfbar.",
-"Bei sehr frischen Ereignissen (wenige Stunden alt) ist die Quellenlage oft noch dünn.",
-"Für schnelle Faktenfragen überdimensioniert."
-],
-beispiele: [
-"Mach eine Tiefenrecherche: Welche Wärmepumpe lohnt sich 2026 für ein Einfamilienhaus Baujahr 1990 – mit Förderlage und Betriebskosten?",
-"Recherchiere gründlich den Forschungsstand zu Kreatin bei Ausdauersport, mit Quellen.",
-"Vergleiche die drei größten Anbieter für X hinsichtlich Preis, Datenschutz und Vertragsbindung – belegter Bericht.",
-"Fundierter Überblick über die rechtliche Lage zu privaten Drohnenflügen in Österreich."
-],
-anwendung: "Auslöser: „Tiefenrecherche“, „recherchiere gründlich“, „Bericht mit Quellen“. Je präziser die Frage (Budget, Einsatzzweck, Region gleich mitliefern), desto besser das Ergebnis.",
-uebung: {
-auftrag: "Starte eine Tiefenrecherche zu einem Thema, das dich gerade real beschäftigt. Achte darauf, wie Claude nachfragt bzw. wie der Bericht Quellen ausweist.",
-prompt: "Mach eine Tiefenrecherche: Was sind die aktuell besten Möglichkeiten, ein kleines Unternehmen in Deutschland gegen Cyberrisiken zu versichern? Vergleiche Anbieter, typische Kosten und Ausschlüsse, mit Quellen."
-},
-quiz: [
-{ frage: "Worin unterscheidet sich die Tiefenrecherche von einer normalen Frage?", optionen: ["Sie nutzt eine bessere Suchmaschine", "Sie arbeitet breiter, mit Prüfschritt und Quellenbericht", "Sie ist schneller"], richtig: 1, erklaerung: "Kern ist das systematische Vorgehen: Teilfragen, viele Quellen, Gegencheck, belegter Bericht." },
-{ frage: "Wofür ist der Skill NICHT gedacht?", optionen: ["Kaufentscheidungen", "Marktvergleiche", "Schnelle Faktenfragen wie 'Wie hoch ist der Eiffelturm?'"], richtig: 2, erklaerung: "Einfache Fakten beantwortet der normale Chat schneller und genauso gut." },
-{ frage: "Deine Frage ist noch vage ('Welches Auto soll ich kaufen?'). Was passiert?", optionen: ["Claude rät einfach", "Claude fragt nach Budget, Einsatzzweck, Region", "Die Recherche wird abgebrochen"], richtig: 1, erklaerung: "Gezielte Rückfragen sind beabsichtigt und verbessern das Ergebnis spürbar." }
-],
-cheatsheet: {
-ausloeser: "„Mach eine Tiefenrecherche“, „recherchiere gründlich“, „Bericht mit Quellen“",
-voraussetzungen: "Web-Zugriff; präzise Fragestellung mit Kontext",
-beispielPrompt: "Mach eine Tiefenrecherche zu [Thema]. Kontext: [Budget/Region/Zweck]. Ergebnis als strukturierter Bericht mit Quellen."
-}
-},
-{
-id: "docx",
-datum: "2026-07-02",
-titel: "Word-Dokumente (docx)",
-kategorie: "Office",
-kurz: "Echte Word-Dateien erstellen, lesen und bearbeiten – inkl. Formatierung und Änderungsverfolgung.",
-wasErKann: "Erstellt, liest und bearbeitet .docx-Dateien: Berichte, Briefe, Memos, Verträge, Vorlagen – mit Überschriften, Inhaltsverzeichnis, Tabellen, Kopf-/Fußzeilen und Seitenzahlen. Bestehende Dokumente kann Claude ändern: Suchen/Ersetzen, Umstrukturieren, Bilder tauschen, Tracked Changes und Kommentare.",
-grenzen: [
-"Nur für .docx – für PDF, Excel, PowerPoint gibt es eigene Skills.",
-"Zu bearbeitende Dateien müssen hochgeladen oder in einem verbundenen Ordner liegen; Google-Docs-Dateien sind kein .docx.",
-"Sehr aufwendige Layouts stoßen an Grenzen; für Geschäftsdokumente reicht es in der Regel.",
-"Endkontrolle in Word bleibt sinnvoll, besonders bei rechtlich relevanten Texten."
-],
-beispiele: [
-"Erstelle einen Projektbericht als Word-Dokument mit Inhaltsverzeichnis und Seitenzahlen – Thema: Quartalsergebnisse Q2.",
-"Ersetze in diesem Vertragsentwurf überall 'Muster GmbH' durch 'Reacher Consulting' und passe das Datum an.",
-"Lies das angehängte Word-Dokument und fasse die Kernpunkte zusammen.",
-"Baue eine wiederverwendbare Briefvorlage mit Briefkopf."
-],
-anwendung: "Löst automatisch aus bei „Word-Dokument“, „.docx“, „Bericht als Word-Datei“, „Memo“, „Briefvorlage“. Ergebnis kommt als fertige .docx zum Öffnen.",
-uebung: {
-auftrag: "Lass dir ein kleines, aber vollständig formatiertes Word-Dokument bauen und öffne es anschließend in Word, um das Ergebnis zu prüfen.",
-prompt: "Erstelle mir ein einseitiges Word-Dokument: eine Checkliste für die Vorbereitung eines Kundentermins, mit Titel, kurzer Einleitung und einer Tabelle (Punkt / erledigt / Notiz)."
-},
-quiz: [
-{ frage: "Du willst eine Google-Docs-Datei aus Drive bearbeiten lassen. Geht das direkt?", optionen: ["Ja, problemlos", "Nein – sie müsste erst als .docx vorliegen", "Nur mit Premium"], richtig: 1, erklaerung: "Google Docs ist ein eigenes Format; der Skill arbeitet mit echten .docx-Dateien." },
-{ frage: "Welche Funktion beherrscht der Skill bei bestehenden Dokumenten?", optionen: ["Suchen/Ersetzen und Tracked Changes", "Makros programmieren", "Dateien verschlüsseln"], richtig: 0, erklaerung: "Ersetzen, Umstrukturieren, Kommentare und Änderungsverfolgung gehören zum Kern." },
-{ frage: "Was ist der sinnvollste letzte Schritt bei einem Vertragsdokument?", optionen: ["Direkt versenden", "Endkontrolle in Word", "Als PDF drucken"], richtig: 1, erklaerung: "Gerade bei rechtlich relevanten Texten gehört die eigene Endkontrolle dazu." }
-],
-cheatsheet: {
-ausloeser: "„Word-Dokument“, „.docx“, „Memo“, „Bericht als Word-Datei“",
-voraussetzungen: "Für Bearbeitung: Datei hochladen oder Ordner verbinden",
-beispielPrompt: "Erstelle einen zweiseitigen Bericht als Word-Dokument zu [Thema], mit Inhaltsverzeichnis, Überschriften und Seitenzahlen."
-}
-},
-{
-id: "call-prep",
-datum: "2026-07-02",
-titel: "Gesprächsvorbereitung (sales:call-prep)",
-kategorie: "Sales",
-kurz: "Strukturiertes Briefing vor Kundengesprächen: Firmenprofil, Teilnehmer, Agenda, Einwände.",
-wasErKann: "Bereitet dich in Minuten auf ein Kundengespräch vor: Firmenprofil, Kurzporträts der Teilnehmer, bisherige Historie, aktuelle News, Agenda-Vorschlag, passende Fragen und wahrscheinliche Einwände mit Antwortideen. Das Briefing passt sich dem Gesprächstyp an (Erstgespräch, Demo, Verhandlung, Check-in).",
-grenzen: [
-"Funktioniert ohne verbundene Tools (per Websuche), wird aber deutlich stärker mit Kalender, Gmail und CRM.",
-"Ohne Historie bleibt das Briefing auf öffentlich Recherchierbares beschränkt – Interna werden nicht erfunden.",
-"CRM- und Transkript-Anbindungen (z. B. HubSpot, Fireflies) müssen autorisiert sein, um genutzt zu werden."
-],
-beispiele: [
-"Bereite mich auf mein Gespräch mit der Müller GmbH morgen vor.",
-"Donnerstag Preisverhandlung mit dem Einkaufsleiter von Firma X – mach mir ein Briefing.",
-"Call prep Acme Corp – Discovery Call, Teilnehmer: Anna Schmidt (CTO), Ben Weber (Head of IT).",
-"Hier meine Notizen vom letzten Gespräch – bereite mich auf das Folgegespräch vor."
-],
-anwendung: "Auslöser: „Bereite mich auf das Meeting mit … vor“ oder Nennung eines Kundentermins mit Bitte um Vorbereitung. Mindestangaben: Firma und Gesprächstyp; hilfreich: Teilnehmer, dein Ziel, bekannte Bedenken.",
-uebung: {
-auftrag: "Nimm einen echten anstehenden Termin (oder denk dir einen realistischen aus) und lass dir ein Briefing erstellen. Prüfe, welche Teile ohne CRM-Anbindung gefüllt werden können.",
-prompt: "Bereite mich auf ein Erstgespräch mit [Firmenname] nächste Woche vor. Mein Ziel: herausfinden, ob unser Angebot passt. Teilnehmer: [Name, Rolle]. Erstelle Briefing mit Firmenprofil, Fragenkatalog und möglichen Einwänden."
-},
-quiz: [
-{ frage: "Was sind die Mindestangaben für ein brauchbares Briefing?", optionen: ["Nur der Firmenname", "Firmenname und Gesprächstyp", "Vollständige CRM-Historie"], richtig: 1, erklaerung: "Firma plus Gesprächstyp (Erstgespräch, Demo, Verhandlung, Check-in) reichen zum Start." },
-{ frage: "Was macht der Skill, wenn kein CRM verbunden ist?", optionen: ["Er verweigert die Arbeit", "Er erfindet plausible Interna", "Er nutzt Websuche und deine Angaben"], richtig: 2, erklaerung: "Ohne Anbindungen arbeitet er mit öffentlichen Quellen und dem, was du mitgibst – Interna werden nie erfunden." },
-{ frage: "Welcher Skill passt für die NACHbereitung eines Gesprächs?", optionen: ["sales:call-summary", "sales:forecast", "legal:brief"], richtig: 0, erklaerung: "call-summary extrahiert Aktionspunkte, entwirft die Follow-up-Mail und die CRM-Notiz." }
-],
-cheatsheet: {
-ausloeser: "„Prep me for my call with …“ / „Bereite mich auf das Meeting mit … vor“",
-voraussetzungen: "Keine Pflicht-Verbindungen; stärker mit Kalender, Gmail, CRM",
-beispielPrompt: "Bereite mich auf [Gesprächstyp] mit [Firma] vor. Ziel: [Ziel]. Teilnehmer: [Namen/Rollen]."
-}
-},
-{
-id: "triage-nda",
-datum: "2026-07-04",
-titel: "NDA-Triage (legal:triage-nda)",
-kategorie: "Legal",
-kurz: "Eingehende Geheimhaltungsvereinbarungen nach Ampelsystem einstufen: grün, gelb, rot.",
-wasErKann: "Prüft ein eingehendes NDA und stuft es ein: GRÜN (Standard, kann nach üblichen Regeln unterschrieben werden), GELB (Abweichungen, die ein Jurist ansehen sollte), ROT (kritische Klauseln, volle rechtliche Prüfung nötig). Geachtet wird auf versteckte Abwerbeverbote, Wettbewerbsverbote, fehlende Vertraulichkeits-Ausnahmen, überlange Laufzeiten und einseitige Pflichten – jeweils mit Fundstelle und Begründung.",
-grenzen: [
-"Ersetzt keine Rechtsberatung – es ist eine Vorsortierung für die Entscheidung: selbst freigeben oder zum Anwalt.",
-"Keine Pflicht-Verbindungen: Datei (PDF/DOCX) hochladen oder Text einfügen genügt.",
-"Abruf aus DocuSign o. Ä. nur mit eingerichteter Verbindung."
-],
-beispiele: [
-"Hier ist ein NDA von einem neuen Lieferanten – triagiere es: Kann ich einfach unterschreiben?",
-"Prüf dieses NDA auf versteckte Non-Solicits oder Wettbewerbsverbote.",
-"Ein Interessent hat uns sein Standard-NDA geschickt. Stufe es ein: grün, gelb oder rot?",
-"Fehlen in diesem NDA die üblichen Ausnahmen von der Geheimhaltungspflicht?"
-],
-anwendung: "Auslöser: jede Formulierung rund um ein eingehendes NDA – „NDA prüfen“, „kann ich das unterschreiben?“. Dokument als Upload oder eingefügten Text mitgeben.",
-uebung: {
-auftrag: "Suche dir ein beliebiges NDA (z. B. ein altes aus deinen Unterlagen oder ein öffentliches Muster) und lass es triagieren. Achte auf die Fundstellen in der Begründung.",
-prompt: "Triagiere das folgende NDA nach dem Ampelsystem (grün/gelb/rot). Nenne jede Abweichung mit Fundstelle und gib eine klare Empfehlung: selbst freigeben, nachverhandeln oder Anwaltsprüfung. [NDA-Text hier einfügen oder Datei anhängen]"
-},
-quiz: [
-{ frage: "Was bedeutet die Einstufung GELB?", optionen: ["Sofort unterschreiben", "Abweichungen, die ein Jurist ansehen sollte", "Vertrag vernichten"], richtig: 1, erklaerung: "Gelb heißt: kein Standardfall, aber auch nicht kritisch – juristischer Blick empfohlen." },
-{ frage: "Auf welche versteckte Klausel achtet der Skill besonders?", optionen: ["Farbe des Logos", "Abwerbeverbote (Non-Solicits)", "Rechtschreibfehler"], richtig: 1, erklaerung: "Non-Solicits und Non-Competes verstecken sich oft in NDAs und gehen über reine Geheimhaltung hinaus." },
-{ frage: "Was ersetzt die Triage NICHT?", optionen: ["Das Lesen des Vertrags durch Claude", "Eine Rechtsberatung", "Das Ampelsystem"], richtig: 1, erklaerung: "Die Triage ist eine Vorsortierung – die verbindliche rechtliche Bewertung bleibt beim Anwalt." }
-],
-cheatsheet: {
-ausloeser: "„NDA prüfen/einstufen“, „kann ich das unterschreiben?“",
-voraussetzungen: "Nur das Dokument (Upload oder Text) – keine Verbindungen nötig",
-beispielPrompt: "Triagiere dieses NDA (grün/gelb/rot), nenne Abweichungen mit Fundstelle und gib eine Empfehlung. [Datei/Text]"
-}
-},
-{
-id: "business-pulse",
-datum: "2026-07-05",
-titel: "Geschäfts-Snapshot (business-pulse)",
-kategorie: "Small Business",
-kurz: "Einseitiger Gesamtüberblick: Kasse, Umsatz, Pipeline, Woche, Watch-List – auf Zuruf.",
-wasErKann: "Erstellt einen kompakten Überblick über dein Geschäft in sechs Blöcken: Kassenstand (QuickBooks), Umsatztrend (PayPal/Square), Pipeline (HubSpot), Termine der Woche (Kalender), dringende Punkte aus Mail/Chat (Gmail/Slack) und als Fazit den einen Punkt, der heute Aufmerksamkeit braucht. Er arbeitet mit dem, was verbunden ist, und benennt offen, welche Bereiche fehlen.",
-grenzen: [
-"Ohne Verbindungen liefert der Skill wenig – mindestens ein Connector sollte aktiv sein.",
-"Er erfindet keine Zahlen für nicht verbundene Systeme.",
-"Für das volle Bild müssen QuickBooks, PayPal/Square/Stripe und HubSpot autorisiert sein."
-],
-beispiele: [
-"Wie läuft das Geschäft gerade? Gib mir einen Snapshot.",
-"Catch me up – was habe ich diese Woche verpasst?",
-"Erstell mir eine Wochenzusammenfassung fürs Geschäft, Stand heute.",
-"Was ist heute das Wichtigste, um das ich mich kümmern sollte?"
-],
-anwendung: "Springt automatisch an bei Fragen zum Geschäftszustand: „Snapshot“, „Wochenzusammenfassung“, „was übersehe ich gerade“. Gut kombinierbar mit schedule: „Schick mir jeden Montag um 8 Uhr einen Business-Pulse.“",
-uebung: {
-auftrag: "Fordere einen Snapshot an und beobachte, welche Blöcke mit deinen aktuellen Verbindungen gefüllt werden – und welche als fehlend ausgewiesen sind.",
-prompt: "Gib mir einen Business-Pulse: Wie läuft das Geschäft gerade, was steht diese Woche an, und was ist der eine Punkt, um den ich mich heute kümmern sollte?"
-},
-quiz: [
-{ frage: "Was macht der Skill mit Bereichen, für die kein Tool verbunden ist?", optionen: ["Er schätzt plausible Zahlen", "Er benennt sie offen als fehlend", "Er bricht komplett ab"], richtig: 1, erklaerung: "Teil-Überblick statt erfundener Daten – fehlende Quellen werden transparent genannt." },
-{ frage: "Welche Kombination ergibt einen automatischen Wochenbericht?", optionen: ["business-pulse + schedule", "business-pulse + docx", "business-pulse + triage-nda"], richtig: 0, erklaerung: "„Schick mir jeden Montag um 8 Uhr einen Business-Pulse“ verbindet beide Skills." },
-{ frage: "Welcher Spezial-Skill liefert den reinen Wochenabschluss mit Umsatzvergleich?", optionen: ["friday-brief", "monday-brief", "cash-flow-snapshot"], richtig: 0, erklaerung: "friday-brief ist die End-of-Week-Variante; monday-brief startet die Woche, cash-flow-snapshot ist reine Liquidität." }
-],
-cheatsheet: {
-ausloeser: "„Wie läuft das Geschäft?“, „Snapshot“, „catch me up“",
-voraussetzungen: "Mindestens ein Connector (z. B. Gmail/Kalender); volles Bild mit QuickBooks, PayPal, HubSpot",
-beispielPrompt: "Gib mir einen Business-Pulse mit dem einen wichtigsten Punkt für heute."
-}
-},
-{
-id: "email-sequence",
-datum: "2026-07-05",
-titel: "E-Mail-Strecken (marketing:email-sequence)",
-kategorie: "Marketing",
-kurz: "Mehrstufige E-Mail-Kampagnen entwerfen – mit Texten, Taktung, Verzweigungen und A/B-Ideen.",
-wasErKann: "Entwirft komplette E-Mail-Abfolgen für Onboarding, Lead-Nurturing, Reaktivierung oder Produktlaunches. Geliefert werden: voller Text jeder Mail inkl. Betreff-Varianten, zeitliche Taktung (Tag 0/3/7), Verzweigungslogik („geöffnet, nicht geklickt → Variante B“), Ausstiegsbedingungen, A/B-Test-Vorschläge, Benchmark-Orientierung und auf Wunsch ein Flussdiagramm.",
-grenzen: [
-"Der Skill entwirft nur – er versendet nichts und richtet keine Automatisierung im Mail-Tool ein.",
-"Umsetzung in Mailchimp/Klaviyo/HubSpot machst du selbst.",
-"Benchmarks sind Orientierungswerte, kein Ersatz für eigene Messdaten.",
-"Je konkreter dein Briefing (Zielgruppe, Produkt, Ton), desto weniger generisch die Texte."
-],
-beispiele: [
-"Baue eine 5-teilige Onboarding-Sequenz für Neukunden meines Buchhaltungstools – Ziel: aktive Nutzung in 14 Tagen.",
-"Win-back-Strecke für Kunden, die 6 Monate nichts gekauft haben – 3 Mails, Rabatt erst in der letzten.",
-"Launch-Sequenz mit Teaser, Ankündigung und Follow-up, inkl. A/B-Ideen für Betreffzeilen.",
-"Zeig mir die Nurture-Strecke als Flussdiagramm mit allen Verzweigungen."
-],
-anwendung: "Springt an bei „E-Mail-Serie“, „Drip-Kampagne“, „Nurture-Flow“, „Onboarding-Strecke“. Nenne Ziel, Zielgruppe, Mail-Anzahl, Ton und Ausstiegsbedingung. Für Einzel-Mails ist marketing:draft-content passender.",
-uebung: {
-auftrag: "Entwirf eine kurze Sequenz für einen realen oder fiktiven Anwendungsfall aus deinem Umfeld und prüfe, ob Taktung und Ausstiegslogik schlüssig sind.",
-prompt: "Entwirf eine 3-teilige Reaktivierungs-Sequenz für Kunden, die seit 6 Monaten inaktiv sind. Freundlicher Ton, Ausstieg bei Antwort oder Kauf, Taktung über 2 Wochen, je 2 Betreff-Varianten pro Mail."
-},
-quiz: [
-{ frage: "Was tut der Skill NICHT?", optionen: ["Betreff-Varianten liefern", "Mails automatisch versenden", "Ausstiegsbedingungen definieren"], richtig: 1, erklaerung: "Er ist ein Entwurfs-Skill – Versand und Automation richtest du im Mail-Tool selbst ein." },
-{ frage: "Was bedeutet Verzweigungslogik in einer Sequenz?", optionen: ["Mehrere Absender", "Unterschiedliche Folge-Mails je nach Verhalten (z. B. geöffnet/nicht geklickt)", "Zufällige Reihenfolge"], richtig: 1, erklaerung: "Die Strecke reagiert auf Empfängerverhalten mit unterschiedlichen Varianten." },
-{ frage: "Du brauchst nur ein einzelnes Mailing. Welcher Skill passt besser?", optionen: ["marketing:draft-content", "marketing:seo-audit", "sales:forecast"], richtig: 0, erklaerung: "draft-content ist für Einzel-Inhalte; email-sequence lohnt sich erst bei Abfolgen mit Logik." }
-],
-cheatsheet: {
-ausloeser: "„E-Mail-Serie“, „Drip-Kampagne“, „Onboarding-/Win-back-Strecke“",
-voraussetzungen: "Keine Verbindungen nötig; gutes Briefing entscheidend",
-beispielPrompt: "Entwirf eine [N]-teilige [Typ]-Sequenz für [Zielgruppe]. Ziel: [Ziel]. Ton: [Ton]. Ausstieg bei: [Bedingung]."
-}
-},
-{
-id: "xlsx",
-datum: "2026-07-06",
-titel: "Excel-Tabellen (xlsx)",
-kategorie: "Office",
-kurz: "Excel-Dateien mit echten Formeln, Formatierung und Diagrammen erstellen und auswerten.",
-wasErKann: "Erstellt, liest, bearbeitet und analysiert .xlsx-Dateien: Tabellen mit echten Excel-Formeln (SUMME, SVERWEIS, WENN), Zellformatierung, mehreren Arbeitsblättern und Diagrammen. Bestehende Dateien kann Claude auswerten (Summen, Trends, Ausreißer) und gezielt verändern – ohne dass du Excel öffnest.",
-grenzen: [
-"Keine externe Verbindung nötig – läuft komplett in der Sandbox.",
-"Bestehende Dateien müssen hochgeladen oder per Ordner freigegeben sein.",
-"Makros (VBA), Power Query und Pivot-Feinheiten werden nicht unterstützt; Formeln, Formatierung, Diagramme und mehrere Blätter funktionieren zuverlässig.",
-"Ergebnis ist eine echte .xlsx – öffnest du in Excel, LibreOffice oder Google Sheets."
-],
-beispiele: [
-"Erstelle ein Haushaltsbudget 2026 mit Monatsspalten, Kategorien und Summenformeln.",
-"Werte meine Umsatzliste aus: Welche drei Produkte laufen am besten, wie ist der Monatstrend?",
-"Tilgungsplan für 20.000 € bei 5,5 % Zinsen, 48 Monate, als Excel mit Diagramm.",
-"Füge meiner Tabelle ein zweites Blatt mit Zusammenfassung und Balkendiagramm hinzu."
-],
-anwendung: "Löst aus bei „Excel“, „Tabelle“, „.xlsx“, „Budget“, „Diagramm“. Nachbesserungen per Zuruf im selben Chat: „Mach die Kopfzeile fett.“",
-uebung: {
-auftrag: "Lass dir eine kleine Tabelle mit Formeln bauen und ändere sie danach mit einem Folgeauftrag – so erlebst du den Bearbeitungszyklus.",
-prompt: "Erstelle eine Excel-Tabelle: Monatsübersicht meiner festen Ausgaben (Miete, Versicherungen, Abos) mit Summenformel und einem Balkendiagramm. Danach: Füge eine Spalte 'jährlich' hinzu, die monatlich × 12 rechnet."
-},
-quiz: [
-{ frage: "Welche Excel-Funktionalität wird NICHT unterstützt?", optionen: ["SVERWEIS-Formeln", "VBA-Makros", "Mehrere Arbeitsblätter"], richtig: 1, erklaerung: "Makros und Power Query sind ausgenommen; Formeln, Blätter, Diagramme funktionieren." },
-{ frage: "Braucht der Skill eine Verbindung wie QuickBooks?", optionen: ["Ja, immer", "Nein, er läuft lokal in der Sandbox", "Nur für Diagramme"], richtig: 1, erklaerung: "Keine Connectoren nötig – Daten kommen aus deinem Auftrag oder hochgeladenen Dateien." },
-{ frage: "Wie änderst du eine gerade erstellte Tabelle?", optionen: ["Neu anfangen", "Einfach im selben Chat nachbessern lassen", "Nur manuell in Excel"], richtig: 1, erklaerung: "„Füge eine Spalte hinzu“ genügt – die Datei wird direkt angepasst." }
-],
-cheatsheet: {
-ausloeser: "„Excel“, „Tabelle“, „.xlsx“, „Budget“, „Diagramm“",
-voraussetzungen: "Keine; für Bearbeitung Datei hochladen",
-beispielPrompt: "Erstelle eine Excel-Tabelle für [Zweck] mit Spalten [A, B, C], Summenformeln und einem Diagramm."
-}
-},
-{
-id: "artefakte",
-datum: "2026-07-08",
-titel: "Artefakte (live aktualisierte Seiten)",
-kategorie: "Automatisierung",
-kurz: "Interaktive Seiten, die gespeichert bleiben und beim Öffnen frische Daten aus deinen Tools ziehen.",
-wasErKann: "Ein Artefakt ist eine interaktive HTML-Seite in Cowork, die über die Session hinaus erhalten bleibt und bei jedem Öffnen aktuelle Daten aus verbundenen Diensten ziehen kann – etwa ein Dashboard, ein Statusbericht oder eine sortierbare Aufgabenübersicht. Aus einer einmaligen Antwort wird eine wiederverwendbare Seite.",
-grenzen: [
-"Der Mehrwert entsteht durch verbundene Connectoren – ohne Datenquelle bleibt es eine statische Seite.",
-"Zeigt den Stand beim Öffnen bzw. nach „Neu laden“ – keine Hintergrund-Updates, keine Benachrichtigungen (dafür: schedule).",
-"Anzeigefläche, kein Tool-Ersatz: komplexe Aktionen weiterhin in der App oder im Chat.",
-"Filter-/Sortiereinstellungen bleiben gespeichert."
-],
-beispiele: [
-"Bau mir eine Seite für jeden Morgen: heutige Termine plus ungelesene Mails der letzten 24 Stunden.",
-"Erstelle ein Artefakt, das meine Notion-Aufgaben als Board zeigt, sortierbar nach Fälligkeit.",
-"Mach aus dieser Tabelle ein Artefakt, das ich später mit aktuellen Daten neu laden kann.",
-"Übersichtsseite für den Drive-Ordner 'Skills' – alle Lektionen mit Datum und Link, bei jedem Öffnen aktuell."
-],
-anwendung: "Auslöser: Bitte um eine „Seite“, ein „Dashboard“, einen „Tracker“ oder eine „Übersicht zum Wiederöffnen“. Faustregel: sinnvoll, wenn du dieselbe Frage mehrfach stellen wirst und sich die Daten ändern.",
-uebung: {
-auftrag: "Erstelle dein erstes eigenes Artefakt mit echten Daten aus einem verbundenen Dienst und öffne es später erneut, um den Aktualisierungseffekt zu sehen.",
-prompt: "Erstelle mir ein Artefakt: eine Morgenübersicht mit meinen heutigen Kalenderterminen und den neuesten E-Mail-Betreffs der letzten 24 Stunden, jeweils mit Uhrzeit."
-},
-quiz: [
-{ frage: "Wodurch unterscheidet sich ein Artefakt von einer Chat-Antwort?", optionen: ["Es bleibt gespeichert und kann frische Daten laden", "Es ist immer schneller", "Es kann E-Mails versenden"], richtig: 0, erklaerung: "Persistenz plus Live-Daten beim Öffnen sind der Kern – Aktionen wie Mailversand gehören nicht dazu." },
-{ frage: "Aktualisiert sich ein Artefakt im Hintergrund von selbst?", optionen: ["Ja, minütlich", "Nein – Stand beim Öffnen bzw. nach 'Neu laden'", "Nur nachts"], richtig: 1, erklaerung: "Pull statt Push: aktuelle Daten gibt es beim Öffnen. Für feste Zeiten ist schedule zuständig." },
-{ frage: "Wann ist ein Artefakt die richtige Wahl?", optionen: ["Für einmalige Wissensfragen", "Wenn du dieselbe Frage wiederholt stellst und sich die Daten ändern", "Für das Schreiben von Verträgen"], richtig: 1, erklaerung: "Wiederkehrender Blick auf sich ändernde Daten – das ist der Einsatzzweck." }
-],
-cheatsheet: {
-ausloeser: "„Bau mir eine Seite/ein Dashboard/einen Tracker zum Wiederöffnen“",
-voraussetzungen: "Verbundene Connectoren für den Live-Effekt (z. B. Gmail, Kalender, Drive, Notion)",
-beispielPrompt: "Erstelle ein Artefakt: [Übersicht] aus [Datenquelle], sortierbar nach [Kriterium], bei jedem Öffnen aktuell."
-}
-},
-{
-id: "pptx",
-datum: "2026-07-08",
-titel: "PowerPoint-Präsentationen (pptx)",
-kategorie: "Office",
-kurz: "Foliensätze erstellen, auslesen, kombinieren – inkl. Layouts, Diagrammen und Sprechernotizen.",
-wasErKann: "Erstellt, liest und bearbeitet .pptx-Dateien: komplette Foliensätze von Grund auf (Layouts, Diagramme, Tabellen, Sprechernotizen), Inhalte bestehender Präsentationen auslesen und zusammenfassen, einzelne Folien ändern oder ergänzen, mehrere Präsentationen kombinieren oder aufteilen.",
-grenzen: [
-"Feintuning (exakte Abstände, Corporate Design) prüfst du am Ende selbst in PowerPoint.",
-"Keine Verbindungen nötig; für Ablage in Drive muss die Drive-Verbindung aktiv sein.",
-"Qualität hängt vom Briefing ab: Zielgruppe, Folienzahl, Kernbotschaften nennen.",
-"Firmen-Templates als .pptx hochladen – Claude arbeitet darin weiter."
-],
-beispiele: [
-"Erstelle eine Präsentation mit 8 Folien über unsere Quartalszahlen – Zielgruppe Geschäftsführung, nüchterner Stil.",
-"Lies die angehängte Präsentation aus und fasse die Kernaussagen pro Folie zusammen.",
-"Nimm meine Vorlage und ergänze drei Folien zum Projektstand, inkl. Sprechernotizen.",
-"Füge Folien 2–5 aus Datei A und alle aus Datei B zu einer neuen Präsentation zusammen."
-],
-anwendung: "Löst aus bei „Präsentation“, „Foliensatz“, „Slides“, „Deck“ oder jeder .pptx-Datei. Tipp: erst deep-research für die Fakten, dann pptx für den Foliensatz.",
-uebung: {
-auftrag: "Lass dir einen kleinen Foliensatz zu einem Thema bauen, das du wirklich präsentieren könntest, und prüfe das Ergebnis in PowerPoint.",
-prompt: "Erstelle eine Präsentation mit 5 Folien: 'Was Claude-Skills im Arbeitsalltag bringen' – Titelfolie, 3 Inhaltsfolien mit je einem Praxisbeispiel, Abschlussfolie. Nüchterner Business-Stil, mit Sprechernotizen."
-},
-quiz: [
-{ frage: "Was solltest du im Briefing für gute Ergebnisse nennen?", optionen: ["Nur das Thema", "Zielgruppe, Folienzahl und Kernbotschaften", "Die PowerPoint-Version"], richtig: 1, erklaerung: "Ohne diese Angaben trifft Claude Annahmen – mit ihnen sitzt der Foliensatz deutlich besser." },
-{ frage: "Wie nutzt du ein Firmen-Template?", optionen: ["Geht nicht", "Als .pptx hochladen – Claude arbeitet darin weiter", "Nur per Screenshot"], richtig: 1, erklaerung: "Die hochgeladene Vorlage wird direkt weiterbearbeitet statt bei Null zu starten." },
-{ frage: "Welche Skill-Kombination liefert substanzielle Präsentationen?", optionen: ["pptx + deep-research", "pptx + triage-nda", "pptx + schedule"], richtig: 0, erklaerung: "Erst recherchieren, dann in Folien gießen – deutlich besser als ein einzelner Prompt." }
-],
-cheatsheet: {
-ausloeser: "„Präsentation“, „Foliensatz“, „Slides“, „Deck“, .pptx-Datei",
-voraussetzungen: "Keine; Template optional als .pptx hochladen",
-beispielPrompt: "Erstelle eine Präsentation mit [N] Folien zu [Thema]. Zielgruppe: [wer]. Stil: [Ton]. Mit Sprechernotizen."
-}
-}
-,
-{
-id: "pdf",
-datum: "2026-07-24",
-titel: "PDF-Dateien (pdf)",
-kategorie: "Office",
-kurz: "PDFs erstellen, auslesen, zusammenführen, teilen, Formulare ausfüllen und durchsuchbar machen.",
-wasErKann: "Deckt praktisch den gesamten Umgang mit PDF-Dateien ab: Text und Tabellen auslesen, mehrere PDFs zu einem zusammenführen oder eines aufteilen, Seiten drehen oder löschen, Wasserzeichen setzen, neue PDFs erzeugen und Formularfelder ausfüllen. Auch verschlüsseln und entschlüsseln gehört dazu, ebenso OCR für eingescannte Dokumente, damit sie durchsuchbar werden. Das Ergebnis ist jeweils eine echte PDF-Datei zum Öffnen.",
-grenzen: [
-"Zu bearbeitende PDFs müssen hochgeladen oder in einem verbundenen Ordner liegen.",
-"OCR bei schlechten Scans (schief, blass, Handschrift) liefert nicht immer fehlerfreien Text – kurz gegenlesen.",
-"Verschlüsselte PDFs brauchen das Passwort; ohne Passwort kein Zugriff.",
-"Für tiefgreifendes Umgestalten von Layout und Design ist ein PDF ungeeignet – dann besser aus docx oder pptx neu erzeugen."
-],
-beispiele: [
-"Führe diese drei PDF-Rechnungen zu einer einzigen Datei zusammen.",
-"Lies die Tabelle aus diesem PDF aus und gib sie mir als Excel.",
-"Teile das 40-seitige PDF: Seiten 1 bis 10 als eigene Datei, den Rest als zweite.",
-"Mach diesen eingescannten Vertrag per OCR durchsuchbar und setze ein Wasserzeichen 'Entwurf' auf jede Seite."
-],
-anwendung: "Löst automatisch aus, sobald eine .pdf-Datei im Spiel ist oder du eine erzeugen willst: 'PDF zusammenführen', 'aus PDF auslesen', 'PDF teilen', 'Formular ausfüllen', 'durchsuchbar machen'. Gut kombinierbar: erst Inhalte aus einem PDF auslesen, dann mit docx oder xlsx weiterverarbeiten.",
-uebung: {
-auftrag: "Nimm zwei oder drei PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen, dann lies aus dem Ergebnis gezielt eine Information aus. So erlebst du Zusammenführen und Auslesen in einem Durchgang.",
-prompt: "Führe die angehängten PDFs in der Reihenfolge zusammen, in der ich sie hochgeladen habe, und nenne mir anschließend die Gesamtzahl der Seiten sowie die Überschrift der jeweils ersten Seite."
-},
-quiz: [
-{ frage: "Was passiert bei OCR eines schlecht eingescannten Dokuments?", optionen: ["Der Text ist immer perfekt", "Das Ergebnis kann Fehler enthalten und sollte gegengelesen werden", "OCR funktioniert nur bei Handschrift"], richtig: 1, erklaerung: "Bei blassen, schiefen oder handschriftlichen Vorlagen ist OCR nicht fehlerfrei – kurze Kontrolle lohnt sich." },
-{ frage: "Du willst das Layout eines PDF grundlegend umgestalten. Was ist sinnvoller?", optionen: ["Direkt im PDF umbauen", "Aus docx oder pptx neu erzeugen", "Gar nichts, das geht nie"], richtig: 1, erklaerung: "PDF ist ein Ausgabeformat; für tiefe Layout-Änderungen erzeugt man die Datei besser neu aus Word oder PowerPoint." },
-{ frage: "Was braucht Claude, um ein passwortgeschütztes PDF zu öffnen?", optionen: ["Nichts, Schutz wird umgangen", "Das Passwort", "Eine Internetverbindung"], richtig: 1, erklaerung: "Ohne das zugehörige Passwort lässt sich ein verschlüsseltes PDF nicht entsperren." }
-],
-cheatsheet: {
-ausloeser: "Jede .pdf-Datei oder 'PDF zusammenführen/teilen/auslesen/durchsuchbar machen/Formular ausfüllen'",
-voraussetzungen: "Zu bearbeitende Dateien hochladen oder Ordner verbinden; bei verschlüsselten PDFs das Passwort",
-beispielPrompt: "Führe die angehängten PDFs zusammen und setze auf jede Seite ein Wasserzeichen mit dem Text [Text]."
-}
-}
-,
-{
-id: "airtable-overview",
-datum: "2026-07-25",
-titel: "Airtable-Grundlagen (airtable-overview)",
-kategorie: "Airtable",
-kurz: "Verstehen, wie Airtable Daten organisiert – Bases, Tabellen, Felder, Datensätze, Ansichten – damit Claude gezielt damit arbeiten kann.",
-wasErKann: "Airtable ist eine Mischung aus Tabelle und Datenbank. Dieser Skill vermittelt Claude das nötige Verständnis des Airtable-Datenmodells: Eine Base ist wie eine Arbeitsmappe, darin liegen Tabellen, jede Tabelle hat Felder (Spalten mit festem Typ) und Datensätze (Zeilen). Dazu kommen Ansichten – gefilterte, sortierte Blickwinkel auf dieselben Daten – sowie Automationen und Interfaces. Auf dieser Grundlage kann Claude über die verbundene Airtable-Anbindung Datensätze lesen, filtern, anlegen und ändern.",
-grenzen: [
-"Reines Grundlagenwissen – konkrete Datenoperationen laufen über die Airtable-Anbindung, die autorisiert sein muss.",
-"Ohne verbundene Airtable-Verbindung kann Claude keine echten Bases sehen oder verändern.",
-"Feldtypen sind bindend: In ein Datumsfeld passt kein Freitext – der Typ bestimmt, was erlaubt ist.",
-"Für gezieltes Suchen, Filtern und Schreiben greifen eigene Hilfs-Skills (Filter, CLI, Ops-Workflows); dieser Skill erklärt vor allem das Modell."
-],
-beispiele: [
-"Erklär mir kurz den Unterschied zwischen einer Base, einer Tabelle und einer Ansicht in Airtable.",
-"Ich habe eine Airtable-Base für mein CRM – wie sollte ich Felder und Ansichten sinnvoll aufbauen?",
-"Was ist der Unterschied zwischen einer Ansicht und einer eigenen Tabelle?",
-"Zeig mir, welche Tabellen in meiner verbundenen Airtable-Base liegen."
-],
-anwendung: "Hintergrundwissen, das greift, sobald es um Airtable geht – Begriffe wie „Base“, „Tabelle“, „Datensatz“, „Ansicht“. Sinnvoll als Einstieg, bevor du mit den weiterführenden Airtable-Skills (Filter, CLI, Sales-/Product-/Marketing-Ops) echte Daten bewegst.",
-uebung: {
-auftrag: "Lass dir das Airtable-Datenmodell an einem Beispiel aus deinem Alltag erklären – etwa einer Kunden- oder Aufgabenliste – und überlege, welche Felder welchen Typ hätten.",
-prompt: "Erkläre mir das Airtable-Datenmodell am Beispiel einer einfachen Kundenliste: Was wäre die Base, was die Tabelle, welche Felder mit welchem Feldtyp, und wofür würde ich zwei verschiedene Ansichten anlegen?"
-},
-quiz: [
-{ frage: "Was entspricht in Airtable am ehesten einer Spalte?", optionen: ["Ein Datensatz", "Ein Feld", "Eine Ansicht"], richtig: 1, erklaerung: "Felder sind die Spalten mit festgelegtem Typ; Datensätze sind die Zeilen." },
-{ frage: "Was ist eine Ansicht (View)?", optionen: ["Eine Kopie der Daten in einer neuen Tabelle", "Ein gefilterter, sortierter Blick auf dieselben Daten", "Ein Export als PDF"], richtig: 1, erklaerung: "Ansichten zeigen dieselben Datensätze anders gefiltert und sortiert – ohne die Daten zu duplizieren." },
-{ frage: "Was braucht Claude, um echte Datensätze zu lesen oder zu ändern?", optionen: ["Nur den Base-Namen", "Eine autorisierte Airtable-Anbindung", "Eine Excel-Datei"], richtig: 1, erklaerung: "Ohne verbundene und autorisierte Airtable-Anbindung bleibt es bei der Theorie." }
-],
-cheatsheet: {
-ausloeser: "Alles rund um Airtable: „Base“, „Tabelle“, „Datensatz“, „Ansicht“, „Feldtyp“",
-voraussetzungen: "Für echte Datenarbeit: autorisierte Airtable-Anbindung",
-beispielPrompt: "Erkläre mir Aufbau und Datenmodell meiner Airtable-Base und schlage eine sinnvolle Feld- und Ansichtsstruktur für [Zweck] vor."
-}
-}
-,
-{
-id: "account-research",
-datum: "2026-07-26",
-titel: "Account-Recherche (sales:account-research)",
-kategorie: "Sales",
-kurz: "Firmen oder Ansprechpartner recherchieren und daraus verwertbare Vertriebs-Insights gewinnen.",
-wasErKann: "Recherchiert eine Firma oder Person und verdichtet das Ergebnis zu vertrieblich nutzbaren Erkenntnissen: Firmenprofil, Branche und Größe, aktuelle Nachrichten und mögliche Auslöser (Finanzierung, Führungswechsel, Expansion), Einordnung der Ansprechpartner und daraus abgeleitete Gesprächsaufhänger. Der Skill funktioniert eigenständig über die Websuche und wird mit angebundenen Enrichment-Tools oder deinem CRM deutlich präziser.",
-grenzen: [
-"Ohne CRM- oder Enrichment-Anbindung stützt sich die Recherche auf öffentlich Auffindbares – Interna werden nicht erfunden.",
-"Recherchierte Angaben können veraltet oder unvollständig sein; wichtige Fakten vor dem Gespräch gegenprüfen.",
-"Kontaktdaten wie direkte Durchwahlen oder Privatadressen liefert der Skill nicht.",
-"Für die konkrete Gesprächsvorbereitung mit Agenda ist sales:call-prep der passendere Folge-Skill."
-],
-beispiele: [
-"Recherchiere die Firma Müller Logistik – Profil, Größe, aktuelle News und mögliche Anknüpfungspunkte.",
-"Wer ist Anna Schmidt, CTO bei Acme Corp? Gib mir eine Einordnung fürs Erstgespräch.",
-"Intel zu einem Interessenten: Was sollte ich über [Firma] wissen, bevor ich anrufe?",
-"Erzähl mir das Wichtigste über [Firma] und nenne drei mögliche Gesprächsaufhänger."
-],
-anwendung: "Auslöser: „Recherchiere [Firma]“, „Wer ist [Name] bei [Firma]“, „Intel zu [Interessent]“, „Erzähl mir was über [Firma]“. Je klarer dein Ziel (Erstansprache, Angebot, Reaktivierung), desto zugeschnittener die Insights.",
-uebung: {
-auftrag: "Nimm eine reale Firma aus deinem Zielmarkt und lass sie recherchieren. Achte darauf, welche Teile aus öffentlichen Quellen kommen und wo eine CRM- oder Enrichment-Anbindung das Bild schärfen würde.",
-prompt: "Recherchiere die Firma [Firmenname]: Kurzprofil, Branche und Größe, aktuelle Nachrichten der letzten Monate und drei konkrete Gesprächsaufhänger für eine Erstansprache. Nenne die Quellen."
-},
-quiz: [
-{ frage: "Worauf stützt sich der Skill ohne angebundenes CRM?", optionen: ["Er erfindet plausible Interna", "Er nutzt öffentlich auffindbare Quellen per Websuche", "Er verweigert die Arbeit"], richtig: 1, erklaerung: "Standalone arbeitet er mit der Websuche; Interna werden nie erfunden, sondern nur real Auffindbares genutzt." },
-{ frage: "Welcher Folge-Skill passt für die konkrete Gesprächsvorbereitung mit Agenda?", optionen: ["sales:call-prep", "marketing:seo-audit", "legal:triage-nda"], richtig: 0, erklaerung: "account-research liefert die Insights; call-prep gießt sie in ein Briefing mit Agenda und Einwänden." },
-{ frage: "Was liefert der Skill NICHT zuverlässig?", optionen: ["Ein Firmenprofil", "Mögliche Gesprächsaufhänger", "Private Durchwahlen und Privatadressen"], richtig: 2, erklaerung: "Direkte Kontaktdaten wie Durchwahlen oder Privatadressen gehören nicht zum Ergebnis." }
-],
-cheatsheet: {
-ausloeser: "„Recherchiere [Firma]“, „Wer ist [Name] bei [Firma]“, „Intel zu [Interessent]“",
-voraussetzungen: "Keine Pflicht-Verbindungen (Websuche); präziser mit Enrichment-Tools oder CRM",
-beispielPrompt: "Recherchiere [Firma]: Profil, aktuelle News und drei Gesprächsaufhänger für [Ziel], mit Quellen."
-}
-}
-,
-{
-id: "review-contract",
-datum: "2026-07-30",
-titel: "Vertragsprüfung (legal:review-contract)",
-kategorie: "Legal",
-kurz: "Verträge Klausel für Klausel gegen die eigenen Standardpositionen prüfen – mit Redline-Vorschlägen und Verhandlungsstrategie.",
-wasErKann: "Prüft Lieferanten- oder Kundenverträge Klausel für Klausel gegen die Standardpositionen deines Unternehmens (das sogenannte Verhandlungs-Playbook) und markiert jede Abweichung. Zu jedem Fund liefert der Skill eine Einschätzung der geschäftlichen Auswirkung, konkrete Redline-Vorschläge (also Änderungsformulierungen) und auf Wunsch eine priorisierte Verhandlungsstrategie mit Rückfallpositionen. Anders als die schnelle NDA-Triage geht es hier in die Tiefe – geeignet für MSAs, SaaS-Verträge, Dienstleistungs- und Lieferverträge.",
-grenzen: [
-"Ersetzt keine Rechtsberatung – die Prüfung ist eine strukturierte Vorarbeit, die verbindliche Bewertung bleibt bei einem Juristen.",
-"Ohne hinterlegtes oder mitgeliefertes Playbook prüft der Skill gegen marktübliche Standards; firmenspezifische Positionen musst du einmalig beschreiben oder mitgeben.",
-"Der Vertrag muss vorliegen: als Upload (PDF/DOCX), eingefügter Text oder über eine eingerichtete Anbindung (z. B. DocuSign, Box) – diese muss autorisiert sein.",
-"Bei sehr langen Vertragswerken mit vielen Anlagen lohnt es sich, die Prüfung auf die kritischen Abschnitte zu fokussieren."
-],
-beispiele: [
-"Prüfe diesen SaaS-Vertrag gegen unsere Standardpositionen und markiere alle Abweichungen mit Priorität.",
-"Welche Klauseln in diesem Liefervertrag sind für uns riskant, und wie sollte ich sie umformulieren?",
-"Erstelle mir eine Verhandlungsstrategie für diesen Vertragsentwurf: Was fordern wir, wo geben wir nach, was ist unsere Rückfallposition?",
-"Vergleiche Haftung, Kündigung und Zahlungsziele in diesem Vertrag mit dem, was für uns üblich ist."
-],
-anwendung: "Auslöser: „Vertrag prüfen“, „Redlines erstellen“, „Klausel-für-Klausel-Analyse“, „Verhandlungsstrategie für diesen Vertrag“. Vertrag mitgeben und – falls vorhanden – die eigenen Standardpositionen kurz beschreiben (z. B. Haftungsobergrenze, Zahlungsziel, Kündigungsfristen). Für schnelle NDA-Einstufungen ist legal:triage-nda die schlankere Wahl.",
-uebung: {
-auftrag: "Nimm einen bestehenden Vertrag aus deinen Unterlagen (oder ein öffentliches Vertragsmuster) und lass ihn gegen drei selbst definierte Standardpositionen prüfen. So siehst du, wie Abweichungen, Auswirkung und Redline-Vorschlag zusammenspielen.",
-prompt: "Prüfe den angehängten Vertrag gegen folgende Standardpositionen: Haftung begrenzt auf den Auftragswert, Zahlungsziel 30 Tage, Kündigungsfrist maximal 3 Monate. Liste jede Abweichung mit Fundstelle, geschäftlicher Auswirkung und einem konkreten Redline-Vorschlag auf, priorisiert nach Wichtigkeit."
-},
-quiz: [
-{ frage: "Was ist ein Verhandlungs-Playbook in diesem Zusammenhang?", optionen: ["Ein Gesetzestext", "Die dokumentierten Standardpositionen des eigenen Unternehmens", "Eine Vertragsvorlage der Gegenseite"], richtig: 1, erklaerung: "Das Playbook hält fest, welche Klauselinhalte für das eigene Unternehmen akzeptabel sind – dagegen wird der Vertrag geprüft." },
-{ frage: "Was passiert, wenn du kein eigenes Playbook mitgibst?", optionen: ["Die Prüfung wird verweigert", "Es wird gegen marktübliche Standards geprüft", "Claude erfindet Firmenpositionen"], richtig: 1, erklaerung: "Ohne firmenspezifische Vorgaben dient Marktüblichkeit als Maßstab – eigene Positionen machen das Ergebnis aber deutlich treffsicherer." },
-{ frage: "Wann ist legal:triage-nda die bessere Wahl als review-contract?", optionen: ["Bei einem komplexen MSA mit vielen Anlagen", "Bei der schnellen Ampel-Einstufung eines eingehenden NDA", "Bei einer Verhandlungsstrategie mit Rückfallpositionen"], richtig: 1, erklaerung: "Die NDA-Triage ist die schlanke Vorsortierung; review-contract ist die tiefe Klausel-für-Klausel-Prüfung." }
-],
-cheatsheet: {
-ausloeser: "„Vertrag prüfen“, „Redlines erstellen“, „Verhandlungsstrategie für diesen Vertrag“",
-voraussetzungen: "Vertrag als Upload oder Text; eigene Standardpositionen mitgeben (sonst marktübliche Maßstäbe); DocuSign/Box nur mit autorisierter Anbindung",
-beispielPrompt: "Prüfe diesen Vertrag gegen unsere Positionen [Haftung/Zahlungsziel/Kündigung], liste Abweichungen mit Fundstelle und Redline-Vorschlag auf, priorisiert."
-}
-}
-,
-{
-id: "invoice-chase",
-datum: "2026-07-31",
-titel: "Offene Rechnungen nachfassen (small-business:invoice-chase)",
-kategorie: "Small Business",
-kurz: "Überfällige Rechnungen aufspüren und Zahlungserinnerungen entwerfen, deren Ton zur Zahlungshistorie des Kunden passt.",
-wasErKann: "Der Skill liest offene und überfällige Rechnungen aus QuickBooks und PayPal aus, ordnet sie nach Fälligkeit und Betrag und entwirft für jeden Kunden eine passende Zahlungserinnerung. Der Ton richtet sich nach der Zahlungshistorie: freundlich und beiläufig bei sonst zuverlässigen Kunden, spürbar verbindlicher bei wiederholt säumigen Zahlern. PayPal-Rechnungen können nach deiner ausdrücklichen Freigabe direkt über PayPal erinnert werden; für alle übrigen Rechnungen werden die Texte als Mail-Entwürfe zur Durchsicht bereitgestellt – versendet wird nichts ohne dein Okay.",
-grenzen: [
-"Braucht eine autorisierte QuickBooks- und/oder PayPal-Anbindung – ohne Datenquelle kann der Skill keine offenen Posten finden.",
-"Kein automatischer Versand: Jede Erinnerung geht erst nach deiner ausdrücklichen Freigabe raus; Nicht-PayPal-Rechnungen bleiben grundsätzlich Entwürfe.",
-"Die Tonwahl basiert auf der im System sichtbaren Zahlungshistorie – bei neuen Kunden ohne Historie fehlt diese Grundlage.",
-"Kein Inkasso und keine Rechtsdurchsetzung: Für Mahnbescheid oder Anwalt ist der Skill nicht zuständig."
-],
-beispiele: [
-"Wer schuldet mir gerade Geld? Zeig mir alle überfälligen Rechnungen.",
-"Entwirf Zahlungserinnerungen für alle Rechnungen, die mehr als 14 Tage überfällig sind.",
-"Die Rechnung an die Weber KG ist zum dritten Mal überfällig – formuliere eine deutlich verbindlichere Erinnerung.",
-"Fass mir zusammen, wie viel Geld insgesamt aussteht und welche drei Posten am dringendsten sind."
-],
-anwendung: "Springt an bei Formulierungen wie „wer schuldet mir Geld“, „überfällige Rechnungen“, „Zahlungserinnerung schreiben“ oder „offenen Posten nachgehen“. Sinnvolle Ergänzung: mit schedule einen wiederkehrenden Lauf einrichten, etwa jeden Montag die aktuelle Außenstandsliste mit fertigen Entwürfen.",
-uebung: {
-auftrag: "Lass dir deine offenen Posten auflisten und für die zwei ältesten überfälligen Rechnungen je einen Erinnerungsentwurf schreiben. Vergleiche, wie sich der Ton zwischen einem zuverlässigen und einem wiederholt säumigen Kunden unterscheidet.",
-prompt: "Zeig mir alle überfälligen Rechnungen aus QuickBooks und PayPal, sortiert nach Fälligkeit. Entwirf für die zwei ältesten Posten je eine Zahlungserinnerung – Ton passend zur bisherigen Zahlungshistorie des Kunden. Noch nichts versenden, ich schaue die Entwürfe erst durch."
-},
-quiz: [
-{ frage: "Was passiert mit Erinnerungen für Rechnungen, die nicht über PayPal laufen?", optionen: ["Sie werden automatisch versendet", "Sie werden als Mail-Entwürfe zur Durchsicht bereitgestellt", "Sie werden ignoriert"], richtig: 1, erklaerung: "Nur PayPal-Rechnungen können – nach ausdrücklicher Freigabe – direkt über PayPal erinnert werden; alles andere bleibt Entwurf." },
-{ frage: "Wovon hängt der Ton einer Zahlungserinnerung ab?", optionen: ["Von der Rechnungshöhe", "Von der Zahlungshistorie des Kunden", "Vom Wochentag"], richtig: 1, erklaerung: "Zuverlässige Kunden bekommen eine freundliche Erinnerung, wiederholt säumige Zahler eine verbindlichere." },
-{ frage: "Was braucht der Skill, um überfällige Rechnungen zu finden?", optionen: ["Eine autorisierte QuickBooks- oder PayPal-Anbindung", "Nur den Kundennamen", "Eine Excel-Liste ist zwingend"], richtig: 0, erklaerung: "Die offenen Posten kommen aus den verbundenen Systemen – ohne Anbindung fehlt die Datenquelle." }
-],
-cheatsheet: {
-ausloeser: "„Wer schuldet mir Geld?“, „überfällige Rechnungen“, „Zahlungserinnerung“",
-voraussetzungen: "Autorisierte QuickBooks- und/oder PayPal-Anbindung; Versand nur nach ausdrücklicher Freigabe",
-beispielPrompt: "Zeig mir alle überfälligen Rechnungen und entwirf passende Zahlungserinnerungen – Ton je nach Zahlungshistorie, noch nichts versenden."
-}
-}
-,
-{
-id: "campaign-plan",
-datum: "2026-08-01",
-titel: "Kampagnenplanung (marketing:campaign-plan)",
-kategorie: "Marketing",
-kurz: "Aus einem Marketingziel einen vollständigen Kampagnen-Brief machen – mit Zielgruppe, Botschaften, Kanalstrategie, Wochenplan und Erfolgsmessung.",
-wasErKann: "Übersetzt ein Marketingziel in einen ausführbaren Kampagnenplan: klar formulierte Ziele, Zielgruppenbeschreibung, Kernbotschaften, Kanalstrategie (welcher Kanal wofür), einen Woche-für-Woche-Content-Kalender inklusive Abhängigkeiten zwischen den Bausteinen sowie messbare Erfolgskriterien. Geeignet für Produktlaunches, Lead-Generierung und Awareness-Kampagnen – vom groben Ziel („mehr Anfragen im Herbst“) bis zum durchstrukturierten Brief, den ein Team oder eine Agentur direkt umsetzen kann.",
-grenzen: [
-"Der Skill plant nur – er veröffentlicht nichts, bucht keine Anzeigen und richtet keine Kampagnen in Werbe- oder Mail-Tools ein.",
-"Die einzelnen Inhalte (Posts, Mails, Landingpages) entstehen nicht hier, sondern mit Folge-Skills wie marketing:draft-content oder marketing:email-sequence.",
-"Budget- und Reichweitenannahmen sind Orientierungswerte, keine garantierten Ergebnisse – die Realität misst du selbst.",
-"Ohne konkretes Briefing (Ziel, Zielgruppe, Zeitraum, Budgetrahmen) bleibt der Plan generisch."
-],
-beispiele: [
-"Plane eine Launch-Kampagne für unser neues Produkt im Oktober – 6 Wochen, Kanäle: LinkedIn, Newsletter, Blog.",
-"Erstelle einen Kampagnen-Brief für eine Lead-Gen-Aktion im B2B-Bereich mit wöchentlichem Content-Kalender.",
-"Wir wollen im Herbst die Markenbekanntheit in der Region steigern – mach mir einen Kampagnenplan mit Erfolgskriterien.",
-"Übersetze dieses Ziel in einen Kampagnenplan: 50 qualifizierte Anfragen bis Jahresende, Budget 5.000 Euro."
-],
-anwendung: "Springt an bei „Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „Content-Kalender für eine Aktion“. Nenne mindestens Ziel und Zeitraum; deutlich besser wird der Plan mit Zielgruppe, Kanälen und Budgetrahmen. Typische Kette: erst campaign-plan für die Strategie, dann draft-content oder email-sequence für die einzelnen Inhalte, am Ende performance-report für die Auswertung.",
-uebung: {
-auftrag: "Nimm ein reales Vorhaben aus deinem Umfeld – etwa eine Aktion, die du ohnehin in den nächsten Monaten planst – und lass daraus einen vollständigen Kampagnen-Brief erstellen. Prüfe besonders, ob der Wochenplan realistisch zu deiner verfügbaren Zeit passt.",
-prompt: "Erstelle einen Kampagnen-Brief: Ziel ist [Ziel, z. B. 30 Anfragen für Dienstleistung X] im Zeitraum [Zeitraum]. Zielgruppe: [wer]. Verfügbare Kanäle: [z. B. LinkedIn, Newsletter, Website]. Budgetrahmen: [Betrag]. Liefere Ziele, Kernbotschaften, Kanalstrategie, einen Woche-für-Woche-Content-Kalender mit Abhängigkeiten und messbare Erfolgskriterien."
-},
-quiz: [
-{ frage: "Was liefert der Skill als Ergebnis?", optionen: ["Fertige Anzeigen in Google Ads", "Einen strukturierten Kampagnen-Brief mit Kalender und Erfolgskriterien", "Eine fertige Landingpage"], richtig: 1, erklaerung: "Es entsteht ein Plan-Dokument – die Umsetzung in Werbe- und Mail-Tools sowie die einzelnen Inhalte folgen in separaten Schritten." },
-{ frage: "Mit welchem Skill erstellst du anschließend die einzelnen Inhalte aus dem Plan?", optionen: ["marketing:draft-content", "legal:vendor-check", "small-business:invoice-chase"], richtig: 0, erklaerung: "campaign-plan liefert die Strategie; draft-content (oder email-sequence für Mail-Strecken) produziert die konkreten Texte." },
-{ frage: "Was passiert, wenn du nur sagst: 'Plane mir eine Kampagne'?", optionen: ["Der Plan wird trotzdem präzise", "Der Plan bleibt generisch – Ziel, Zielgruppe und Zeitraum fehlen", "Der Skill verweigert die Arbeit"], richtig: 1, erklaerung: "Ohne Briefing-Angaben muss Claude Annahmen treffen; mit Ziel, Zielgruppe, Zeitraum und Budget wird der Plan konkret umsetzbar." }
-],
-cheatsheet: {
-ausloeser: "„Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „Content-Kalender für eine Aktion“",
-voraussetzungen: "Keine Verbindungen nötig; Briefing mit Ziel, Zielgruppe, Zeitraum und Budget entscheidend",
-beispielPrompt: "Erstelle einen Kampagnen-Brief für [Ziel] im Zeitraum [Zeitraum], Zielgruppe [wer], Kanäle [welche], Budget [Betrag] – mit Wochenkalender und Erfolgskriterien."
-}
-},
-{
-id: "pipeline-review",
-datum: "2026-08-02",
-titel: "Pipeline-Review (sales:pipeline-review)",
-kategorie: "Sales",
-kurz: "Die eigene Vertriebspipeline systematisch durchleuchten: Prioritäten setzen, Risiken erkennen und einen konkreten Wochenplan ableiten.",
-wasErKann: "Der Skill analysiert die Gesundheit deiner Pipeline und macht daraus eine Arbeitsgrundlage für die Woche. Er priorisiert Deals nach Relevanz, markiert festgefahrene oder lange unbewegte Chancen und deckt Hygieneprobleme auf – etwa unrealistische Abschlussdaten oder Deals, die nur an einer einzigen Kontaktperson hängen. Am Ende steht ein priorisierter Aktionsplan: welche Deals diese Woche Aufmerksamkeit brauchen und warum. Die Daten kommen wahlweise aus einem angebundenen CRM oder aus einer selbst bereitgestellten Übersicht, etwa einem CSV-Export.",
-grenzen: [
-"Die Analyse ist nur so gut wie die Datenbasis – veraltete oder lückenhafte CRM-Einträge führen zu verzerrten Empfehlungen.",
-"Ohne CRM-Anbindung musst du die Pipeline-Daten selbst liefern, z. B. als CSV-Export oder eingefügte Tabelle.",
-"Der Skill bewertet nach Mustern (Alter, Bewegung, Stage-Dauer); Insiderwissen über einzelne Kunden – etwa eine mündliche Zusage – kennt er nicht.",
-"Er verändert nichts im CRM: Die Bereinigung markierter Hygieneprobleme bleibt deine Aufgabe oder erfordert einen separaten Auftrag."
-],
-beispiele: [
-"Mach ein Pipeline-Review: Welche Deals soll ich diese Woche priorisieren?",
-"Zeig mir alle Deals, die seit mehr als 30 Tagen keine Bewegung hatten.",
-"Prüfe meine Pipeline auf Hygieneprobleme wie überfällige Close-Dates oder fehlende nächste Schritte.",
-"Hier ist mein Pipeline-Export als CSV – analysiere, wo die größten Risiken liegen."
-],
-anwendung: "Springt an bei „Pipeline-Review“, „Pipeline durchgehen“, „welche Deals priorisieren“ oder Fragen nach festgefahrenen und veralteten Chancen. Sinnvoll als fester wöchentlicher Termin, etwa Montagmorgen vor der Vertriebswoche. Typische Kette: pipeline-review für den Überblick, danach call-prep für die priorisierten Termine und bei Bedarf forecast für die Quartalsprognose.",
-uebung: {
-auftrag: "Exportiere deine aktuelle Deal-Liste aus deinem CRM (oder schreibe fünf bis zehn laufende Vorgänge mit Stage, Wert und letztem Kontakt in eine Tabelle) und lass ein vollständiges Review erstellen. Vergleiche die Priorisierung mit deinem Bauchgefühl.",
-prompt: "Hier ist meine aktuelle Pipeline: [CSV einfügen oder Deals auflisten mit Name, Stage, Wert, letzter Kontakt, geplantes Close-Date]. Mach ein Pipeline-Review: priorisiere die Deals für diese Woche, markiere festgefahrene oder riskante Vorgänge und Hygieneprobleme, und gib mir einen konkreten Wochen-Aktionsplan."
-},
-quiz: [
-{ frage: "Was ist das Hauptergebnis eines Pipeline-Reviews?", optionen: ["Automatisch bereinigte CRM-Einträge", "Ein priorisierter Wochen-Aktionsplan mit Risiko-Flags", "Eine fertige Umsatzprognose fürs Quartal"], richtig: 1, erklaerung: "Der Skill liefert Analyse und Handlungsplan; CRM-Änderungen macht er nicht, und für die Prognose gibt es den separaten forecast-Skill." },
-{ frage: "Was gilt als typisches Hygieneproblem in der Pipeline?", optionen: ["Ein Deal mit mehreren Ansprechpartnern", "Ein überfälliges Close-Date ohne Aktualisierung", "Ein neu angelegter Deal in früher Stage"], richtig: 1, erklaerung: "Überfällige Abschlussdaten, fehlende nächste Schritte und lange unbewegte Deals sind klassische Hygiene-Flags; mehrere Ansprechpartner sind im Gegenteil ein gutes Zeichen." },
-{ frage: "Wie nutzt du den Skill ohne CRM-Anbindung?", optionen: ["Gar nicht – ein CRM ist Pflicht", "Pipeline-Daten selbst mitliefern, z. B. als CSV-Export", "Der Skill erfindet plausible Beispieldaten"], richtig: 1, erklaerung: "Der Skill arbeitet auch mit selbst bereitgestellten Daten; ein angebundenes CRM macht es nur bequemer und aktueller." }
-],
-cheatsheet: {
-ausloeser: "„Pipeline-Review“, „welche Deals priorisieren“, „festgefahrene Deals“, „Pipeline-Hygiene“",
-voraussetzungen: "Pipeline-Daten nötig: angebundenes CRM oder eigener Export (CSV/Tabelle); keine Schreibrechte erforderlich",
-beispielPrompt: "Mach ein Pipeline-Review auf Basis dieser Daten: [Export einfügen] – Prioritäten für die Woche, Risiko-Flags und Hygieneprobleme bitte getrennt ausweisen."
-}
-},
-{
-  id: "plugins-connectoren",
-  datum: "2026-08-03",
-  titel: "Plugins & Connectoren: Claude mit deinen Tools verbinden",
-  kategorie: "Automatisierung",
-  kurz: "Plugins bündeln fertige Skills und Connectoren, über die Claude direkt mit Diensten wie Gmail, Google Kalender, HubSpot oder Airtable arbeitet.",
-  wasErKann: "Ein Connector (technisch: MCP-Server) verbindet Claude mit einem externen Dienst, sodass es dort lesen und – nach deiner Freigabe – auch schreiben kann: E-Mails durchsuchen, Kalendertermine anlegen, CRM-Einträge aktualisieren oder Airtable-Datensätze pflegen. Plugins gehen einen Schritt weiter: Sie sind installierbare Pakete, die passende Connectoren und fertige Skills für einen Aufgabenbereich kombinieren, etwa Sales, Legal, Marketing oder Small Business. Nach der Installation stehen die Skills automatisch bereit und greifen auf die verbundenen Dienste zu. Plugins werden über Marketplaces gefunden und installiert.",
-  grenzen: [
-    "Jeder Connector muss einmalig autorisiert werden (meist per OAuth-Anmeldung); ohne diese Freigabe bleibt der Dienst für Claude unerreichbar – auch wenn das Plugin installiert ist.",
-    "Es gibt nicht für jeden Dienst einen Connector; die Auswahl hängt vom Registry-Angebot ab, Nischen-Tools fehlen teils komplett.",
-    "Connectoren können weniger Funktionen bieten als die Weboberfläche des Dienstes – manche Aktionen bleiben dem Nutzer vorbehalten.",
-    "Schreibende Aktionen (Senden, Löschen, Buchen) erfordern in der Regel deine ausdrückliche Bestätigung – das ist Absicht, kein Fehler."
-  ],
-  beispiele: [
-    "Welche Connectoren gibt es für Projektmanagement? Schlag mir passende vor.",
-    "Durchsuche meine Gmail-Threads der letzten Woche nach offenen Kundenanfragen.",
-    "Installiere das Sales-Plugin und zeig mir, welche Skills es mitbringt.",
-    "Lege aus dieser E-Mail einen Termin in meinem Google Kalender an."
-  ],
-  anwendung: "Immer dann, wenn eine Aufgabe Daten aus einem externen Dienst braucht: E-Mail, Kalender, CRM, Buchhaltung, Datenbanken. Frag Claude direkt nach einem Connector für dein Tool – es durchsucht die Registry und schlägt passende Verbindungen vor. Plugins lohnen sich, wenn du regelmäßig in einem Bereich arbeitest und gleich ein ganzes Skill-Paket statt Einzelbausteinen willst.",
-  uebung: {
-    auftrag: "Finde heraus, welche Connectoren für ein Tool verfügbar sind, das du täglich nutzt, und lass dir erklären, was Claude damit könnte.",
-    prompt: "Ich nutze täglich [Tool-Name, z. B. Notion]. Gibt es dafür einen Connector? Erkläre mir kurz, was du damit lesen und schreiben könntest und welche Freigaben ich erteilen müsste."
-  },
-  quiz: [
-    {
-      frage: "Was ist der Unterschied zwischen einem Connector und einem Plugin?",
-      optionen: [
-        "Ein Connector verbindet Claude mit einem einzelnen Dienst; ein Plugin ist ein Paket aus Connectoren und Skills für einen Aufgabenbereich.",
-        "Plugins sind kostenpflichtig, Connectoren kostenlos.",
-        "Es gibt keinen Unterschied, die Begriffe sind austauschbar."
+  {
+    id: "schedule",
+    datum: "2026-07-01",
+    titel: "Geplante Aufgaben (schedule)",
+    kategorie: "Automatisierung",
+    kurz: "Claude Aufgaben automatisch zu festen Zeiten oder wiederkehrend ausführen lassen.",
+    wasErKann: "Mit diesem Skill führt Claude Aufgaben selbstständig zu einem bestimmten Zeitpunkt oder in festem Rhythmus aus – täglich, wöchentlich, stündlich oder einmalig in der Zukunft („in einer Stunde“, „morgen um 15 Uhr“). Technisch steckt ein Cron-Zeitplan dahinter, du formulierst aber einfach in normaler Sprache.",
+    grenzen: [
+      "Die Aufgabe läuft nur, wenn der Dienst zum geplanten Zeitpunkt erreichbar ist – verpasste Läufe werden beim nächsten Start nachgeholt.",
+      "Kein Weckdienst per SMS: Ergebnisse landen im Chat (oder dort, wohin die Aufgabe sie ablegt).",
+      "Bestehende Aufgaben lassen sich jederzeit ändern oder auflisten."
       ],
-      richtig: 0,
-      erklaerung: "Der Connector ist die technische Verbindung zu einem Dienst (per MCP), das Plugin das installierbare Gesamtpaket aus Connectoren, Skills und Tools."
+    beispiele: [
+      "Gib mir jeden Morgen um 7 Uhr eine Zusammenfassung der wichtigsten Tech-News.",
+      "Fasse jeden Freitagnachmittag meine ungelesenen wichtigen E-Mails zusammen.",
+      "Erinnere mich in zwei Stunden daran, die Rechnung zu verschicken.",
+      "Welche geplanten Aufgaben habe ich gerade?"
+      ],
+    anwendung: "Auslöser ist jede Zeitangabe im Auftrag: „jeden Tag“, „jeden Montag“, „um 8 Uhr“, „in einer Stunde“. Ändern geht per Zuruf: „Verschieb das Briefing auf 9 Uhr.“",
+    uebung: {
+      auftrag: "Richte eine einmalige Testaufgabe ein und lösche sie danach wieder. So lernst du Anlegen, Auflisten und Entfernen in einem Durchgang.",
+      prompt: "Erinnere mich in 30 Minuten daran, ein Glas Wasser zu trinken. Liste mir danach alle meine geplanten Aufgaben auf."
     },
-    {
-      frage: "Was passiert, wenn ein Plugin installiert, der Connector aber nicht autorisiert ist?",
-      optionen: [
-        "Claude greift trotzdem auf den Dienst zu.",
-        "Die Skills sind da, aber der Dienst bleibt unerreichbar, bis du die Anmeldung freigibst.",
-        "Das Plugin deinstalliert sich automatisch."
+    quiz: [
+      { frage: "Was passiert, wenn die App zum geplanten Zeitpunkt geschlossen ist?", optionen: ["Die Aufgabe entfällt ersatzlos", "Die Aufgabe wird beim nächsten Start nachgeholt", "Claude ruft dich an"], richtig: 1, erklaerung: "Verpasste Läufe werden nachgeholt, sobald der Dienst wieder erreichbar ist." },
+      { frage: "Wie richtest du eine wiederkehrende Aufgabe ein?", optionen: ["Mit Cron-Syntax wie '0 7 * * *'", "In normaler Sprache mit Zeitangabe", "Nur über die Einstellungen"], richtig: 1, erklaerung: "Du formulierst einfach z. B. „jeden Morgen um 7 Uhr“ – die Cron-Übersetzung übernimmt Claude." },
+      { frage: "Wo landen die Ergebnisse eines geplanten Laufs?", optionen: ["Per SMS auf dem Handy", "Im Chat bzw. am definierten Ablageort", "Nirgends, sie müssen abgeholt werden"], richtig: 1, erklaerung: "Es ist kein Benachrichtigungsdienst – die Ergebnisse erscheinen im Chat oder werden z. B. in Drive abgelegt." }
       ],
-      richtig: 1,
-      erklaerung: "Die Autorisierung (meist OAuth) ist eine eigene, bewusste Freigabe durch dich – ohne sie liefert der Connector keine Daten."
-    },
-    {
-      frage: "Wie findest du heraus, ob es für dein Tool einen Connector gibt?",
-      optionen: [
-        "Nur über die Website des Tool-Herstellers.",
-        "Gar nicht, die Liste ist nicht einsehbar.",
-        "Claude direkt fragen – es durchsucht die Connector-Registry und schlägt Treffer vor."
-      ],
-      richtig: 2,
-      erklaerung: "Claude kann die Registry selbst durchsuchen und passende Connectoren direkt zur Installation vorschlagen."
+    cheatsheet: {
+      ausloeser: "Jede Zeitangabe: „jeden Tag“, „jeden Montag um 8“, „in einer Stunde“",
+      voraussetzungen: "Keine – funktioniert ohne Verbindungen",
+      beispielPrompt: "Fasse mir jeden Freitag um 16 Uhr die Woche zusammen: wichtige Mails, anstehende Termine der Folgewoche."
     }
-  ],
-  cheatsheet: {
-    ausloeser: "Aufgaben, die externe Dienste betreffen: „durchsuche meine Mails“, „gibt es einen Connector für …“, „installiere das …-Plugin“",
-    voraussetzungen: "Cowork oder Claude Code; einmalige Autorisierung je Dienst (z. B. Google-, HubSpot- oder Airtable-Login)",
-    beispielPrompt: "Ich nutze täglich Notion. Gibt es dafür einen Connector? Erkläre mir, was du damit könntest und welche Freigaben nötig wären."
+  },
+  {
+    id: "deep-research",
+    datum: "2026-07-01",
+    titel: "Tiefenrecherche (deep-research)",
+    kategorie: "Recherche",
+    kurz: "Systematische Mehrquellen-Recherche mit Prüfschritt und belegtem Bericht.",
+    wasErKann: "Statt einmal zu suchen, zerlegt Claude deine Frage in Teilaspekte, führt viele parallele Web-Suchen durch, liest die Quellen, prüft Aussagen gegeneinander und liefert einen strukturierten Bericht mit Quellenangaben. Das dauert länger als eine normale Antwort – dafür ist das Ergebnis belastbarer.",
+    grenzen: [
+      "Braucht funktionierenden Web-Zugriff.",
+      "Keine Garantie für Fehlerfreiheit – Quellen können falsch sein, sind aber transparent nachprüfbar.",
+      "Bei sehr frischen Ereignissen (wenige Stunden alt) ist die Quellenlage oft noch dünn.",
+      "Für schnelle Faktenfragen überdimensioniert."
+      ],
+    beispiele: [
+      "Mach eine Tiefenrecherche: Welche Wärmepumpe lohnt sich 2026 für ein Einfamilienhaus Baujahr 1990 – mit Förderlage und Betriebskosten?",
+      "Recherchiere gründlich den Forschungsstand zu Kreatin bei Ausdauersport, mit Quellen.",
+      "Vergleiche die drei größten Anbieter für X hinsichtlich Preis, Datenschutz und Vertragsbindung – belegter Bericht.",
+      "Fundierter Überblick über die rechtliche Lage zu privaten Drohnenflügen in Österreich."
+      ],
+    anwendung: "Auslöser: „Tiefenrecherche“, „recherchiere gründlich“, „Bericht mit Quellen“. Je präziser die Frage (Budget, Einsatzzweck, Region gleich mitliefern), desto besser das Ergebnis.",
+    uebung: {
+      auftrag: "Starte eine Tiefenrecherche zu einem Thema, das dich gerade real beschäftigt. Achte darauf, wie Claude nachfragt bzw. wie der Bericht Quellen ausweist.",
+      prompt: "Mach eine Tiefenrecherche: Was sind die aktuell besten Möglichkeiten, ein kleines Unternehmen in Deutschland gegen Cyberrisiken zu versichern? Vergleiche Anbieter, typische Kosten und Ausschlüsse, mit Quellen."
+    },
+    quiz: [
+      { frage: "Worin unterscheidet sich die Tiefenrecherche von einer normalen Frage?", optionen: ["Sie nutzt eine bessere Suchmaschine", "Sie arbeitet breiter, mit Prüfschritt und Quellenbericht", "Sie ist schneller"], richtig: 1, erklaerung: "Kern ist das systematische Vorgehen: Teilfragen, viele Quellen, Gegencheck, belegter Bericht." },
+      { frage: "Wofür ist der Skill NICHT gedacht?", optionen: ["Kaufentscheidungen", "Marktvergleiche", "Schnelle Faktenfragen wie 'Wie hoch ist der Eiffelturm?'"], richtig: 2, erklaerung: "Einfache Fakten beantwortet der normale Chat schneller und genauso gut." },
+      { frage: "Deine Frage ist noch vage ('Welches Auto soll ich kaufen?'). Was passiert?", optionen: ["Claude rät einfach", "Claude fragt nach Budget, Einsatzzweck, Region", "Die Recherche wird abgebrochen"], richtig: 1, erklaerung: "Gezielte Rückfragen sind beabsichtigt und verbessern das Ergebnis spürbar." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Mach eine Tiefenrecherche“, „recherchiere gründlich“, „Bericht mit Quellen“",
+      voraussetzungen: "Web-Zugriff; präzise Fragestellung mit Kontext",
+      beispielPrompt: "Mach eine Tiefenrecherche zu [Thema]. Kontext: [Budget/Region/Zweck]. Ergebnis als strukturierter Bericht mit Quellen."
+    }
+  },
+  {
+    id: "docx",
+    datum: "2026-07-02",
+    titel: "Word-Dokumente (docx)",
+    kategorie: "Office",
+    kurz: "Echte Word-Dateien erstellen, lesen und bearbeiten – inkl. Formatierung und Änderungsverfolgung.",
+    wasErKann: "Erstellt, liest und bearbeitet .docx-Dateien: Berichte, Briefe, Memos, Verträge, Vorlagen – mit Überschriften, Inhaltsverzeichnis, Tabellen, Kopf-/Fußzeilen und Seitenzahlen. Bestehende Dokumente kann Claude ändern: Suchen/Ersetzen, Umstrukturieren, Bilder tauschen, Tracked Changes und Kommentare.",
+    grenzen: [
+      "Nur für .docx – für PDF, Excel, PowerPoint gibt es eigene Skills.",
+      "Zu bearbeitende Dateien müssen hochgeladen oder in einem verbundenen Ordner liegen; Google-Docs-Dateien sind kein .docx.",
+      "Sehr aufwendige Layouts stoßen an Grenzen; für Geschäftsdokumente reicht es in der Regel.",
+      "Endkontrolle in Word bleibt sinnvoll, besonders bei rechtlich relevanten Texten."
+      ],
+    beispiele: [
+      "Erstelle einen Projektbericht als Word-Dokument mit Inhaltsverzeichnis und Seitenzahlen – Thema: Quartalsergebnisse Q2.",
+      "Ersetze in diesem Vertragsentwurf überall 'Muster GmbH' durch 'Reacher Consulting' und passe das Datum an.",
+      "Lies das angehängte Word-Dokument und fasse die Kernpunkte zusammen.",
+      "Baue eine wiederverwendbare Briefvorlage mit Briefkopf."
+      ],
+    anwendung: "Löst automatisch aus bei „Word-Dokument“, „.docx“, „Bericht als Word-Datei“, „Memo“, „Briefvorlage“. Ergebnis kommt als fertige .docx zum Öffnen.",
+    uebung: {
+      auftrag: "Lass dir ein kleines, aber vollständig formatiertes Word-Dokument bauen und öffne es anschließend in Word, um das Ergebnis zu prüfen.",
+      prompt: "Erstelle mir ein einseitiges Word-Dokument: eine Checkliste für die Vorbereitung eines Kundentermins, mit Titel, kurzer Einleitung und einer Tabelle (Punkt / erledigt / Notiz)."
+    },
+    quiz: [
+      { frage: "Du willst eine Google-Docs-Datei aus Drive bearbeiten lassen. Geht das direkt?", optionen: ["Ja, problemlos", "Nein – sie müsste erst als .docx vorliegen", "Nur mit Premium"], richtig: 1, erklaerung: "Google Docs ist ein eigenes Format; der Skill arbeitet mit echten .docx-Dateien." },
+      { frage: "Welche Funktion beherrscht der Skill bei bestehenden Dokumenten?", optionen: ["Suchen/Ersetzen und Tracked Changes", "Makros programmieren", "Dateien verschlüsseln"], richtig: 0, erklaerung: "Ersetzen, Umstrukturieren, Kommentare und Änderungsverfolgung gehören zum Kern." },
+      { frage: "Was ist der sinnvollste letzte Schritt bei einem Vertragsdokument?", optionen: ["Direkt versenden", "Endkontrolle in Word", "Als PDF drucken"], richtig: 1, erklaerung: "Gerade bei rechtlich relevanten Texten gehört die eigene Endkontrolle dazu." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Word-Dokument“, „.docx“, „Memo“, „Bericht als Word-Datei“",
+      voraussetzungen: "Für Bearbeitung: Datei hochladen oder Ordner verbinden",
+      beispielPrompt: "Erstelle einen zweiseitigen Bericht als Word-Dokument zu [Thema], mit Inhaltsverzeichnis, Überschriften und Seitenzahlen."
+    }
+  },
+  {
+    id: "call-prep",
+    datum: "2026-07-02",
+    titel: "Gesprächsvorbereitung (sales:call-prep)",
+    kategorie: "Sales",
+    kurz: "Strukturiertes Briefing vor Kundengesprächen: Firmenprofil, Teilnehmer, Agenda, Einwände.",
+    wasErKann: "Bereitet dich in Minuten auf ein Kundengespräch vor: Firmenprofil, Kurzporträts der Teilnehmer, bisherige Historie, aktuelle News, Agenda-Vorschlag, passende Fragen und wahrscheinliche Einwände mit Antwortideen. Das Briefing passt sich dem Gesprächstyp an (Erstgespräch, Demo, Verhandlung, Check-in).",
+    grenzen: [
+      "Funktioniert ohne verbundene Tools (per Websuche), wird aber deutlich stärker mit Kalender, Gmail und CRM.",
+      "Ohne Historie bleibt das Briefing auf öffentlich Recherchierbares beschränkt – Interna werden nicht erfunden.",
+      "CRM- und Transkript-Anbindungen (z. B. HubSpot, Fireflies) müssen autorisiert sein, um genutzt zu werden."
+      ],
+    beispiele: [
+      "Bereite mich auf mein Gespräch mit der Müller GmbH morgen vor.",
+      "Donnerstag Preisverhandlung mit dem Einkaufsleiter von Firma X – mach mir ein Briefing.",
+      "Call prep Acme Corp – Discovery Call, Teilnehmer: Anna Schmidt (CTO), Ben Weber (Head of IT).",
+      "Hier meine Notizen vom letzten Gespräch – bereite mich auf das Folgegespräch vor."
+      ],
+    anwendung: "Auslöser: „Bereite mich auf das Meeting mit … vor“ oder Nennung eines Kundentermins mit Bitte um Vorbereitung. Mindestangaben: Firma und Gesprächstyp; hilfreich: Teilnehmer, dein Ziel, bekannte Bedenken.",
+    uebung: {
+      auftrag: "Nimm einen echten anstehenden Termin (oder denk dir einen realistischen aus) und lass dir ein Briefing erstellen. Prüfe, welche Teile ohne CRM-Anbindung gefüllt werden können.",
+      prompt: "Bereite mich auf ein Erstgespräch mit [Firmenname] nächste Woche vor. Mein Ziel: herausfinden, ob unser Angebot passt. Teilnehmer: [Name, Rolle]. Erstelle Briefing mit Firmenprofil, Fragenkatalog und möglichen Einwänden."
+    },
+    quiz: [
+      { frage: "Was sind die Mindestangaben für ein brauchbares Briefing?", optionen: ["Nur der Firmenname", "Firmenname und Gesprächstyp", "Vollständige CRM-Historie"], richtig: 1, erklaerung: "Firma plus Gesprächstyp (Erstgespräch, Demo, Verhandlung, Check-in) reichen zum Start." },
+      { frage: "Was macht der Skill, wenn kein CRM verbunden ist?", optionen: ["Er verweigert die Arbeit", "Er erfindet plausible Interna", "Er nutzt Websuche und deine Angaben"], richtig: 2, erklaerung: "Ohne Anbindungen arbeitet er mit öffentlichen Quellen und dem, was du mitgibst – Interna werden nie erfunden." },
+      { frage: "Welcher Skill passt für die NACHbereitung eines Gesprächs?", optionen: ["sales:call-summary", "sales:forecast", "legal:brief"], richtig: 0, erklaerung: "call-summary extrahiert Aktionspunkte, entwirft die Follow-up-Mail und die CRM-Notiz." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Prep me for my call with …“ / „Bereite mich auf das Meeting mit … vor“",
+      voraussetzungen: "Keine Pflicht-Verbindungen; stärker mit Kalender, Gmail, CRM",
+      beispielPrompt: "Bereite mich auf [Gesprächstyp] mit [Firma] vor. Ziel: [Ziel]. Teilnehmer: [Namen/Rollen]."
+    }
+  },
+  {
+    id: "triage-nda",
+    datum: "2026-07-04",
+    titel: "NDA-Triage (legal:triage-nda)",
+    kategorie: "Legal",
+    kurz: "Eingehende Geheimhaltungsvereinbarungen nach Ampelsystem einstufen: grün, gelb, rot.",
+    wasErKann: "Prüft ein eingehendes NDA und stuft es ein: GRÜN (Standard, kann nach üblichen Regeln unterschrieben werden), GELB (Abweichungen, die ein Jurist ansehen sollte), ROT (kritische Klauseln, volle rechtliche Prüfung nötig). Geachtet wird auf versteckte Abwerbeverbote, Wettbewerbsverbote, fehlende Vertraulichkeits-Ausnahmen, überlange Laufzeiten und einseitige Pflichten – jeweils mit Fundstelle und Begründung.",
+    grenzen: [
+      "Ersetzt keine Rechtsberatung – es ist eine Vorsortierung für die Entscheidung: selbst freigeben oder zum Anwalt.",
+      "Keine Pflicht-Verbindungen: Datei (PDF/DOCX) hochladen oder Text einfügen genügt.",
+      "Abruf aus DocuSign o. Ä. nur mit eingerichteter Verbindung."
+      ],
+    beispiele: [
+      "Hier ist ein NDA von einem neuen Lieferanten – triagiere es: Kann ich einfach unterschreiben?",
+      "Prüf dieses NDA auf versteckte Non-Solicits oder Wettbewerbsverbote.",
+      "Ein Interessent hat uns sein Standard-NDA geschickt. Stufe es ein: grün, gelb oder rot?",
+      "Fehlen in diesem NDA die üblichen Ausnahmen von der Geheimhaltungspflicht?"
+      ],
+    anwendung: "Auslöser: jede Formulierung rund um ein eingehendes NDA – „NDA prüfen“, „kann ich das unterschreiben?“. Dokument als Upload oder eingefügten Text mitgeben.",
+    uebung: {
+      auftrag: "Suche dir ein beliebiges NDA (z. B. ein altes aus deinen Unterlagen oder ein öffentliches Muster) und lass es triagieren. Achte auf die Fundstellen in der Begründung.",
+      prompt: "Triagiere das folgende NDA nach dem Ampelsystem (grün/gelb/rot). Nenne jede Abweichung mit Fundstelle und gib eine klare Empfehlung: selbst freigeben, nachverhandeln oder Anwaltsprüfung. [NDA-Text hier einfügen oder Datei anhängen]"
+    },
+    quiz: [
+      { frage: "Was bedeutet die Einstufung GELB?", optionen: ["Sofort unterschreiben", "Abweichungen, die ein Jurist ansehen sollte", "Vertrag vernichten"], richtig: 1, erklaerung: "Gelb heißt: kein Standardfall, aber auch nicht kritisch – juristischer Blick empfohlen." },
+      { frage: "Auf welche versteckte Klausel achtet der Skill besonders?", optionen: ["Farbe des Logos", "Abwerbeverbote (Non-Solicits)", "Rechtschreibfehler"], richtig: 1, erklaerung: "Non-Solicits und Non-Competes verstecken sich oft in NDAs und gehen über reine Geheimhaltung hinaus." },
+      { frage: "Was ersetzt die Triage NICHT?", optionen: ["Das Lesen des Vertrags durch Claude", "Eine Rechtsberatung", "Das Ampelsystem"], richtig: 1, erklaerung: "Die Triage ist eine Vorsortierung – die verbindliche rechtliche Bewertung bleibt beim Anwalt." }
+      ],
+    cheatsheet: {
+      ausloeser: "„NDA prüfen/einstufen“, „kann ich das unterschreiben?“",
+      voraussetzungen: "Nur das Dokument (Upload oder Text) – keine Verbindungen nötig",
+      beispielPrompt: "Triagiere dieses NDA (grün/gelb/rot), nenne Abweichungen mit Fundstelle und gib eine Empfehlung. [Datei/Text]"
+    }
+  },
+  {
+    id: "business-pulse",
+    datum: "2026-07-05",
+    titel: "Geschäfts-Snapshot (business-pulse)",
+    kategorie: "Small Business",
+    kurz: "Einseitiger Gesamtüberblick: Kasse, Umsatz, Pipeline, Woche, Watch-List – auf Zuruf.",
+    wasErKann: "Erstellt einen kompakten Überblick über dein Geschäft in sechs Blöcken: Kassenstand (QuickBooks), Umsatztrend (PayPal/Square), Pipeline (HubSpot), Termine der Woche (Kalender), dringende Punkte aus Mail/Chat (Gmail/Slack) und als Fazit den einen Punkt, der heute Aufmerksamkeit braucht. Er arbeitet mit dem, was verbunden ist, und benennt offen, welche Bereiche fehlen.",
+    grenzen: [
+      "Ohne Verbindungen liefert der Skill wenig – mindestens ein Connector sollte aktiv sein.",
+      "Er erfindet keine Zahlen für nicht verbundene Systeme.",
+      "Für das volle Bild müssen QuickBooks, PayPal/Square/Stripe und HubSpot autorisiert sein."
+      ],
+    beispiele: [
+      "Wie läuft das Geschäft gerade? Gib mir einen Snapshot.",
+      "Catch me up – was habe ich diese Woche verpasst?",
+      "Erstell mir eine Wochenzusammenfassung fürs Geschäft, Stand heute.",
+      "Was ist heute das Wichtigste, um das ich mich kümmern sollte?"
+      ],
+    anwendung: "Springt automatisch an bei Fragen zum Geschäftszustand: „Snapshot“, „Wochenzusammenfassung“, „was übersehe ich gerade“. Gut kombinierbar mit schedule: „Schick mir jeden Montag um 8 Uhr einen Business-Pulse.“",
+    uebung: {
+      auftrag: "Fordere einen Snapshot an und beobachte, welche Blöcke mit deinen aktuellen Verbindungen gefüllt werden – und welche als fehlend ausgewiesen sind.",
+      prompt: "Gib mir einen Business-Pulse: Wie läuft das Geschäft gerade, was steht diese Woche an, und was ist der eine Punkt, um den ich mich heute kümmern sollte?"
+    },
+    quiz: [
+      { frage: "Was macht der Skill mit Bereichen, für die kein Tool verbunden ist?", optionen: ["Er schätzt plausible Zahlen", "Er benennt sie offen als fehlend", "Er bricht komplett ab"], richtig: 1, erklaerung: "Teil-Überblick statt erfundener Daten – fehlende Quellen werden transparent genannt." },
+      { frage: "Welche Kombination ergibt einen automatischen Wochenbericht?", optionen: ["business-pulse + schedule", "business-pulse + docx", "business-pulse + triage-nda"], richtig: 0, erklaerung: "„Schick mir jeden Montag um 8 Uhr einen Business-Pulse“ verbindet beide Skills." },
+      { frage: "Welcher Spezial-Skill liefert den reinen Wochenabschluss mit Umsatzvergleich?", optionen: ["friday-brief", "monday-brief", "cash-flow-snapshot"], richtig: 0, erklaerung: "friday-brief ist die End-of-Week-Variante; monday-brief startet die Woche, cash-flow-snapshot ist reine Liquidität." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Wie läuft das Geschäft?“, „Snapshot“, „catch me up“",
+      voraussetzungen: "Mindestens ein Connector (z. B. Gmail/Kalender); volles Bild mit QuickBooks, PayPal, HubSpot",
+      beispielPrompt: "Gib mir einen Business-Pulse mit dem einen wichtigsten Punkt für heute."
+    }
+  },
+  {
+    id: "email-sequence",
+    datum: "2026-07-05",
+    titel: "E-Mail-Strecken (marketing:email-sequence)",
+    kategorie: "Marketing",
+    kurz: "Mehrstufige E-Mail-Kampagnen entwerfen – mit Texten, Taktung, Verzweigungen und A/B-Ideen.",
+    wasErKann: "Entwirft komplette E-Mail-Abfolgen für Onboarding, Lead-Nurturing, Reaktivierung oder Produktlaunches. Geliefert werden: voller Text jeder Mail inkl. Betreff-Varianten, zeitliche Taktung (Tag 0/3/7), Verzweigungslogik („geöffnet, nicht geklickt → Variante B“), Ausstiegsbedingungen, A/B-Test-Vorschläge, Benchmark-Orientierung und auf Wunsch ein Flussdiagramm.",
+    grenzen: [
+      "Der Skill entwirft nur – er versendet nichts und richtet keine Automatisierung im Mail-Tool ein.",
+      "Umsetzung in Mailchimp/Klaviyo/HubSpot machst du selbst.",
+      "Benchmarks sind Orientierungswerte, kein Ersatz für eigene Messdaten.",
+      "Je konkreter dein Briefing (Zielgruppe, Produkt, Ton), desto weniger generisch die Texte."
+      ],
+    beispiele: [
+      "Baue eine 5-teilige Onboarding-Sequenz für Neukunden meines Buchhaltungstools – Ziel: aktive Nutzung in 14 Tagen.",
+      "Win-back-Strecke für Kunden, die 6 Monate nichts gekauft haben – 3 Mails, Rabatt erst in der letzten.",
+      "Launch-Sequenz mit Teaser, Ankündigung und Follow-up, inkl. A/B-Ideen für Betreffzeilen.",
+      "Zeig mir die Nurture-Strecke als Flussdiagramm mit allen Verzweigungen."
+      ],
+    anwendung: "Springt an bei „E-Mail-Serie“, „Drip-Kampagne“, „Nurture-Flow“, „Onboarding-Strecke“. Nenne Ziel, Zielgruppe, Mail-Anzahl, Ton und Ausstiegsbedingung. Für Einzel-Mails ist marketing:draft-content passender.",
+    uebung: {
+      auftrag: "Entwirf eine kurze Sequenz für einen realen oder fiktiven Anwendungsfall aus deinem Umfeld und prüfe, ob Taktung und Ausstiegslogik schlüssig sind.",
+      prompt: "Entwirf eine 3-teilige Reaktivierungs-Sequenz für Kunden, die seit 6 Monaten inaktiv sind. Freundlicher Ton, Ausstieg bei Antwort oder Kauf, Taktung über 2 Wochen, je 2 Betreff-Varianten pro Mail."
+    },
+    quiz: [
+      { frage: "Was tut der Skill NICHT?", optionen: ["Betreff-Varianten liefern", "Mails automatisch versenden", "Ausstiegsbedingungen definieren"], richtig: 1, erklaerung: "Er ist ein Entwurfs-Skill – Versand und Automation richtest du im Mail-Tool selbst ein." },
+      { frage: "Was bedeutet Verzweigungslogik in einer Sequenz?", optionen: ["Mehrere Absender", "Unterschiedliche Folge-Mails je nach Verhalten (z. B. geöffnet/nicht geklickt)", "Zufällige Reihenfolge"], richtig: 1, erklaerung: "Die Strecke reagiert auf Empfängerverhalten mit unterschiedlichen Varianten." },
+      { frage: "Du brauchst nur ein einzelnes Mailing. Welcher Skill passt besser?", optionen: ["marketing:draft-content", "marketing:seo-audit", "sales:forecast"], richtig: 0, erklaerung: "draft-content ist für Einzel-Inhalte; email-sequence lohnt sich erst bei Abfolgen mit Logik." }
+      ],
+    cheatsheet: {
+      ausloeser: "„E-Mail-Serie“, „Drip-Kampagne“, „Onboarding-/Win-back-Strecke“",
+      voraussetzungen: "Keine Verbindungen nötig; gutes Briefing entscheidend",
+      beispielPrompt: "Entwirf eine [N]-teilige [Typ]-Sequenz für [Zielgruppe]. Ziel: [Ziel]. Ton: [Ton]. Ausstieg bei: [Bedingung]."
+    }
+  },
+  {
+    id: "xlsx",
+    datum: "2026-07-06",
+    titel: "Excel-Tabellen (xlsx)",
+    kategorie: "Office",
+    kurz: "Excel-Dateien mit echten Formeln, Formatierung und Diagrammen erstellen und auswerten.",
+    wasErKann: "Erstellt, liest, bearbeitet und analysiert .xlsx-Dateien: Tabellen mit echten Excel-Formeln (SUMME, SVERWEIS, WENN), Zellformatierung, mehreren Arbeitsblättern und Diagrammen. Bestehende Dateien kann Claude auswerten (Summen, Trends, Ausreißer) und gezielt verändern – ohne dass du Excel öffnest.",
+    grenzen: [
+      "Keine externe Verbindung nötig – läuft komplett in der Sandbox.",
+      "Bestehende Dateien müssen hochgeladen oder per Ordner freigegeben sein.",
+      "Makros (VBA), Power Query und Pivot-Feinheiten werden nicht unterstützt; Formeln, Formatierung, Diagramme und mehrere Blätter funktionieren zuverlässig.",
+      "Ergebnis ist eine echte .xlsx – öffnest du in Excel, LibreOffice oder Google Sheets."
+      ],
+    beispiele: [
+      "Erstelle ein Haushaltsbudget 2026 mit Monatsspalten, Kategorien und Summenformeln.",
+      "Werte meine Umsatzliste aus: Welche drei Produkte laufen am besten, wie ist der Monatstrend?",
+      "Tilgungsplan für 20.000 € bei 5,5 % Zinsen, 48 Monate, als Excel mit Diagramm.",
+      "Füge meiner Tabelle ein zweites Blatt mit Zusammenfassung und Balkendiagramm hinzu."
+      ],
+    anwendung: "Löst aus bei „Excel“, „Tabelle“, „.xlsx“, „Budget“, „Diagramm“. Nachbesserungen per Zuruf im selben Chat: „Mach die Kopfzeile fett.“",
+    uebung: {
+      auftrag: "Lass dir eine kleine Tabelle mit Formeln bauen und ändere sie danach mit einem Folgeauftrag – so erlebst du den Bearbeitungszyklus.",
+      prompt: "Erstelle eine Excel-Tabelle: Monatsübersicht meiner festen Ausgaben (Miete, Versicherungen, Abos) mit Summenformel und einem Balkendiagramm. Danach: Füge eine Spalte 'jährlich' hinzu, die monatlich × 12 rechnet."
+    },
+    quiz: [
+      { frage: "Welche Excel-Funktionalität wird NICHT unterstützt?", optionen: ["SVERWEIS-Formeln", "VBA-Makros", "Mehrere Arbeitsblätter"], richtig: 1, erklaerung: "Makros und Power Query sind ausgenommen; Formeln, Blätter, Diagramme funktionieren." },
+      { frage: "Braucht der Skill eine Verbindung wie QuickBooks?", optionen: ["Ja, immer", "Nein, er läuft lokal in der Sandbox", "Nur für Diagramme"], richtig: 1, erklaerung: "Keine Connectoren nötig – Daten kommen aus deinem Auftrag oder hochgeladenen Dateien." },
+      { frage: "Wie änderst du eine gerade erstellte Tabelle?", optionen: ["Neu anfangen", "Einfach im selben Chat nachbessern lassen", "Nur manuell in Excel"], richtig: 1, erklaerung: "„Füge eine Spalte hinzu“ genügt – die Datei wird direkt angepasst." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Excel“, „Tabelle“, „.xlsx“, „Budget“, „Diagramm“",
+      voraussetzungen: "Keine; für Bearbeitung Datei hochladen",
+      beispielPrompt: "Erstelle eine Excel-Tabelle für [Zweck] mit Spalten [A, B, C], Summenformeln und einem Diagramm."
+    }
+  },
+  {
+    id: "artefakte",
+    datum: "2026-07-08",
+    titel: "Artefakte (live aktualisierte Seiten)",
+    kategorie: "Automatisierung",
+    kurz: "Interaktive Seiten, die gespeichert bleiben und beim Öffnen frische Daten aus deinen Tools ziehen.",
+    wasErKann: "Ein Artefakt ist eine interaktive HTML-Seite in Cowork, die über die Session hinaus erhalten bleibt und bei jedem Öffnen aktuelle Daten aus verbundenen Diensten ziehen kann – etwa ein Dashboard, ein Statusbericht oder eine sortierbare Aufgabenübersicht. Aus einer einmaligen Antwort wird eine wiederverwendbare Seite.",
+    grenzen: [
+      "Der Mehrwert entsteht durch verbundene Connectoren – ohne Datenquelle bleibt es eine statische Seite.",
+      "Zeigt den Stand beim Öffnen bzw. nach „Neu laden“ – keine Hintergrund-Updates, keine Benachrichtigungen (dafür: schedule).",
+      "Anzeigefläche, kein Tool-Ersatz: komplexe Aktionen weiterhin in der App oder im Chat.",
+      "Filter-/Sortiereinstellungen bleiben gespeichert."
+      ],
+    beispiele: [
+      "Bau mir eine Seite für jeden Morgen: heutige Termine plus ungelesene Mails der letzten 24 Stunden.",
+      "Erstelle ein Artefakt, das meine Notion-Aufgaben als Board zeigt, sortierbar nach Fälligkeit.",
+      "Mach aus dieser Tabelle ein Artefakt, das ich später mit aktuellen Daten neu laden kann.",
+      "Übersichtsseite für den Drive-Ordner 'Skills' – alle Lektionen mit Datum und Link, bei jedem Öffnen aktuell."
+      ],
+    anwendung: "Auslöser: Bitte um eine „Seite“, ein „Dashboard“, einen „Tracker“ oder eine „Übersicht zum Wiederöffnen“. Faustregel: sinnvoll, wenn du dieselbe Frage mehrfach stellen wirst und sich die Daten ändern.",
+    uebung: {
+      auftrag: "Erstelle dein erstes eigenes Artefakt mit echten Daten aus einem verbundenen Dienst und öffne es später erneut, um den Aktualisierungseffekt zu sehen.",
+      prompt: "Erstelle mir ein Artefakt: eine Morgenübersicht mit meinen heutigen Kalenderterminen und den neuesten E-Mail-Betreffs der letzten 24 Stunden, jeweils mit Uhrzeit."
+    },
+    quiz: [
+      { frage: "Wodurch unterscheidet sich ein Artefakt von einer Chat-Antwort?", optionen: ["Es bleibt gespeichert und kann frische Daten laden", "Es ist immer schneller", "Es kann E-Mails versenden"], richtig: 0, erklaerung: "Persistenz plus Live-Daten beim Öffnen sind der Kern – Aktionen wie Mailversand gehören nicht dazu." },
+      { frage: "Aktualisiert sich ein Artefakt im Hintergrund von selbst?", optionen: ["Ja, minütlich", "Nein – Stand beim Öffnen bzw. nach 'Neu laden'", "Nur nachts"], richtig: 1, erklaerung: "Pull statt Push: aktuelle Daten gibt es beim Öffnen. Für feste Zeiten ist schedule zuständig." },
+      { frage: "Wann ist ein Artefakt die richtige Wahl?", optionen: ["Für einmalige Wissensfragen", "Wenn du dieselbe Frage wiederholt stellst und sich die Daten ändern", "Für das Schreiben von Verträgen"], richtig: 1, erklaerung: "Wiederkehrender Blick auf sich ändernde Daten – das ist der Einsatzzweck." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Bau mir eine Seite/ein Dashboard/einen Tracker zum Wiederöffnen“",
+      voraussetzungen: "Verbundene Connectoren für den Live-Effekt (z. B. Gmail, Kalender, Drive, Notion)",
+      beispielPrompt: "Erstelle ein Artefakt: [Übersicht] aus [Datenquelle], sortierbar nach [Kriterium], bei jedem Öffnen aktuell."
+    }
+  },
+  {
+    id: "pptx",
+    datum: "2026-07-08",
+    titel: "PowerPoint-Präsentationen (pptx)",
+    kategorie: "Office",
+    kurz: "Foliensätze erstellen, auslesen, kombinieren – inkl. Layouts, Diagrammen und Sprechernotizen.",
+    wasErKann: "Erstellt, liest und bearbeitet .pptx-Dateien: komplette Foliensätze von Grund auf (Layouts, Diagramme, Tabellen, Sprechernotizen), Inhalte bestehender Präsentationen auslesen und zusammenfassen, einzelne Folien ändern oder ergänzen, mehrere Präsentationen kombinieren oder aufteilen.",
+    grenzen: [
+      "Feintuning (exakte Abstände, Corporate Design) prüfst du am Ende selbst in PowerPoint.",
+      "Keine Verbindungen nötig; für Ablage in Drive muss die Drive-Verbindung aktiv sein.",
+      "Qualität hängt vom Briefing ab: Zielgruppe, Folienzahl, Kernbotschaften nennen.",
+      "Firmen-Templates als .pptx hochladen – Claude arbeitet darin weiter."
+      ],
+    beispiele: [
+      "Erstelle eine Präsentation mit 8 Folien über unsere Quartalszahlen – Zielgruppe Geschäftsführung, nüchterner Stil.",
+      "Lies die angehängte Präsentation aus und fasse die Kernaussagen pro Folie zusammen.",
+      "Nimm meine Vorlage und ergänze drei Folien zum Projektstand, inkl. Sprechernotizen.",
+      "Füge Folien 2–5 aus Datei A und alle aus Datei B zu einer neuen Präsentation zusammen."
+      ],
+    anwendung: "Löst aus bei „Präsentation“, „Foliensatz“, „Slides“, „Deck“ oder jeder .pptx-Datei. Tipp: erst deep-research für die Fakten, dann pptx für den Foliensatz.",
+    uebung: {
+      auftrag: "Lass dir einen kleinen Foliensatz zu einem Thema bauen, das du wirklich präsentieren könntest, und prüfe das Ergebnis in PowerPoint.",
+      prompt: "Erstelle eine Präsentation mit 5 Folien: 'Was Claude-Skills im Arbeitsalltag bringen' – Titelfolie, 3 Inhaltsfolien mit je einem Praxisbeispiel, Abschlussfolie. Nüchterner Business-Stil, mit Sprechernotizen."
+    },
+    quiz: [
+      { frage: "Was solltest du im Briefing für gute Ergebnisse nennen?", optionen: ["Nur das Thema", "Zielgruppe, Folienzahl und Kernbotschaften", "Die PowerPoint-Version"], richtig: 1, erklaerung: "Ohne diese Angaben trifft Claude Annahmen – mit ihnen sitzt der Foliensatz deutlich besser." },
+      { frage: "Wie nutzt du ein Firmen-Template?", optionen: ["Geht nicht", "Als .pptx hochladen – Claude arbeitet darin weiter", "Nur per Screenshot"], richtig: 1, erklaerung: "Die hochgeladene Vorlage wird direkt weiterbearbeitet statt bei Null zu starten." },
+      { frage: "Welche Skill-Kombination liefert substanzielle Präsentationen?", optionen: ["pptx + deep-research", "pptx + triage-nda", "pptx + schedule"], richtig: 0, erklaerung: "Erst recherchieren, dann in Folien gießen – deutlich besser als ein einzelner Prompt." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Präsentation“, „Foliensatz“, „Slides“, „Deck“, .pptx-Datei",
+      voraussetzungen: "Keine; Template optional als .pptx hochladen",
+      beispielPrompt: "Erstelle eine Präsentation mit [N] Folien zu [Thema]. Zielgruppe: [wer]. Stil: [Ton]. Mit Sprechernotizen."
+    }
   }
-},
-{
-id: "margin-analyzer",
-datum: "2026-08-08",
-titel: "Margen-Analyse (margin-analyzer)",
-kategorie: "Small Business",
-kurz: "Prüft Produkt- oder Service-Margen anhand realer Zahlen und zeigt Preis-Szenarien, ohne selbst einen Preis vorzuschlagen.",
-wasErKann: "Der Skill wertet die Einheitswirtschaftlichkeit einzelner Produkte oder Dienstleistungen aus, indem er Verkaufsdaten aus PayPal-Merchant-Insights mit Kostendaten aus QuickBooks abgleicht. Er berücksichtigt dabei auch externe Faktoren wie Inflation und gestiegene Einkaufspreise. Als Ergebnis liefert er Preisszenarien mit historischen Korrelationswerten, etwa wie sich eine Preiserhöhung von 5 Prozent in der Vergangenheit auf das Verkaufsvolumen ausgewirkt hat. Eine konkrete Preisempfehlung spricht der Skill bewusst nicht aus – die Entscheidung bleibt beim Inhaber.",
-grenzen: [
-"Ohne angebundenes PayPal- und QuickBooks-Konto fehlen die Rohdaten; die Analyse wird dann ungenau oder lässt sich gar nicht durchführen.",
-"Der Skill empfiehlt keinen Preis – er zeigt nur die Datenlage, die Entscheidung triffst du selbst.",
-"Historische Korrelationen wie „5 % Preis, 3 % weniger Volumen“ sind Muster aus der Vergangenheit, keine Garantie für die Zukunft.",
-"Die Qualität der Analyse hängt direkt von sauber gepflegten Kostendaten in QuickBooks ab – fehlerhafte Buchungen verzerren die Marge."
-],
-beispiele: [
-"Lohnt es sich, die Preise für unser Bestseller-Produkt um 5 Prozent zu erhöhen?",
-"Zeig mir die Marge je Produkt für die letzten sechs Monate.",
-"Unsere Materialkosten sind gestiegen – frisst das gerade unseren Gewinn auf?",
-"Wie hat sich eine Preiserhöhung bei ähnlichen Produkten historisch auf den Absatz ausgewirkt?"
-],
-anwendung: "Springt an bei Fragen rund um Preisgestaltung, Margen, Kostendruck oder Rentabilität – auch wenn das Wort „Marge“ gar nicht fällt, etwa bei „Verdiene ich genug?“ oder „Sollte ich die Preise anheben?“. Voraussetzung sind angebundene PayPal- und QuickBooks-Konten; ohne sie lassen sich die Kennzahlen nur mit selbst gelieferten Daten berechnen. Sinnvoll vor Preisentscheidungen oder wenn Einkaufspreise spürbar steigen.",
-uebung: {
-auftrag: "Wähle ein Produkt oder eine Dienstleistung mit spürbar gestiegenen Kosten und lass dir die aktuelle Marge sowie ein Preisszenario zeigen, bevor du selbst eine Preisentscheidung triffst.",
-prompt: "Analysiere die Marge für [Produkt/Dienstleistung] über die letzten [Zeitraum, z. B. 6 Monate]. Zeig mir, wie sich eine Preiserhöhung von [X] Prozent historisch auf das Volumen ausgewirkt hat – ohne mir einen Preis vorzuschlagen."
-},
-quiz: [
-{ frage: "Was liefert margin-analyzer am Ende?", optionen: ["Eine konkrete Preisempfehlung", "Margen-Daten und Preisszenarien ohne Empfehlung", "Eine automatische Preisänderung im Shop"], richtig: 1, erklaerung: "Der Skill zeigt Zahlen und Szenarien – die Preisentscheidung bleibt bewusst beim Inhaber." },
-{ frage: "Welche zwei Datenquellen kombiniert der Skill typischerweise?", optionen: ["PayPal und QuickBooks", "Slack und Notion", "Google Kalender und Gmail"], richtig: 0, erklaerung: "Verkaufsdaten kommen aus PayPal-Merchant-Insights, Kostendaten aus QuickBooks." },
-{ frage: "Muss im Prompt explizit das Wort „Marge“ vorkommen?", optionen: ["Ja, sonst reagiert der Skill nicht", "Nein, auch Fragen wie „Verdiene ich genug?“ lösen ihn aus", "Nur bei angebundenem QuickBooks-Konto"], richtig: 1, erklaerung: "Der Skill greift auch bei indirekten Formulierungen zu Preisdruck und Rentabilität." }
-],
-cheatsheet: {
-ausloeser: "„Marge“, „Preise erhöhen“, „Verdiene ich genug?“, „Kosten steigen“, „was sollte ich verlangen“",
-voraussetzungen: "Angebundenes PayPal- und QuickBooks-Konto für automatische Daten; alternativ eigene Kosten- und Verkaufszahlen liefern.",
-beispielPrompt: "Analysiere die Marge für unser Hauptprodukt der letzten 6 Monate und zeig mir ein Preisszenario für +5 Prozent."
-}
-}
-,
+  ,
+  {
+    id: "pdf",
+    datum: "2026-07-24",
+    titel: "PDF-Dateien (pdf)",
+    kategorie: "Office",
+    kurz: "PDFs erstellen, auslesen, zusammenführen, teilen, Formulare ausfüllen und durchsuchbar machen.",
+    wasErKann: "Deckt praktisch den gesamten Umgang mit PDF-Dateien ab: Text und Tabellen auslesen, mehrere PDFs zu einem zusammenführen oder eines aufteilen, Seiten drehen oder löschen, Wasserzeichen setzen, neue PDFs erzeugen und Formularfelder ausfüllen. Auch verschlüsseln und entschlüsseln gehört dazu, ebenso OCR für eingescannte Dokumente, damit sie durchsuchbar werden. Das Ergebnis ist jeweils eine echte PDF-Datei zum Öffnen.",
+    grenzen: [
+      "Zu bearbeitende PDFs müssen hochgeladen oder in einem verbundenen Ordner liegen.",
+      "OCR bei schlechten Scans (schief, blass, Handschrift) liefert nicht immer fehlerfreien Text – kurz gegenlesen.",
+      "Verschlüsselte PDFs brauchen das Passwort; ohne Passwort kein Zugriff.",
+      "Für tiefgreifendes Umgestalten von Layout und Design ist ein PDF ungeeignet – dann besser aus docx oder pptx neu erzeugen."
+      ],
+    beispiele: [
+      "Führe diese drei PDF-Rechnungen zu einer einzigen Datei zusammen.",
+      "Lies die Tabelle aus diesem PDF aus und gib sie mir als Excel.",
+      "Teile das 40-seitige PDF: Seiten 1 bis 10 als eigene Datei, den Rest als zweite.",
+      "Mach diesen eingescannten Vertrag per OCR durchsuchbar und setze ein Wasserzeichen 'Entwurf' auf jede Seite."
+      ],
+    anwendung: "Löst automatisch aus, sobald eine .pdf-Datei im Spiel ist oder du eine erzeugen willst: 'PDF zusammenführen', 'aus PDF auslesen', 'PDF teilen', 'Formular ausfüllen', 'durchsuchbar machen'. Gut kombinierbar: erst Inhalte aus einem PDF auslesen, dann mit docx oder xlsx weiterverarbeiten.",
+    uebung: {
+      auftrag: "Nimm zwei oder drei PDFs aus deinen Unterlagen und lass sie zu einer Datei zusammenführen, dann lies aus dem Ergebnis gezielt eine Information aus. So erlebst du Zusammenführen und Auslesen in einem Durchgang.",
+      prompt: "Führe die angehängten PDFs in der Reihenfolge zusammen, in der ich sie hochgeladen habe, und nenne mir anschließend die Gesamtzahl der Seiten sowie die Überschrift der jeweils ersten Seite."
+    },
+    quiz: [
+      { frage: "Was passiert bei OCR eines schlecht eingescannten Dokuments?", optionen: ["Der Text ist immer perfekt", "Das Ergebnis kann Fehler enthalten und sollte gegengelesen werden", "OCR funktioniert nur bei Handschrift"], richtig: 1, erklaerung: "Bei blassen, schiefen oder handschriftlichen Vorlagen ist OCR nicht fehlerfrei – kurze Kontrolle lohnt sich." },
+      { frage: "Du willst das Layout eines PDF grundlegend umgestalten. Was ist sinnvoller?", optionen: ["Direkt im PDF umbauen", "Aus docx oder pptx neu erzeugen", "Gar nichts, das geht nie"], richtig: 1, erklaerung: "PDF ist ein Ausgabeformat; für tiefe Layout-Änderungen erzeugt man die Datei besser neu aus Word oder PowerPoint." },
+      { frage: "Was braucht Claude, um ein passwortgeschütztes PDF zu öffnen?", optionen: ["Nichts, Schutz wird umgangen", "Das Passwort", "Eine Internetverbindung"], richtig: 1, erklaerung: "Ohne das zugehörige Passwort lässt sich ein verschlüsseltes PDF nicht entsperren." }
+      ],
+    cheatsheet: {
+      ausloeser: "Jede .pdf-Datei oder 'PDF zusammenführen/teilen/auslesen/durchsuchbar machen/Formular ausfüllen'",
+      voraussetzungen: "Zu bearbeitende Dateien hochladen oder Ordner verbinden; bei verschlüsselten PDFs das Passwort",
+      beispielPrompt: "Führe die angehängten PDFs zusammen und setze auf jede Seite ein Wasserzeichen mit dem Text [Text]."
+    }
+  }
+  ,
+  {
+    id: "airtable-overview",
+    datum: "2026-07-25",
+    titel: "Airtable-Grundlagen (airtable-overview)",
+    kategorie: "Airtable",
+    kurz: "Verstehen, wie Airtable Daten organisiert – Bases, Tabellen, Felder, Datensätze, Ansichten – damit Claude gezielt damit arbeiten kann.",
+    wasErKann: "Airtable ist eine Mischung aus Tabelle und Datenbank. Dieser Skill vermittelt Claude das nötige Verständnis des Airtable-Datenmodells: Eine Base ist wie eine Arbeitsmappe, darin liegen Tabellen, jede Tabelle hat Felder (Spalten mit festem Typ) und Datensätze (Zeilen). Dazu kommen Ansichten – gefilterte, sortierte Blickwinkel auf dieselben Daten – sowie Automationen und Interfaces. Auf dieser Grundlage kann Claude über die verbundene Airtable-Anbindung Datensätze lesen, filtern, anlegen und ändern.",
+    grenzen: [
+      "Reines Grundlagenwissen – konkrete Datenoperationen laufen über die Airtable-Anbindung, die autorisiert sein muss.",
+      "Ohne verbundene Airtable-Verbindung kann Claude keine echten Bases sehen oder verändern.",
+      "Feldtypen sind bindend: In ein Datumsfeld passt kein Freitext – der Typ bestimmt, was erlaubt ist.",
+      "Für gezieltes Suchen, Filtern und Schreiben greifen eigene Hilfs-Skills (Filter, CLI, Ops-Workflows); dieser Skill erklärt vor allem das Modell."
+      ],
+    beispiele: [
+      "Erklär mir kurz den Unterschied zwischen einer Base, einer Tabelle und einer Ansicht in Airtable.",
+      "Ich habe eine Airtable-Base für mein CRM – wie sollte ich Felder und Ansichten sinnvoll aufbauen?",
+      "Was ist der Unterschied zwischen einer Ansicht und einer eigenen Tabelle?",
+      "Zeig mir, welche Tabellen in meiner verbundenen Airtable-Base liegen."
+      ],
+    anwendung: "Hintergrundwissen, das greift, sobald es um Airtable geht – Begriffe wie „Base“, „Tabelle“, „Datensatz“, „Ansicht“. Sinnvoll als Einstieg, bevor du mit den weiterführenden Airtable-Skills (Filter, CLI, Sales-/Product-/Marketing-Ops) echte Daten bewegst.",
+    uebung: {
+      auftrag: "Lass dir das Airtable-Datenmodell an einem Beispiel aus deinem Alltag erklären – etwa einer Kunden- oder Aufgabenliste – und überlege, welche Felder welchen Typ hätten.",
+      prompt: "Erkläre mir das Airtable-Datenmodell am Beispiel einer einfachen Kundenliste: Was wäre die Base, was die Tabelle, welche Felder mit welchem Feldtyp, und wofür würde ich zwei verschiedene Ansichten anlegen?"
+    },
+    quiz: [
+      { frage: "Was entspricht in Airtable am ehesten einer Spalte?", optionen: ["Ein Datensatz", "Ein Feld", "Eine Ansicht"], richtig: 1, erklaerung: "Felder sind die Spalten mit festgelegtem Typ; Datensätze sind die Zeilen." },
+      { frage: "Was ist eine Ansicht (View)?", optionen: ["Eine Kopie der Daten in einer neuen Tabelle", "Ein gefilterter, sortierter Blick auf dieselben Daten", "Ein Export als PDF"], richtig: 1, erklaerung: "Ansichten zeigen dieselben Datensätze anders gefiltert und sortiert – ohne die Daten zu duplizieren." },
+      { frage: "Was braucht Claude, um echte Datensätze zu lesen oder zu ändern?", optionen: ["Nur den Base-Namen", "Eine autorisierte Airtable-Anbindung", "Eine Excel-Datei"], richtig: 1, erklaerung: "Ohne verbundene und autorisierte Airtable-Anbindung bleibt es bei der Theorie." }
+      ],
+    cheatsheet: {
+      ausloeser: "Alles rund um Airtable: „Base“, „Tabelle“, „Datensatz“, „Ansicht“, „Feldtyp“",
+      voraussetzungen: "Für echte Datenarbeit: autorisierte Airtable-Anbindung",
+      beispielPrompt: "Erkläre mir Aufbau und Datenmodell meiner Airtable-Base und schlage eine sinnvolle Feld- und Ansichtsstruktur für [Zweck] vor."
+    }
+  }
+  ,
+  {
+    id: "account-research",
+    datum: "2026-07-26",
+    titel: "Account-Recherche (sales:account-research)",
+    kategorie: "Sales",
+    kurz: "Firmen oder Ansprechpartner recherchieren und daraus verwertbare Vertriebs-Insights gewinnen.",
+    wasErKann: "Recherchiert eine Firma oder Person und verdichtet das Ergebnis zu vertrieblich nutzbaren Erkenntnissen: Firmenprofil, Branche und Größe, aktuelle Nachrichten und mögliche Auslöser (Finanzierung, Führungswechsel, Expansion), Einordnung der Ansprechpartner und daraus abgeleitete Gesprächsaufhänger. Der Skill funktioniert eigenständig über die Websuche und wird mit angebundenen Enrichment-Tools oder deinem CRM deutlich präziser.",
+    grenzen: [
+      "Ohne CRM- oder Enrichment-Anbindung stützt sich die Recherche auf öffentlich Auffindbares – Interna werden nicht erfunden.",
+      "Recherchierte Angaben können veraltet oder unvollständig sein; wichtige Fakten vor dem Gespräch gegenprüfen.",
+      "Kontaktdaten wie direkte Durchwahlen oder Privatadressen liefert der Skill nicht.",
+      "Für die konkrete Gesprächsvorbereitung mit Agenda ist sales:call-prep der passendere Folge-Skill."
+      ],
+    beispiele: [
+      "Recherchiere die Firma Müller Logistik – Profil, Größe, aktuelle News und mögliche Anknüpfungspunkte.",
+      "Wer ist Anna Schmidt, CTO bei Acme Corp? Gib mir eine Einordnung fürs Erstgespräch.",
+      "Intel zu einem Interessenten: Was sollte ich über [Firma] wissen, bevor ich anrufe?",
+      "Erzähl mir das Wichtigste über [Firma] und nenne drei mögliche Gesprächsaufhänger."
+      ],
+    anwendung: "Auslöser: „Recherchiere [Firma]“, „Wer ist [Name] bei [Firma]“, „Intel zu [Interessent]“, „Erzähl mir was über [Firma]“. Je klarer dein Ziel (Erstansprache, Angebot, Reaktivierung), desto zugeschnittener die Insights.",
+    uebung: {
+      auftrag: "Nimm eine reale Firma aus deinem Zielmarkt und lass sie recherchieren. Achte darauf, welche Teile aus öffentlichen Quellen kommen und wo eine CRM- oder Enrichment-Anbindung das Bild schärfen würde.",
+      prompt: "Recherchiere die Firma [Firmenname]: Kurzprofil, Branche und Größe, aktuelle Nachrichten der letzten Monate und drei konkrete Gesprächsaufhänger für eine Erstansprache. Nenne die Quellen."
+    },
+    quiz: [
+      { frage: "Worauf stützt sich der Skill ohne angebundenes CRM?", optionen: ["Er erfindet plausible Interna", "Er nutzt öffentlich auffindbare Quellen per Websuche", "Er verweigert die Arbeit"], richtig: 1, erklaerung: "Standalone arbeitet er mit der Websuche; Interna werden nie erfunden, sondern nur real Auffindbares genutzt." },
+      { frage: "Welcher Folge-Skill passt für die konkrete Gesprächsvorbereitung mit Agenda?", optionen: ["sales:call-prep", "marketing:seo-audit", "legal:triage-nda"], richtig: 0, erklaerung: "account-research liefert die Insights; call-prep gießt sie in ein Briefing mit Agenda und Einwänden." },
+      { frage: "Was liefert der Skill NICHT zuverlässig?", optionen: ["Ein Firmenprofil", "Mögliche Gesprächsaufhänger", "Private Durchwahlen und Privatadressen"], richtig: 2, erklaerung: "Direkte Kontaktdaten wie Durchwahlen oder Privatadressen gehören nicht zum Ergebnis." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Recherchiere [Firma]“, „Wer ist [Name] bei [Firma]“, „Intel zu [Interessent]“",
+      voraussetzungen: "Keine Pflicht-Verbindungen (Websuche); präziser mit Enrichment-Tools oder CRM",
+      beispielPrompt: "Recherchiere [Firma]: Profil, aktuelle News und drei Gesprächsaufhänger für [Ziel], mit Quellen."
+    }
+  }
+  ,
+  {
+    id: "review-contract",
+    datum: "2026-07-30",
+    titel: "Vertragsprüfung (legal:review-contract)",
+    kategorie: "Legal",
+    kurz: "Verträge Klausel für Klausel gegen die eigenen Standardpositionen prüfen – mit Redline-Vorschlägen und Verhandlungsstrategie.",
+    wasErKann: "Prüft Lieferanten- oder Kundenverträge Klausel für Klausel gegen die Standardpositionen deines Unternehmens (das sogenannte Verhandlungs-Playbook) und markiert jede Abweichung. Zu jedem Fund liefert der Skill eine Einschätzung der geschäftlichen Auswirkung, konkrete Redline-Vorschläge (also Änderungsformulierungen) und auf Wunsch eine priorisierte Verhandlungsstrategie mit Rückfallpositionen. Anders als die schnelle NDA-Triage geht es hier in die Tiefe – geeignet für MSAs, SaaS-Verträge, Dienstleistungs- und Lieferverträge.",
+    grenzen: [
+      "Ersetzt keine Rechtsberatung – die Prüfung ist eine strukturierte Vorarbeit, die verbindliche Bewertung bleibt bei einem Juristen.",
+      "Ohne hinterlegtes oder mitgeliefertes Playbook prüft der Skill gegen marktübliche Standards; firmenspezifische Positionen musst du einmalig beschreiben oder mitgeben.",
+      "Der Vertrag muss vorliegen: als Upload (PDF/DOCX), eingefügter Text oder über eine eingerichtete Anbindung (z. B. DocuSign, Box) – diese muss autorisiert sein.",
+      "Bei sehr langen Vertragswerken mit vielen Anlagen lohnt es sich, die Prüfung auf die kritischen Abschnitte zu fokussieren."
+      ],
+    beispiele: [
+      "Prüfe diesen SaaS-Vertrag gegen unsere Standardpositionen und markiere alle Abweichungen mit Priorität.",
+      "Welche Klauseln in diesem Liefervertrag sind für uns riskant, und wie sollte ich sie umformulieren?",
+      "Erstelle mir eine Verhandlungsstrategie für diesen Vertragsentwurf: Was fordern wir, wo geben wir nach, was ist unsere Rückfallposition?",
+      "Vergleiche Haftung, Kündigung und Zahlungsziele in diesem Vertrag mit dem, was für uns üblich ist."
+      ],
+    anwendung: "Auslöser: „Vertrag prüfen“, „Redlines erstellen“, „Klausel-für-Klausel-Analyse“, „Verhandlungsstrategie für diesen Vertrag“. Vertrag mitgeben und – falls vorhanden – die eigenen Standardpositionen kurz beschreiben (z. B. Haftungsobergrenze, Zahlungsziel, Kündigungsfristen). Für schnelle NDA-Einstufungen ist legal:triage-nda die schlankere Wahl.",
+    uebung: {
+      auftrag: "Nimm einen bestehenden Vertrag aus deinen Unterlagen (oder ein öffentliches Vertragsmuster) und lass ihn gegen drei selbst definierte Standardpositionen prüfen. So siehst du, wie Abweichungen, Auswirkung und Redline-Vorschlag zusammenspielen.",
+      prompt: "Prüfe den angehängten Vertrag gegen folgende Standardpositionen: Haftung begrenzt auf den Auftragswert, Zahlungsziel 30 Tage, Kündigungsfrist maximal 3 Monate. Liste jede Abweichung mit Fundstelle, geschäftlicher Auswirkung und einem konkreten Redline-Vorschlag auf, priorisiert nach Wichtigkeit."
+    },
+    quiz: [
+      { frage: "Was ist ein Verhandlungs-Playbook in diesem Zusammenhang?", optionen: ["Ein Gesetzestext", "Die dokumentierten Standardpositionen des eigenen Unternehmens", "Eine Vertragsvorlage der Gegenseite"], richtig: 1, erklaerung: "Das Playbook hält fest, welche Klauselinhalte für das eigene Unternehmen akzeptabel sind – dagegen wird der Vertrag geprüft." },
+      { frage: "Was passiert, wenn du kein eigenes Playbook mitgibst?", optionen: ["Die Prüfung wird verweigert", "Es wird gegen marktübliche Standards geprüft", "Claude erfindet Firmenpositionen"], richtig: 1, erklaerung: "Ohne firmenspezifische Vorgaben dient Marktüblichkeit als Maßstab – eigene Positionen machen das Ergebnis aber deutlich treffsicherer." },
+      { frage: "Wann ist legal:triage-nda die bessere Wahl als review-contract?", optionen: ["Bei einem komplexen MSA mit vielen Anlagen", "Bei der schnellen Ampel-Einstufung eines eingehenden NDA", "Bei einer Verhandlungsstrategie mit Rückfallpositionen"], richtig: 1, erklaerung: "Die NDA-Triage ist die schlanke Vorsortierung; review-contract ist die tiefe Klausel-für-Klausel-Prüfung." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Vertrag prüfen“, „Redlines erstellen“, „Verhandlungsstrategie für diesen Vertrag“",
+      voraussetzungen: "Vertrag als Upload oder Text; eigene Standardpositionen mitgeben (sonst marktübliche Maßstäbe); DocuSign/Box nur mit autorisierter Anbindung",
+      beispielPrompt: "Prüfe diesen Vertrag gegen unsere Positionen [Haftung/Zahlungsziel/Kündigung], liste Abweichungen mit Fundstelle und Redline-Vorschlag auf, priorisiert."
+    }
+  }
+  ,
+  {
+    id: "invoice-chase",
+    datum: "2026-07-31",
+    titel: "Offene Rechnungen nachfassen (small-business:invoice-chase)",
+    kategorie: "Small Business",
+    kurz: "Überfällige Rechnungen aufspüren und Zahlungserinnerungen entwerfen, deren Ton zur Zahlungshistorie des Kunden passt.",
+    wasErKann: "Der Skill liest offene und überfällige Rechnungen aus QuickBooks und PayPal aus, ordnet sie nach Fälligkeit und Betrag und entwirft für jeden Kunden eine passende Zahlungserinnerung. Der Ton richtet sich nach der Zahlungshistorie: freundlich und beiläufig bei sonst zuverlässigen Kunden, spürbar verbindlicher bei wiederholt säumigen Zahlern. PayPal-Rechnungen können nach deiner ausdrücklichen Freigabe direkt über PayPal erinnert werden; für alle übrigen Rechnungen werden die Texte als Mail-Entwürfe zur Durchsicht bereitgestellt – versendet wird nichts ohne dein Okay.",
+    grenzen: [
+      "Braucht eine autorisierte QuickBooks- und/oder PayPal-Anbindung – ohne Datenquelle kann der Skill keine offenen Posten finden.",
+      "Kein automatischer Versand: Jede Erinnerung geht erst nach deiner ausdrücklichen Freigabe raus; Nicht-PayPal-Rechnungen bleiben grundsätzlich Entwürfe.",
+      "Die Tonwahl basiert auf der im System sichtbaren Zahlungshistorie – bei neuen Kunden ohne Historie fehlt diese Grundlage.",
+      "Kein Inkasso und keine Rechtsdurchsetzung: Für Mahnbescheid oder Anwalt ist der Skill nicht zuständig."
+      ],
+    beispiele: [
+      "Wer schuldet mir gerade Geld? Zeig mir alle überfälligen Rechnungen.",
+      "Entwirf Zahlungserinnerungen für alle Rechnungen, die mehr als 14 Tage überfällig sind.",
+      "Die Rechnung an die Weber KG ist zum dritten Mal überfällig – formuliere eine deutlich verbindlichere Erinnerung.",
+      "Fass mir zusammen, wie viel Geld insgesamt aussteht und welche drei Posten am dringendsten sind."
+      ],
+    anwendung: "Springt an bei Formulierungen wie „wer schuldet mir Geld“, „überfällige Rechnungen“, „Zahlungserinnerung schreiben“ oder „offenen Posten nachgehen“. Sinnvolle Ergänzung: mit schedule einen wiederkehrenden Lauf einrichten, etwa jeden Montag die aktuelle Außenstandsliste mit fertigen Entwürfen.",
+    uebung: {
+      auftrag: "Lass dir deine offenen Posten auflisten und für die zwei ältesten überfälligen Rechnungen je einen Erinnerungsentwurf schreiben. Vergleiche, wie sich der Ton zwischen einem zuverlässigen und einem wiederholt säumigen Kunden unterscheidet.",
+      prompt: "Zeig mir alle überfälligen Rechnungen aus QuickBooks und PayPal, sortiert nach Fälligkeit. Entwirf für die zwei ältesten Posten je eine Zahlungserinnerung – Ton passend zur bisherigen Zahlungshistorie des Kunden. Noch nichts versenden, ich schaue die Entwürfe erst durch."
+    },
+    quiz: [
+      { frage: "Was passiert mit Erinnerungen für Rechnungen, die nicht über PayPal laufen?", optionen: ["Sie werden automatisch versendet", "Sie werden als Mail-Entwürfe zur Durchsicht bereitgestellt", "Sie werden ignoriert"], richtig: 1, erklaerung: "Nur PayPal-Rechnungen können – nach ausdrücklicher Freigabe – direkt über PayPal erinnert werden; alles andere bleibt Entwurf." },
+      { frage: "Wovon hängt der Ton einer Zahlungserinnerung ab?", optionen: ["Von der Rechnungshöhe", "Von der Zahlungshistorie des Kunden", "Vom Wochentag"], richtig: 1, erklaerung: "Zuverlässige Kunden bekommen eine freundliche Erinnerung, wiederholt säumige Zahler eine verbindlichere." },
+      { frage: "Was braucht der Skill, um überfällige Rechnungen zu finden?", optionen: ["Eine autorisierte QuickBooks- oder PayPal-Anbindung", "Nur den Kundennamen", "Eine Excel-Liste ist zwingend"], richtig: 0, erklaerung: "Die offenen Posten kommen aus den verbundenen Systemen – ohne Anbindung fehlt die Datenquelle." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Wer schuldet mir Geld?“, „überfällige Rechnungen“, „Zahlungserinnerung“",
+      voraussetzungen: "Autorisierte QuickBooks- und/oder PayPal-Anbindung; Versand nur nach ausdrücklicher Freigabe",
+      beispielPrompt: "Zeig mir alle überfälligen Rechnungen und entwirf passende Zahlungserinnerungen – Ton je nach Zahlungshistorie, noch nichts versenden."
+    }
+  }
+  ,
+  {
+    id: "campaign-plan",
+    datum: "2026-08-01",
+    titel: "Kampagnenplanung (marketing:campaign-plan)",
+    kategorie: "Marketing",
+    kurz: "Aus einem Marketingziel einen vollständigen Kampagnen-Brief machen – mit Zielgruppe, Botschaften, Kanalstrategie, Wochenplan und Erfolgsmessung.",
+    wasErKann: "Übersetzt ein Marketingziel in einen ausführbaren Kampagnenplan: klar formulierte Ziele, Zielgruppenbeschreibung, Kernbotschaften, Kanalstrategie (welcher Kanal wofür), einen Woche-für-Woche-Content-Kalender inklusive Abhängigkeiten zwischen den Bausteinen sowie messbare Erfolgskriterien. Geeignet für Produktlaunches, Lead-Generierung und Awareness-Kampagnen – vom groben Ziel („mehr Anfragen im Herbst“) bis zum durchstrukturierten Brief, den ein Team oder eine Agentur direkt umsetzen kann.",
+    grenzen: [
+      "Der Skill plant nur – er veröffentlicht nichts, bucht keine Anzeigen und richtet keine Kampagnen in Werbe- oder Mail-Tools ein.",
+      "Die einzelnen Inhalte (Posts, Mails, Landingpages) entstehen nicht hier, sondern mit Folge-Skills wie marketing:draft-content oder marketing:email-sequence.",
+      "Budget- und Reichweitenannahmen sind Orientierungswerte, keine garantierten Ergebnisse – die Realität misst du selbst.",
+      "Ohne konkretes Briefing (Ziel, Zielgruppe, Zeitraum, Budgetrahmen) bleibt der Plan generisch."
+      ],
+    beispiele: [
+      "Plane eine Launch-Kampagne für unser neues Produkt im Oktober – 6 Wochen, Kanäle: LinkedIn, Newsletter, Blog.",
+      "Erstelle einen Kampagnen-Brief für eine Lead-Gen-Aktion im B2B-Bereich mit wöchentlichem Content-Kalender.",
+      "Wir wollen im Herbst die Markenbekanntheit in der Region steigern – mach mir einen Kampagnenplan mit Erfolgskriterien.",
+      "Übersetze dieses Ziel in einen Kampagnenplan: 50 qualifizierte Anfragen bis Jahresende, Budget 5.000 Euro."
+      ],
+    anwendung: "Springt an bei „Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „Content-Kalender für eine Aktion“. Nenne mindestens Ziel und Zeitraum; deutlich besser wird der Plan mit Zielgruppe, Kanälen und Budgetrahmen. Typische Kette: erst campaign-plan für die Strategie, dann draft-content oder email-sequence für die einzelnen Inhalte, am Ende performance-report für die Auswertung.",
+    uebung: {
+      auftrag: "Nimm ein reales Vorhaben aus deinem Umfeld – etwa eine Aktion, die du ohnehin in den nächsten Monaten planst – und lass daraus einen vollständigen Kampagnen-Brief erstellen. Prüfe besonders, ob der Wochenplan realistisch zu deiner verfügbaren Zeit passt.",
+      prompt: "Erstelle einen Kampagnen-Brief: Ziel ist [Ziel, z. B. 30 Anfragen für Dienstleistung X] im Zeitraum [Zeitraum]. Zielgruppe: [wer]. Verfügbare Kanäle: [z. B. LinkedIn, Newsletter, Website]. Budgetrahmen: [Betrag]. Liefere Ziele, Kernbotschaften, Kanalstrategie, einen Woche-für-Woche-Content-Kalender mit Abhängigkeiten und messbare Erfolgskriterien."
+    },
+    quiz: [
+      { frage: "Was liefert der Skill als Ergebnis?", optionen: ["Fertige Anzeigen in Google Ads", "Einen strukturierten Kampagnen-Brief mit Kalender und Erfolgskriterien", "Eine fertige Landingpage"], richtig: 1, erklaerung: "Es entsteht ein Plan-Dokument – die Umsetzung in Werbe- und Mail-Tools sowie die einzelnen Inhalte folgen in separaten Schritten." },
+      { frage: "Mit welchem Skill erstellst du anschließend die einzelnen Inhalte aus dem Plan?", optionen: ["marketing:draft-content", "legal:vendor-check", "small-business:invoice-chase"], richtig: 0, erklaerung: "campaign-plan liefert die Strategie; draft-content (oder email-sequence für Mail-Strecken) produziert die konkreten Texte." },
+      { frage: "Was passiert, wenn du nur sagst: 'Plane mir eine Kampagne'?", optionen: ["Der Plan wird trotzdem präzise", "Der Plan bleibt generisch – Ziel, Zielgruppe und Zeitraum fehlen", "Der Skill verweigert die Arbeit"], richtig: 1, erklaerung: "Ohne Briefing-Angaben muss Claude Annahmen treffen; mit Ziel, Zielgruppe, Zeitraum und Budget wird der Plan konkret umsetzbar." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Kampagne planen“, „Kampagnen-Brief“, „Launch-Plan“, „Content-Kalender für eine Aktion“",
+      voraussetzungen: "Keine Verbindungen nötig; Briefing mit Ziel, Zielgruppe, Zeitraum und Budget entscheidend",
+      beispielPrompt: "Erstelle einen Kampagnen-Brief für [Ziel] im Zeitraum [Zeitraum], Zielgruppe [wer], Kanäle [welche], Budget [Betrag] – mit Wochenkalender und Erfolgskriterien."
+    }
+  },
+  {
+    id: "pipeline-review",
+    datum: "2026-08-02",
+    titel: "Pipeline-Review (sales:pipeline-review)",
+    kategorie: "Sales",
+    kurz: "Die eigene Vertriebspipeline systematisch durchleuchten: Prioritäten setzen, Risiken erkennen und einen konkreten Wochenplan ableiten.",
+    wasErKann: "Der Skill analysiert die Gesundheit deiner Pipeline und macht daraus eine Arbeitsgrundlage für die Woche. Er priorisiert Deals nach Relevanz, markiert festgefahrene oder lange unbewegte Chancen und deckt Hygieneprobleme auf – etwa unrealistische Abschlussdaten oder Deals, die nur an einer einzigen Kontaktperson hängen. Am Ende steht ein priorisierter Aktionsplan: welche Deals diese Woche Aufmerksamkeit brauchen und warum. Die Daten kommen wahlweise aus einem angebundenen CRM oder aus einer selbst bereitgestellten Übersicht, etwa einem CSV-Export.",
+    grenzen: [
+      "Die Analyse ist nur so gut wie die Datenbasis – veraltete oder lückenhafte CRM-Einträge führen zu verzerrten Empfehlungen.",
+      "Ohne CRM-Anbindung musst du die Pipeline-Daten selbst liefern, z. B. als CSV-Export oder eingefügte Tabelle.",
+      "Der Skill bewertet nach Mustern (Alter, Bewegung, Stage-Dauer); Insiderwissen über einzelne Kunden – etwa eine mündliche Zusage – kennt er nicht.",
+      "Er verändert nichts im CRM: Die Bereinigung markierter Hygieneprobleme bleibt deine Aufgabe oder erfordert einen separaten Auftrag."
+      ],
+    beispiele: [
+      "Mach ein Pipeline-Review: Welche Deals soll ich diese Woche priorisieren?",
+      "Zeig mir alle Deals, die seit mehr als 30 Tagen keine Bewegung hatten.",
+      "Prüfe meine Pipeline auf Hygieneprobleme wie überfällige Close-Dates oder fehlende nächste Schritte.",
+      "Hier ist mein Pipeline-Export als CSV – analysiere, wo die größten Risiken liegen."
+      ],
+    anwendung: "Springt an bei „Pipeline-Review“, „Pipeline durchgehen“, „welche Deals priorisieren“ oder Fragen nach festgefahrenen und veralteten Chancen. Sinnvoll als fester wöchentlicher Termin, etwa Montagmorgen vor der Vertriebswoche. Typische Kette: pipeline-review für den Überblick, danach call-prep für die priorisierten Termine und bei Bedarf forecast für die Quartalsprognose.",
+    uebung: {
+      auftrag: "Exportiere deine aktuelle Deal-Liste aus deinem CRM (oder schreibe fünf bis zehn laufende Vorgänge mit Stage, Wert und letztem Kontakt in eine Tabelle) und lass ein vollständiges Review erstellen. Vergleiche die Priorisierung mit deinem Bauchgefühl.",
+      prompt: "Hier ist meine aktuelle Pipeline: [CSV einfügen oder Deals auflisten mit Name, Stage, Wert, letzter Kontakt, geplantes Close-Date]. Mach ein Pipeline-Review: priorisiere die Deals für diese Woche, markiere festgefahrene oder riskante Vorgänge und Hygieneprobleme, und gib mir einen konkreten Wochen-Aktionsplan."
+    },
+    quiz: [
+      { frage: "Was ist das Hauptergebnis eines Pipeline-Reviews?", optionen: ["Automatisch bereinigte CRM-Einträge", "Ein priorisierter Wochen-Aktionsplan mit Risiko-Flags", "Eine fertige Umsatzprognose fürs Quartal"], richtig: 1, erklaerung: "Der Skill liefert Analyse und Handlungsplan; CRM-Änderungen macht er nicht, und für die Prognose gibt es den separaten forecast-Skill." },
+      { frage: "Was gilt als typisches Hygieneproblem in der Pipeline?", optionen: ["Ein Deal mit mehreren Ansprechpartnern", "Ein überfälliges Close-Date ohne Aktualisierung", "Ein neu angelegter Deal in früher Stage"], richtig: 1, erklaerung: "Überfällige Abschlussdaten, fehlende nächste Schritte und lange unbewegte Deals sind klassische Hygiene-Flags; mehrere Ansprechpartner sind im Gegenteil ein gutes Zeichen." },
+      { frage: "Wie nutzt du den Skill ohne CRM-Anbindung?", optionen: ["Gar nicht – ein CRM ist Pflicht", "Pipeline-Daten selbst mitliefern, z. B. als CSV-Export", "Der Skill erfindet plausible Beispieldaten"], richtig: 1, erklaerung: "Der Skill arbeitet auch mit selbst bereitgestellten Daten; ein angebundenes CRM macht es nur bequemer und aktueller." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Pipeline-Review“, „welche Deals priorisieren“, „festgefahrene Deals“, „Pipeline-Hygiene“",
+      voraussetzungen: "Pipeline-Daten nötig: angebundenes CRM oder eigener Export (CSV/Tabelle); keine Schreibrechte erforderlich",
+      beispielPrompt: "Mach ein Pipeline-Review auf Basis dieser Daten: [Export einfügen] – Prioritäten für die Woche, Risiko-Flags und Hygieneprobleme bitte getrennt ausweisen."
+    }
+  },
+  {
+    id: "plugins-connectoren",
+    datum: "2026-08-03",
+    titel: "Plugins & Connectoren: Claude mit deinen Tools verbinden",
+    kategorie: "Automatisierung",
+    kurz: "Plugins bündeln fertige Skills und Connectoren, über die Claude direkt mit Diensten wie Gmail, Google Kalender, HubSpot oder Airtable arbeitet.",
+    wasErKann: "Ein Connector (technisch: MCP-Server) verbindet Claude mit einem externen Dienst, sodass es dort lesen und – nach deiner Freigabe – auch schreiben kann: E-Mails durchsuchen, Kalendertermine anlegen, CRM-Einträge aktualisieren oder Airtable-Datensätze pflegen. Plugins gehen einen Schritt weiter: Sie sind installierbare Pakete, die passende Connectoren und fertige Skills für einen Aufgabenbereich kombinieren, etwa Sales, Legal, Marketing oder Small Business. Nach der Installation stehen die Skills automatisch bereit und greifen auf die verbundenen Dienste zu. Plugins werden über Marketplaces gefunden und installiert.",
+    grenzen: [
+      "Jeder Connector muss einmalig autorisiert werden (meist per OAuth-Anmeldung); ohne diese Freigabe bleibt der Dienst für Claude unerreichbar – auch wenn das Plugin installiert ist.",
+      "Es gibt nicht für jeden Dienst einen Connector; die Auswahl hängt vom Registry-Angebot ab, Nischen-Tools fehlen teils komplett.",
+      "Connectoren können weniger Funktionen bieten als die Weboberfläche des Dienstes – manche Aktionen bleiben dem Nutzer vorbehalten.",
+      "Schreibende Aktionen (Senden, Löschen, Buchen) erfordern in der Regel deine ausdrückliche Bestätigung – das ist Absicht, kein Fehler."
+      ],
+    beispiele: [
+      "Welche Connectoren gibt es für Projektmanagement? Schlag mir passende vor.",
+      "Durchsuche meine Gmail-Threads der letzten Woche nach offenen Kundenanfragen.",
+      "Installiere das Sales-Plugin und zeig mir, welche Skills es mitbringt.",
+      "Lege aus dieser E-Mail einen Termin in meinem Google Kalender an."
+      ],
+    anwendung: "Immer dann, wenn eine Aufgabe Daten aus einem externen Dienst braucht: E-Mail, Kalender, CRM, Buchhaltung, Datenbanken. Frag Claude direkt nach einem Connector für dein Tool – es durchsucht die Registry und schlägt passende Verbindungen vor. Plugins lohnen sich, wenn du regelmäßig in einem Bereich arbeitest und gleich ein ganzes Skill-Paket statt Einzelbausteinen willst.",
+    uebung: {
+      auftrag: "Finde heraus, welche Connectoren für ein Tool verfügbar sind, das du täglich nutzt, und lass dir erklären, was Claude damit könnte.",
+      prompt: "Ich nutze täglich [Tool-Name, z. B. Notion]. Gibt es dafür einen Connector? Erkläre mir kurz, was du damit lesen und schreiben könntest und welche Freigaben ich erteilen müsste."
+    },
+    quiz: [
+      {
+        frage: "Was ist der Unterschied zwischen einem Connector und einem Plugin?",
+        optionen: [
+          "Ein Connector verbindet Claude mit einem einzelnen Dienst; ein Plugin ist ein Paket aus Connectoren und Skills für einen Aufgabenbereich.",
+          "Plugins sind kostenpflichtig, Connectoren kostenlos.",
+          "Es gibt keinen Unterschied, die Begriffe sind austauschbar."
+          ],
+        richtig: 0,
+        erklaerung: "Der Connector ist die technische Verbindung zu einem Dienst (per MCP), das Plugin das installierbare Gesamtpaket aus Connectoren, Skills und Tools."
+      },
+      {
+        frage: "Was passiert, wenn ein Plugin installiert, der Connector aber nicht autorisiert ist?",
+        optionen: [
+          "Claude greift trotzdem auf den Dienst zu.",
+          "Die Skills sind da, aber der Dienst bleibt unerreichbar, bis du die Anmeldung freigibst.",
+          "Das Plugin deinstalliert sich automatisch."
+          ],
+        richtig: 1,
+        erklaerung: "Die Autorisierung (meist OAuth) ist eine eigene, bewusste Freigabe durch dich – ohne sie liefert der Connector keine Daten."
+      },
+      {
+        frage: "Wie findest du heraus, ob es für dein Tool einen Connector gibt?",
+        optionen: [
+          "Nur über die Website des Tool-Herstellers.",
+          "Gar nicht, die Liste ist nicht einsehbar.",
+          "Claude direkt fragen – es durchsucht die Connector-Registry und schlägt Treffer vor."
+          ],
+        richtig: 2,
+        erklaerung: "Claude kann die Registry selbst durchsuchen und passende Connectoren direkt zur Installation vorschlagen."
+      }
+      ],
+    cheatsheet: {
+      ausloeser: "Aufgaben, die externe Dienste betreffen: „durchsuche meine Mails“, „gibt es einen Connector für …“, „installiere das …-Plugin“",
+      voraussetzungen: "Cowork oder Claude Code; einmalige Autorisierung je Dienst (z. B. Google-, HubSpot- oder Airtable-Login)",
+      beispielPrompt: "Ich nutze täglich Notion. Gibt es dafür einen Connector? Erkläre mir, was du damit könntest und welche Freigaben nötig wären."
+    }
+  },
+  {
+    id: "margin-analyzer",
+    datum: "2026-08-08",
+    titel: "Margen-Analyse (margin-analyzer)",
+    kategorie: "Small Business",
+    kurz: "Prüft Produkt- oder Service-Margen anhand realer Zahlen und zeigt Preis-Szenarien, ohne selbst einen Preis vorzuschlagen.",
+    wasErKann: "Der Skill wertet die Einheitswirtschaftlichkeit einzelner Produkte oder Dienstleistungen aus, indem er Verkaufsdaten aus PayPal-Merchant-Insights mit Kostendaten aus QuickBooks abgleicht. Er berücksichtigt dabei auch externe Faktoren wie Inflation und gestiegene Einkaufspreise. Als Ergebnis liefert er Preisszenarien mit historischen Korrelationswerten, etwa wie sich eine Preiserhöhung von 5 Prozent in der Vergangenheit auf das Verkaufsvolumen ausgewirkt hat. Eine konkrete Preisempfehlung spricht der Skill bewusst nicht aus – die Entscheidung bleibt beim Inhaber.",
+    grenzen: [
+      "Ohne angebundenes PayPal- und QuickBooks-Konto fehlen die Rohdaten; die Analyse wird dann ungenau oder lässt sich gar nicht durchführen.",
+      "Der Skill empfiehlt keinen Preis – er zeigt nur die Datenlage, die Entscheidung triffst du selbst.",
+      "Historische Korrelationen wie „5 % Preis, 3 % weniger Volumen“ sind Muster aus der Vergangenheit, keine Garantie für die Zukunft.",
+      "Die Qualität der Analyse hängt direkt von sauber gepflegten Kostendaten in QuickBooks ab – fehlerhafte Buchungen verzerren die Marge."
+      ],
+    beispiele: [
+      "Lohnt es sich, die Preise für unser Bestseller-Produkt um 5 Prozent zu erhöhen?",
+      "Zeig mir die Marge je Produkt für die letzten sechs Monate.",
+      "Unsere Materialkosten sind gestiegen – frisst das gerade unseren Gewinn auf?",
+      "Wie hat sich eine Preiserhöhung bei ähnlichen Produkten historisch auf den Absatz ausgewirkt?"
+      ],
+    anwendung: "Springt an bei Fragen rund um Preisgestaltung, Margen, Kostendruck oder Rentabilität – auch wenn das Wort „Marge“ gar nicht fällt, etwa bei „Verdiene ich genug?“ oder „Sollte ich die Preise anheben?“. Voraussetzung sind angebundene PayPal- und QuickBooks-Konten; ohne sie lassen sich die Kennzahlen nur mit selbst gelieferten Daten berechnen. Sinnvoll vor Preisentscheidungen oder wenn Einkaufspreise spürbar steigen.",
+    uebung: {
+      auftrag: "Wähle ein Produkt oder eine Dienstleistung mit spürbar gestiegenen Kosten und lass dir die aktuelle Marge sowie ein Preisszenario zeigen, bevor du selbst eine Preisentscheidung triffst.",
+      prompt: "Analysiere die Marge für [Produkt/Dienstleistung] über die letzten [Zeitraum, z. B. 6 Monate]. Zeig mir, wie sich eine Preiserhöhung von [X] Prozent historisch auf das Volumen ausgewirkt hat – ohne mir einen Preis vorzuschlagen."
+    },
+    quiz: [
+      { frage: "Was liefert margin-analyzer am Ende?", optionen: ["Eine konkrete Preisempfehlung", "Margen-Daten und Preisszenarien ohne Empfehlung", "Eine automatische Preisänderung im Shop"], richtig: 1, erklaerung: "Der Skill zeigt Zahlen und Szenarien – die Preisentscheidung bleibt bewusst beim Inhaber." },
+      { frage: "Welche zwei Datenquellen kombiniert der Skill typischerweise?", optionen: ["PayPal und QuickBooks", "Slack und Notion", "Google Kalender und Gmail"], richtig: 0, erklaerung: "Verkaufsdaten kommen aus PayPal-Merchant-Insights, Kostendaten aus QuickBooks." },
+      { frage: "Muss im Prompt explizit das Wort „Marge“ vorkommen?", optionen: ["Ja, sonst reagiert der Skill nicht", "Nein, auch Fragen wie „Verdiene ich genug?“ lösen ihn aus", "Nur bei angebundenem QuickBooks-Konto"], richtig: 1, erklaerung: "Der Skill greift auch bei indirekten Formulierungen zu Preisdruck und Rentabilität." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Marge“, „Preise erhöhen“, „Verdiene ich genug?“, „Kosten steigen“, „was sollte ich verlangen“",
+      voraussetzungen: "Angebundenes PayPal- und QuickBooks-Konto für automatische Daten; alternativ eigene Kosten- und Verkaufszahlen liefern.",
+      beispielPrompt: "Analysiere die Marge für unser Hauptprodukt der letzten 6 Monate und zeig mir ein Preisszenario für +5 Prozent."
+    }
+  },
   {
     id: "airtable-product-ops",
     datum: "2026-08-09",
@@ -732,5 +731,4 @@ beispielPrompt: "Analysiere die Marge für unser Hauptprodukt der letzten 6 Mona
       beispielPrompt: "Richte mir in Airtable eine Produkt-Roadmap ein und frag mich zuerst, was du über unser Team und unsere Tools wissen musst."
     }
   }
-  
-    ];
+  ];
