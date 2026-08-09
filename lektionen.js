@@ -1,4 +1,4 @@
-// Skill-Akademie – Lektionsdaten
+/*PASTE-TEST-OK*/// Skill-Akademie – Lektionsdaten
 // Neue Lektionen werden am ENDE des Arrays ergänzt (vor der schließenden Klammer).
 // Format siehe vorhandene Einträge. Datum: JJJJ-MM-TT.
 window.LEKTIONEN = [
@@ -696,4 +696,41 @@ voraussetzungen: "Angebundenes PayPal- und QuickBooks-Konto für automatische Da
 beispielPrompt: "Analysiere die Marge für unser Hauptprodukt der letzten 6 Monate und zeig mir ein Preisszenario für +5 Prozent."
 }
 }
-];
+,
+  {
+    id: "airtable-product-ops",
+    datum: "2026-08-09",
+    titel: "Produkt-Workflows in Airtable (product-ops)",
+    kategorie: "Airtable",
+    kurz: "Baut in Airtable eine Produkt-Ops-Basis auf – von Roadmap über Feedback-Synthese bis Sprint- und Release-Tracking.",
+    wasErKann: "Der Skill richtet in Airtable eine Arbeitsumgebung für Produktarbeit ein: Roadmaps, ein Postfach für Feature-Wünsche und Kundenfeedback, Sprintplanung, Release-Tracking sowie die Verknüpfung von Initiativen mit übergeordneten OKRs. Er fragt zuerst nach Umfang und bestehenden Tools – ob Jira, Linear, Productboard oder Aha bereits im Einsatz sind – und baut die Basis passend zur Teamgröße auf, vom Einzelgründer bis zum mehrstufigen Produktportfolio. Feedback lässt sich auch aus Salesforce, Zendesk oder Gong einspeisen, sofern diese Verbindungen bestehen. Auf Wunsch entsteht statt einer reinen Airtable-Ansicht auch eine eigene Oberfläche für öffentliche Feedback-Portale.",
+    grenzen: [
+      "Ohne verbundenes Airtable-Konto kann der Skill keine Basis anlegen oder befüllen – die Autorisierung ist Voraussetzung.",
+      "Er ersetzt kein bestehendes Ticketsystem, sondern ergänzt oder spiegelt es; bei Jira- oder Linear-Integration hängt die Tiefe vom jeweiligen Connector ab.",
+      "Der Skill gibt keine Priorisierungsentscheidung vor – er strukturiert Daten und Optionen, die Bewertung bleibt beim Produktteam.",
+      "Öffentliche Feedback-Portale mit eigener Oberfläche erfordern zusätzliches Hosting und damit mehr Einrichtungsaufwand als eine reine Airtable-Ansicht."
+      ],
+    beispiele: [
+      "Richte mir in Airtable eine Roadmap für unser Produktteam ein, aufgeteilt nach Quartalen.",
+      "Baue ein Feedback-Postfach auf, in dem Kundenwünsche aus Zendesk automatisch landen.",
+      "Erstelle eine Sprintplanung für die nächsten vier Wochen mit Verknüpfung zu unseren OKRs.",
+      "Wir brauchen ein Launch-Checklisten-System für neue Feature-Releases – bau das in Airtable auf."
+      ],
+    anwendung: "Der Skill greift, wenn es um Produktarbeit als Prozess geht: Roadmap aufbauen oder pflegen, Feature-Wünsche sammeln und bewerten, Sprints planen, Releases tracken oder OKRs über Teams hinweg abgleichen. Er fragt zu Beginn nach dem Umfang – Teamgröße, vorhandene Tools, gewünschte Integrationen – bevor er etwas anlegt.",
+    uebung: {
+      auftrag: "Lass dir für ein aktuelles Projekt eine einfache Roadmap-Struktur in Airtable skizzieren und beschreiben, welche Felder und Ansichten dabei sinnvoll wären.",
+      prompt: "Ich möchte in Airtable eine Roadmap für unser Produktteam aufbauen. Wir sind ein kleines Team ohne bestehendes Tool wie Jira. Frag mich, was du dafür wissen musst, und schlage mir dann eine passende Struktur vor."
+    },
+    quiz: [
+      { frage: "Was fragt der product-ops-Skill typischerweise zuerst ab?", optionen: ["Direkt die Kreditkartendaten für Airtable", "Umfang, Teamgröße und bereits vorhandene Tools", "Das Jahresbudget der Produktabteilung"], richtig: 1, erklaerung: "Der Skill passt sich an Organisationsgröße und bestehende Tools an und fragt das deshalb zuerst ab." },
+      { frage: "Woher kann der Skill zusätzliches Kundenfeedback einspeisen?", optionen: ["Nur per manuellem Copy-Paste", "Aus verbundenen Diensten wie Salesforce, Zendesk oder Gong", "Ausschließlich aus Airtable selbst"], richtig: 1, erklaerung: "Bei entsprechenden Connectoren kann Feedback aus CRM- und Support-Tools automatisch einfließen." },
+      { frage: "Was liefert der Skill NICHT von sich aus?", optionen: ["Eine Roadmap-Struktur", "Eine fertige Priorisierungsentscheidung für Features", "Eine Sprintplanungs-Ansicht"], richtig: 1, erklaerung: "Er strukturiert Daten und Optionen, die eigentliche Priorisierung trifft weiterhin das Produktteam." }
+      ],
+    cheatsheet: {
+      ausloeser: "„Roadmap aufbauen“, „Feature-Wünsche sammeln“, „Sprintplanung“, „Release-Tracking“, „OKRs abgleichen“",
+      voraussetzungen: "Verbundenes Airtable-Konto; optional Jira, Linear, Productboard, Aha, Salesforce, Zendesk oder Gong für tiefere Integration.",
+      beispielPrompt: "Richte mir in Airtable eine Produkt-Roadmap ein und frag mich zuerst, was du über unser Team und unsere Tools wissen musst."
+    }
+  }
+  
+    ];
