@@ -730,5 +730,40 @@ window.LEKTIONEN = [
       voraussetzungen: "Verbundenes Airtable-Konto; optional Jira, Linear, Productboard, Aha, Salesforce, Zendesk oder Gong für tiefere Integration.",
       beispielPrompt: "Richte mir in Airtable eine Produkt-Roadmap ein und frag mich zuerst, was du über unser Team und unsere Tools wissen musst."
     }
+  },
+  {
+        id: "vendor-check",
+        datum: "2026-08-11",
+        titel: "Lieferanten-Vertragsstatus prüfen (vendor-check)",
+        kategorie: "Legal",
+        kurz: "Verschafft einen konsolidierten Überblick über bestehende Vereinbarungen mit einem Lieferanten – über CLM, CRM, E-Mail und Dokumentenablage hinweg.",
+        wasErKann: "Der Skill durchsucht alle verbundenen Systeme – Vertragsmanagement (CLM), CRM, E-Mail-Postfach und Dokumentenablage – nach Vereinbarungen mit einem bestimmten Lieferanten. Er stellt eine Lückenanalyse zusammen: was ist unterschrieben (etwa MSA, DPA, SOW), was fehlt noch, und welche Fristen oder fortbestehenden Pflichten nach Vertragsende zu beachten sind. Das Ergebnis ist eine Entscheidungsgrundlage für Onboarding oder Verlängerung, keine automatische Handlung.",
+        grenzen: [
+                "Ohne angebundene Systeme wie CLM, CRM, E-Mail oder Dokumentenablage kann der Skill kaum etwas finden – er erfindet keine Vertragsdaten.",
+                "Dokumente, die nirgends sauber abgelegt oder verschlagwortet sind, etwa ein unterschriebenes PDF nur im privaten Postfach eines Kollegen, werden möglicherweise übersehen.",
+                "Der Skill bewertet nicht die rechtliche Wirksamkeit oder Durchsetzbarkeit eines Vertrags – dafür bleibt juristische Prüfung nötig.",
+                "Er versendet nichts automatisch zur Unterschrift; fehlende Dokumente müssen separat angestoßen werden, etwa über einen eigenen Signatur-Workflow."
+                ],
+        beispiele: [
+                "Prüfe den Vertragsstatus mit unserem Lieferanten Müller GmbH – was ist unterschrieben, was fehlt?",
+                "Wir verlängern den Vertrag mit Acme Corp. Zeig mir eine Übersicht: MSA, DPA, SOW – was liegt vor, was fehlt?",
+                "Welche Verträge mit unserem Lieferanten laufen in den nächsten 90 Tagen aus?",
+                "Gib mir einen konsolidierten Blick auf alle Vereinbarungen mit diesem Vendor, inklusive fortbestehender Pflichten nach Vertragsende."
+                ],
+        anwendung: "Der Skill greift beim Onboarding oder der Verlängerung eines Lieferanten sowie bei Fragen wie „Prüfe den Vertragsstatus mit [Lieferant]“, „Was ist mit [Vendor] unterschrieben?“ oder „Welche Fristen laufen bei [Lieferant] aus?“.",
+        uebung: {
+                auftrag: "Wähle einen realen oder fiktiven Lieferanten aus deinem Umfeld und lass den Status seiner Verträge zusammenfassen. Achte darauf, welche Systeme angebunden sein müssten, damit die Antwort vollständig ist.",
+                prompt: "Prüfe den Status aller Vereinbarungen mit unserem Lieferanten [Firmenname]: Was ist unterschrieben (MSA, DPA, SOW), was fehlt noch, und welche Fristen oder fortbestehenden Pflichten sollte ich im Blick behalten?"
+        },
+        quiz: [
+          { frage: "Was liefert der vendor-check-Skill als Kernergebnis?", optionen: ["Eine automatische Vertragsunterschrift", "Eine konsolidierte Übersicht über Vertragsstatus, Lücken und Fristen", "Eine Bonitätsprüfung des Lieferanten"], richtig: 1, erklaerung: "Der Skill fasst zusammen, was vorliegt, was fehlt (z. B. ein DPA) und welche Fristen anstehen – er unterschreibt nichts und prüft keine Bonität." },
+          { frage: "Was passiert, wenn keine Systeme wie CLM oder CRM verbunden sind?", optionen: ["Der Skill funktioniert trotzdem uneingeschränkt", "Der Skill kann kaum etwas finden, weil ihm die Datenquellen fehlen", "Der Skill fragt automatisch beim Lieferanten nach"], richtig: 1, erklaerung: "Ohne angebundene Systeme fehlt die Grundlage – der Skill erfindet keine Vertragsdaten." },
+          { frage: "Kann der Skill einen fehlenden Vertrag automatisch zur Unterschrift versenden?", optionen: ["Ja, das ist Teil des Kernauftrags", "Nein, dafür ist ein separater Schritt bzw. ein anderer Skill nötig", "Nur bei Verträgen unter 10.000 Euro"], richtig: 1, erklaerung: "vendor-check liefert die Bestandsaufnahme; das Versenden zur Unterschrift ist eine eigene, separate Aktion." }
+                ],
+        cheatsheet: {
+                ausloeser: "„Prüfe den Vertragsstatus mit [Lieferant]“, „Was ist mit [Vendor] unterschrieben?“, „Welche Fristen laufen bei [Lieferant] aus?“, beim Onboarding oder der Verlängerung eines Vendors",
+                voraussetzungen: "Verbindung zu CLM, CRM, E-Mail und/oder Dokumentenablage – je mehr angebunden ist, desto vollständiger das Bild",
+                beispielPrompt: "Prüfe den Status aller Vereinbarungen mit unserem Lieferanten Nordwind Logistik GmbH: Was ist unterschrieben (MSA, DPA, SOW), was fehlt, und welche Fristen sollte ich im Blick behalten?"
+        }
   }
   ];
