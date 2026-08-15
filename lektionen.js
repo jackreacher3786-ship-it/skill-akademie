@@ -766,4 +766,40 @@ window.LEKTIONEN = [
                 beispielPrompt: "Prüfe den Status aller Vereinbarungen mit unserem Lieferanten Nordwind Logistik GmbH: Was ist unterschrieben (MSA, DPA, SOW), was fehlt, und welche Fristen sollte ich im Blick behalten?"
         }
   }
+  ,
+  {
+    id: "seo-audit",
+    datum: "2026-08-15",
+    titel: "SEO-Audit (marketing:seo-audit)",
+    kategorie: "Marketing",
+    kurz: "Umfassende Prüfung der Suchmaschinen-Sichtbarkeit einer Website – Keywords, On-Page, Technik und Wettbewerb in einem priorisierten Maßnahmenplan.",
+    wasErKann: "Analysiert die Suchmaschinen-Sichtbarkeit einer Website in mehreren Schritten: Keyword-Recherche (welche Begriffe sind relevant und wie umkämpft), On-Page-Analyse (Titel, Meta-Beschreibungen, Überschriftenstruktur, interne Verlinkung), technische Prüfung (Ladezeit, Mobiltauglichkeit, Indexierbarkeit) sowie ein Abgleich mit der Konkurrenz, um Content-Lücken sichtbar zu machen. Am Ende steht ein priorisierter Maßnahmenplan, aufgeteilt in schnelle Verbesserungen und strategische Investitionen.",
+    grenzen: [
+      "Der Skill sorgt nicht selbst für bessere Rankings – er liefert Analyse und Empfehlungen, die Umsetzung (Texte anpassen, Code ändern) bleibt eigene Aufgabe oder die von Folge-Skills.",
+      "Ohne angebundene SEO-Tools wie Ahrefs oder Similarweb stützt sich die Analyse auf Websuche und öffentlich zugängliche Daten – das ist weniger präzise als echte Suchvolumen- und Ranking-Daten.",
+      "Ersetzt kein vollständiges technisches Crawling der gesamten Website; sehr große Seiten lassen sich nicht komplett automatisiert erfassen.",
+      "Wettbewerbsvergleiche sind nur so gut wie die öffentlich verfügbaren Informationen über die Konkurrenzseiten – interne Daten der Konkurrenz bleiben unbekannt."
+      ],
+    beispiele: [
+      "Mach einen SEO-Audit für www.beispiel-shop.de – wo stehen wir und was sollten wir zuerst angehen?",
+      "Welche Keywords sollten wir für unser Angebot 'nachhaltige Bürosysteme' ins Visier nehmen, und wie umkämpft sind sie?",
+      "Vergleiche unsere Startseite mit den drei größten Wettbewerbern – welche Themen decken die ab, die uns fehlen?",
+      "Prüfe unsere Produktseiten auf technische SEO-Probleme wie Ladezeit und fehlende Meta-Beschreibungen."
+      ],
+    anwendung: "Auslöser: „SEO-Audit“, „Sichtbarkeit prüfen“, „Keyword-Recherche“, „Content-Lücken zur Konkurrenz“. Am hilfreichsten mit einer konkreten URL oder Domain sowie einer groben Zielrichtung (Produkte, Region); mit angebundenen SEO-Tools wie Ahrefs oder Similarweb wird die Datenbasis deutlich belastbarer.",
+    uebung: {
+      auftrag: "Lass dir für die eigene Website oder eine dir gut bekannte Seite einen SEO-Audit erstellen und prüfe, ob die vorgeschlagenen Quick Wins tatsächlich leicht umsetzbar sind.",
+      prompt: "Mach einen SEO-Audit für [Domain/URL]. Angebot und Zielgruppe: [kurz beschreiben]. Liefere Keyword-Chancen, On-Page- und technische Befunde, einen Abgleich mit zwei bis drei Wettbewerbern sowie einen priorisierten Maßnahmenplan mit Quick Wins und strategischen Investitionen."
+    },
+    quiz: [
+      { frage: "Was liefert der SEO-Audit am Ende?", optionen: ["Automatisch verbesserte Rankings", "Einen priorisierten Maßnahmenplan mit Quick Wins und strategischen Punkten", "Eine fertig programmierte Website"], richtig: 1, erklaerung: "Der Skill analysiert und priorisiert – die Umsetzung der Maßnahmen bleibt eigene Aufgabe." },
+      { frage: "Was verbessert die Genauigkeit der Analyse deutlich?", optionen: ["Ein längeres Prompt", "Angebundene SEO-Tools wie Ahrefs oder Similarweb", "Ein höheres Werbebudget"], richtig: 1, erklaerung: "Ohne spezialisierte Tools stützt sich die Analyse auf Websuche und öffentliche Daten – mit ihnen wird sie präziser." },
+      { frage: "Was gehört NICHT zum Kern eines SEO-Audits?", optionen: ["Keyword-Recherche", "Technische Prüfung wie Ladezeit und Indexierbarkeit", "Versand einer Marketing-Kampagne"], richtig: 2, erklaerung: "Der Audit analysiert und empfiehlt; Versand und Umsetzung von Kampagnen übernehmen andere Skills wie campaign-plan oder email-sequence." }
+      ],
+    cheatsheet: {
+      ausloeser: "„SEO-Audit“, „Sichtbarkeit prüfen“, „Keyword-Recherche“, „Content-Lücken zur Konkurrenz“",
+      voraussetzungen: "Keine Pflicht-Verbindungen (Websuche); präziser mit angebundenen SEO-Tools wie Ahrefs oder Similarweb",
+      beispielPrompt: "Mach einen SEO-Audit für [Domain]. Angebot/Zielgruppe: [kurz]. Liefere Keyword-Chancen, On-Page- und technische Befunde, Wettbewerbsvergleich und einen priorisierten Maßnahmenplan."
+    }
+  }
   ];
