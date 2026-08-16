@@ -801,5 +801,40 @@ window.LEKTIONEN = [
       voraussetzungen: "Keine Pflicht-Verbindungen (Websuche); präziser mit angebundenen SEO-Tools wie Ahrefs oder Similarweb",
       beispielPrompt: "Mach einen SEO-Audit für [Domain]. Angebot/Zielgruppe: [kurz]. Liefere Keyword-Chancen, On-Page- und technische Befunde, Wettbewerbsvergleich und einen priorisierten Maßnahmenplan."
     }
+  },
+  {
+    id: "call-summary",
+    datum: "2026-08-16",
+    titel: "Gesprächsnachbereitung (sales:call-summary)",
+    kategorie: "Sales",
+    kurz: "Aus rohen Gesprächsnotizen oder einem Transkript automatisch Aktionspunkte, eine Follow-up-Mail und eine interne Zusammenfassung erstellen.",
+    wasErKann: "Nimmst du nach einem Discovery-, Demo- oder Verhandlungsgespräch deine Notizen oder ein Transkript, verarbeitet der Skill den Text strukturiert weiter: er extrahiert offene Aktionspunkte mit Verantwortlichkeiten, formuliert einen Entwurf für die Follow-up-Mail an den Kunden und erstellt eine interne Zusammenfassung mit Einwänden, nächsten Schritten und Gesprächsergebnis. Das Ergebnis lässt sich direkt für die CRM-Dokumentation oder die Teamübergabe nutzen.",
+    grenzen: [
+      "Braucht echten Input – der Skill erfindet keine Gesprächsinhalte, sondern verarbeitet nur, was du als Notizen oder Transkript lieferst.",
+      "Die Follow-up-Mail wird als Entwurf erstellt und nicht automatisch verschickt.",
+      "Ohne Audioaufzeichnung oder sauberes Transkript bleibt die Qualität der Zusammenfassung nur so gut wie die eingegebenen Notizen.",
+      "Ein Eintrag im CRM erfolgt nur, wenn ein entsprechendes Tool verbunden ist – sonst bleibt es bei Text zum Kopieren."
+      ],
+    beispiele: [
+      "Hier sind meine Notizen vom Gespräch mit [Firma] – extrahiere die Aktionspunkte und entwirf eine Follow-up-Mail.",
+      "Fasse dieses Transkript für unser Team zusammen: Kernaussagen, Einwände, nächste Schritte.",
+      "Welche offenen Punkte aus dem Call mit [Ansprechpartner] muss ich diese Woche noch klären?",
+      "Schreib mir aus diesen Stichpunkten einen internen Gesprächsvermerk für die Ablage."
+      ],
+    anwendung: "Auslöser ist das Einfügen roher Notizen oder eines Transkripts nach einem Kundengespräch, verbunden mit dem Wunsch nach Aktionspunkten, einer Follow-up-Mail oder einer internen Zusammenfassung – auch ohne dass der Skillname genannt wird.",
+    uebung: {
+      auftrag: "Schreib dir zu einem beliebigen (auch fiktiven) Kundengespräch ein paar Stichpunkte auf und lass daraus Aktionspunkte, Follow-up-Mail und internen Vermerk erstellen.",
+      prompt: "Hier meine Stichpunkte vom Gespräch mit Musterfirma GmbH: Interesse an Jahreslizenz, Bedenken wegen Einführungszeit, Entscheidung fällt im Team bis Ende des Monats, nächster Termin offen. Extrahiere die Aktionspunkte, entwirf eine Follow-up-Mail und schreib mir eine interne Zusammenfassung."
+    },
+    quiz: [
+      { frage: "Was braucht der Skill zwingend als Ausgangspunkt?", optionen: ["Eine Internetverbindung zum Kunden", "Notizen oder ein Transkript des Gesprächs", "Ein verbundenes CRM"], richtig: 1, erklaerung: "Ohne Notizen oder Transkript hat der Skill keine Gesprächsinhalte, die er verarbeiten könnte." },
+      { frage: "Wird die Follow-up-Mail automatisch an den Kunden verschickt?", optionen: ["Ja, sofort nach der Erstellung", "Nein, sie entsteht als Entwurf zum Prüfen und Versenden", "Nur wenn Outlook verbunden ist"], richtig: 1, erklaerung: "Der Skill liefert einen Entwurf – das Versenden bleibt eine eigene, bewusste Entscheidung." },
+      { frage: "Wofür eignet sich die interne Zusammenfassung besonders?", optionen: ["Für die Übergabe von Einwänden und nächsten Schritten im Team", "Für die automatische Rechnungsstellung", "Für die Terminplanung im Kalender"], richtig: 0, erklaerung: "Die interne Zusammenfassung bündelt Gesprächsergebnis, Einwände und offene Punkte für Kolleg:innen." }
+      ],
+    cheatsheet: {
+      ausloeser: "Rohe Notizen oder Transkript nach einem Call einfügen + Wunsch nach Follow-up, Zusammenfassung oder Aktionspunkten",
+      voraussetzungen: "Keine – funktioniert mit eingefügtem Text; CRM-Anbindung optional für automatische Ablage",
+      beispielPrompt: "Notizen vom Gespräch mit [Firma]: [Stichpunkte]. Extrahiere Aktionspunkte, entwirf eine Follow-up-Mail und schreib eine interne Zusammenfassung."
+    }
   }
-  ];
+];
